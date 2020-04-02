@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>at.fh.hagenberg.aist.jack</groupId>
+    <artifactId>jack</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <properties>
+        <!-- versions -->
+        <seshat.version>1.1</seshat.version>
+        <seshat-range.version>[1.1, 2.0)</seshat-range.version>
+        <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
+        <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
+        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+        <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
+        <lombok.version>1.18.10</lombok.version>
+        <spring-core.version>5.2.5.RELEASE</spring-core.version>
+
+        <!-- set language level of maven compiler to 1.8 (lambdas) default is 1.5 -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!-- set platform source encoding -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <commons-fileupload.version>1.4</commons-fileupload.version>
+
+        <!-- sonar variables -->
+        <jacoco.plugin.version>0.8.4</jacoco.plugin.version>
+        <project.jacoco.ut.reportPath>${user.dir}/target/jacoco.exec</project.jacoco.ut.reportPath>
+        <project.jacoco.it.reportPath>${user.dir}/target/jacoco-it.exec</project.jacoco.it.reportPath>
+        <sonar.jacoco.reportPaths>${project.jacoco.ut.reportPath},${project.jacoco.it.reportPath}
+        </sonar.jacoco.reportPaths>
+        <sonar.java.libraries>${project.build.directory}/dependency</sonar.java.libraries>
+        <sonar-jacoco-listeners.version>5.14.0.18788</sonar-jacoco-listeners.version>
+        <maven-site-plugin.version>3.8.2</maven-site-plugin.version>
+        <wagon-webdav-jackrabbit.version>3.3.4</wagon-webdav-jackrabbit.version>
+        <maven-clover-plugin.version>2.4</maven-clover-plugin.version>
+        <maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.14.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>at.fh.hagenberg.aist.seshat</groupId>
+            <artifactId>core</artifactId>
+            <!-- scope is provided, meaning that at runtime a seshat version has to exist, we give a range and define, that between 1.1 and 2.0 there are no ground breaking changes, and that seshat is only dependent on at least 1.1 -->
+            <version>${seshat-range.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>at.fh.hagenberg.aist.seshat</groupId>
+            <artifactId>log4j2</artifactId>
+            <version>${seshat.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <scm>
+        <developerConnection>scm:git:ssh://git@aist.fh-hagenberg.at:2224/Development/jack.git
+        </developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <url>https://aist.fh-hagenberg.at/nexus/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <url>https://aist.fh-hagenberg.at/nexus/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <site>
+            <id>javadoc</id>
+            <url>dav:https://aist.fh-hagenberg.at/nexus/repository/javadoc/jack/${project.version}</url>
+        </site>
+    </distributionManagement>
+
+    <name>Java AIST Class Kit</name>
+    <description>A collection of useful Java extensions</description>
+    <issueManagement>
+        <system>Gitlab</system>
+        <url>https://aist.fh-hagenberg.at/git/Development/jack</url>
+    </issueManagement>
+    <ciManagement>
+        <system>Jenkins</system>
+        <url>https://aist-intern.fh-hagenberg.at/jenkins/job/jack/</url>
+    </ciManagement>
+    <developers>
+        <developer>
+            <id>a.pointner</id>
+            <name>Andreas Pointner</name>
+            <email>andreas.pointner@fh-hagenberg.at</email>
+            <roles>
+                <role>Research Associate</role>
+            </roles>
+            <url>https://research.fh-ooe.at/de/staff/39812</url>
+            <organization>AIST – Advanced Information Systems and Technology</organization>
+            <organizationUrl>https://aist.fh-hagenberg.at</organizationUrl>
+        </developer>
+        <developer>
+            <id>c.praschl</id>
+            <name>Christoph Praschl</name>
+            <email>christoph.praschl@fh-hagenberg.at</email>
+            <roles>
+                <role>Research Associate</role>
+            </roles>
+            <url>https://research.fh-ooe.at/de/staff/39814</url>
+            <organization>AIST – Advanced Information Systems and Technology</organization>
+            <organizationUrl>https://aist.fh-hagenberg.at</organizationUrl>
+        </developer>
+    </developers>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <seshat.loglevel>DEBUG</seshat.loglevel>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>${maven-project-info-reports-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <configuration>
+                    <doclint>none</doclint>
+                    <additionalJOptions>
+                        <additionalJOption>--no-module-directories</additionalJOption>
+                    </additionalJOptions>
+                </configuration>
+                <reportSets>
+                    <reportSet><!-- by default, id = "default" -->
+                        <reports><!-- select non-aggregate reports -->
+                            <report>javadoc</report>
+                            <report>test-javadoc</report>
+                        </reports>
+                    </reportSet>
+                    <reportSet><!-- aggregate reportSet, to define in poms having modules -->
+                        <id>aggregate</id>
+                        <inherited>false</inherited><!-- don't run aggregate in child modules -->
+                        <reports>
+                            <report>aggregate</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <configuration>
+                    <doclint>none</doclint>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>aggregate</id>
+                        <goals>
+                            <goal>aggregate-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${maven-site-plugin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.wagon</groupId>
+                        <artifactId>wagon-webdav-jackrabbit</artifactId>
+                        <version>${wagon-webdav-jackrabbit.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-release-plugin</artifactId>
+                            <version>${maven-release-plugin.version}</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+
+        <profile>
+            <id>sonar-coverage</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.jacoco</groupId>
+                            <artifactId>jacoco-maven-plugin</artifactId>
+                            <version>${jacoco.plugin.version}</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <version>${maven-dependency-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>copy-dependencies</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>copy-dependencies</goal>
+                                </goals>
+                                <configuration>
+                                    <!-- configure the plugin here -->
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <configuration>
+                            <append>true</append>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>agent-for-ut</id>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                                <configuration>
+                                    <destFile>${project.jacoco.ut.reportPath}</destFile>
+                                    <propertyName>jacoco.agent.ut.arg</propertyName>
+                                    <append>true</append>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>agent-for-it</id>
+                                <goals>
+                                    <goal>prepare-agent-integration</goal>
+                                </goals>
+                                <configuration>
+                                    <destFile>${project.jacoco.it.reportPath}</destFile>
+                                    <propertyName>jacoco.agent.it.arg</propertyName>
+                                    <append>true</append>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>jacoco-site</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>report</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${maven-surefire-plugin.version}</version>
+                        <configuration>
+                            <argLine>${jacoco.agent.ut.arg}</argLine>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>org.sonarsource.java</groupId>
+                    <artifactId>sonar-jacoco-listeners</artifactId>
+                    <version>${sonar-jacoco-listeners.version}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+</project>
