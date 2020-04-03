@@ -37,14 +37,13 @@ public class ObjectToPropertyMapTransformer implements ForwardTransformer<Object
      * @return a property map
      */
     @Override
-    @SuppressWarnings("squid:CallToDeprecatedMethod") // f.isAccessible is the only possibility in java 8
     public Map<String, Object> transformFrom(Object o) {
         Class<?> clazz = o.getClass();
         Stream<Field> fieldsForClass = includeParentFields ? ReflectionUtils.getAllFieldsOfClass(clazz).stream() : Arrays.stream(clazz.getDeclaredFields());
         if (!includeSyntheticFields) fieldsForClass = fieldsForClass.filter(f -> !f.isSynthetic());
 
         return fieldsForClass.map(ExceptionUtils.uncheck(f -> {
-            boolean access = f.isAccessible();
+            boolean access = f.canAccess(o);
             try {
                 f.setAccessible(true);
                 return Pair.of(f.getName(), f.get(o));

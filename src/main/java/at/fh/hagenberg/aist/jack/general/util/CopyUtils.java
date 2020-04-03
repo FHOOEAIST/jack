@@ -22,7 +22,7 @@ public final class CopyUtils {
      * This method makes a "deep copy" of any object it is given.
      *
      * @param object object to clone
-     * @param <T> type of the object that should be copied
+     * @param <T>    type of the object that should be copied
      * @return deep copy of object
      */
     @SuppressWarnings("unchecked")

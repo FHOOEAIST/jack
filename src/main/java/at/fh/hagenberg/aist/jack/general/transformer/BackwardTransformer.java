@@ -8,6 +8,7 @@ package at.fh.hagenberg.aist.jack.general.transformer;
  * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
  */
 @FunctionalInterface
+@SuppressWarnings("java:S119") // Naming of type arguments
 public interface BackwardTransformer<FROM, TO> {
     /**
      * Transform TO object to a FROM object

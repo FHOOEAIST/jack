@@ -91,10 +91,10 @@ public class AtomicDouble extends Number {
      * @param expect the expected value
      * @param update the new value
      * @return {@code true} if successful
-     * @see AtomicLong#weakCompareAndSet(long, long)
+     * @see AtomicLong#weakCompareAndSetPlain(long, long)
      */
-    public final boolean weakCompareAndSet(double expect, double update) {
-        return bits.weakCompareAndSet(doubleToLongBits(expect),
+    public final boolean weakCompareAndSetPlain(double expect, double update) {
+        return bits.weakCompareAndSetPlain(doubleToLongBits(expect),
                 doubleToLongBits(update));
     }
 

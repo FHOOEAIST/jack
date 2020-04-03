@@ -91,10 +91,10 @@ public class AtomicFloat extends Number {
      * @param expect the expected value
      * @param update the new value
      * @return {@code true} if successful
-     * @see AtomicInteger#weakCompareAndSet(int, int)
+     * @see AtomicInteger#weakCompareAndSetPlain(int, int)
      */
-    public final boolean weakCompareAndSet(float expect, float update) {
-        return bits.weakCompareAndSet(floatToIntBits(expect),
+    public final boolean weakCompareAndSetPlain(float expect, float update) {
+        return bits.weakCompareAndSetPlain(floatToIntBits(expect),
                 floatToIntBits(update));
     }
 

@@ -197,8 +197,8 @@ public class MathUtilsTest {
 
         // then
         Assert.assertTrue(integerMinMax.isPresent());
-        Assert.assertEquals((int)integerMinMax.getMin(), 1);
-        Assert.assertEquals((int)integerMinMax.getMax(), 9);
+        Assert.assertEquals((int) integerMinMax.getMin(), 1);
+        Assert.assertEquals((int) integerMinMax.getMax(), 9);
     }
 
 
@@ -218,7 +218,7 @@ public class MathUtilsTest {
         // given
 
         // when
-        MinMax<Double> integerMinMax = MathUtils.minMax(5.0, 8.9,1.0, 0.0);
+        MinMax<Double> integerMinMax = MathUtils.minMax(5.0, 8.9, 1.0, 0.0);
 
         // then
         Assert.assertTrue(integerMinMax.isPresent());

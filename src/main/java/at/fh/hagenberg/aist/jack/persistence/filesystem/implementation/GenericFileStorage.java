@@ -1,5 +1,6 @@
 package at.fh.hagenberg.aist.jack.persistence.filesystem.implementation;
 
+import at.fh.hagenberg.aist.jack.exception.ExceptionUtils;
 import at.fh.hagenberg.aist.jack.persistence.filesystem.AbstractFileStorage;
 
 import java.io.*;
@@ -18,6 +19,7 @@ import java.util.stream.Stream;
  *
  * @author Christoph Praschl p41743@fh-hagenberg.at
  */
+@SuppressWarnings("unused")
 public class GenericFileStorage<V extends Serializable> extends AbstractFileStorage<String, V> {
     private Class<V> clazz;
 
@@ -32,6 +34,23 @@ public class GenericFileStorage<V extends Serializable> extends AbstractFileStor
     public GenericFileStorage(Class<V> clazz, String fileextension, String subfolder) {
         super(File.separator + subfolder, fileextension);
         this.clazz = clazz;
+    }
+
+    /**
+     * Help methods for deleting recursive the content of a folder
+     *
+     * @param path path to the folder which should be deleted together with its content
+     * @throws IOException if something could not be deleted
+     */
+    private static void deleteDirectoryRecursion(Path path) throws IOException {
+        if (path.toFile().isDirectory()) {
+            try (DirectoryStream<Path> entries = Files.newDirectoryStream(path)) {
+                for (Path entry : entries) {
+                    deleteDirectoryRecursion(entry);
+                }
+            }
+        }
+        Files.delete(path);
     }
 
     /**
@@ -70,7 +89,7 @@ public class GenericFileStorage<V extends Serializable> extends AbstractFileStor
              ObjectOutput output = new ObjectOutputStream(buffer)) {
             output.writeObject(value);
         } catch (IOException ex) {
-            throw new RuntimeException(ex);
+            throw ExceptionUtils.unchecked(ex);
         }
         return suggestedKey;
     }
@@ -143,7 +162,7 @@ public class GenericFileStorage<V extends Serializable> extends AbstractFileStor
             output.writeObject(value);
             return true;
         } catch (IOException ex) {
-            throw new RuntimeException(ex);
+            throw ExceptionUtils.unchecked(ex);
         }
     }
 
@@ -154,6 +173,7 @@ public class GenericFileStorage<V extends Serializable> extends AbstractFileStor
      * @return True if object was deleted; else false
      */
     @Override
+    @SuppressWarnings("java:S4042") // Using Files.delete instead of file.delete ...
     public boolean delete(String key) {
         File file = new File(buildPath(key));
         return file.exists() && file.delete();
@@ -176,23 +196,6 @@ public class GenericFileStorage<V extends Serializable> extends AbstractFileStor
             log.debug(e.getMessage(), e);
             return false;
         }
-    }
-
-    /**
-     * Help methods for deleting recursive the content of a folder
-     *
-     * @param path path to the folder which should be deleted together with its content
-     * @throws IOException if something could not be deleted
-     */
-    private static void deleteDirectoryRecursion(Path path) throws IOException {
-        if (path.toFile().isDirectory()) {
-            try (DirectoryStream<Path> entries = Files.newDirectoryStream(path)) {
-                for (Path entry : entries) {
-                    deleteDirectoryRecursion(entry);
-                }
-            }
-        }
-        Files.delete(path);
     }
 
 }

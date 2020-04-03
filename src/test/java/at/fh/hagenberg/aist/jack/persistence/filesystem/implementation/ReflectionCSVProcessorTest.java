@@ -169,6 +169,10 @@ public class ReflectionCSVProcessorTest {
     }
 
 
+    private enum SomeEnum {
+        abc, def, ghi
+    }
+
     @AllArgsConstructor
     @NoArgsConstructor
     @EqualsAndHashCode
@@ -176,10 +180,6 @@ public class ReflectionCSVProcessorTest {
         long x;
         String y;
         int z;
-    }
-
-    private enum SomeEnum {
-        abc, def, ghi
     }
 
     @AllArgsConstructor
@@ -202,7 +202,7 @@ public class ReflectionCSVProcessorTest {
 
     @AllArgsConstructor
     @NoArgsConstructor
-    private static class Point{
+    private static class Point {
         double x;
         double y;
         double z;

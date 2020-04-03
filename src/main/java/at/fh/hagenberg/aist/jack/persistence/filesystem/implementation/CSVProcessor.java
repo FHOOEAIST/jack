@@ -22,6 +22,7 @@ import java.util.stream.Stream;
  *
  * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
  */
+@SuppressWarnings("unused")
 public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
     private static Logger logger = Logger.getInstance(CSVProcessor.class);
     protected char separator;
@@ -156,6 +157,7 @@ public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
      * @return the read elements
      */
     @SneakyThrows
+    @SuppressWarnings("java:S3776")
     public List<T> read(File csvFile, boolean containsColumnDefinition, boolean useFileColumnDefinition) {
         if (columnsToElementFunc == null) {
             throw new IllegalStateException("lineToElementFunc must not be null");

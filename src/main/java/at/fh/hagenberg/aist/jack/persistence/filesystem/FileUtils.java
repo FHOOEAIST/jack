@@ -20,15 +20,17 @@ public class FileUtils {
 
     /**
      * Help method which creates a compliant path string using {@link File#separator}, which is required by the methods of {@link FileUtils}
+     *
      * @param path path which contains slash "/" as file seperator
      * @return compliant path string
      */
-    public static String toCompliantPath(String path){
+    public static String toCompliantPath(String path) {
         return path.replace("/", File.separator);
     }
 
     /**
      * Method which creates a directory in the temp folder based on the given directoryHierachy (subfolder separated by {@link File#separator})
+     *
      * @param directoryHierarchy defining the sub folders' name
      * @return path to the temp directory
      */
@@ -47,7 +49,7 @@ public class FileUtils {
         // create temp directory if necessary
         sb.append(directoryHierarchy);
         // finish the path with a File.separator if not given
-        if(!directoryHierarchy.endsWith(File.separator)){
+        if (!directoryHierarchy.endsWith(File.separator)) {
             sb.append(File.separator);
         }
         File folder = new File(sb.toString());
@@ -73,6 +75,7 @@ public class FileUtils {
     /**
      * Creates a file in a subfolder (respectively directory hierarchy) of the temp folder
      *
+     * @param dirPath       the path of the subfolder
      * @param fileName      name of the file which should be created
      * @param fileExtension file extension of the file which should be created
      * @return the created file
@@ -135,17 +138,17 @@ public class FileUtils {
                 copyStream(is, outputStream);
             } catch (IOException e) {
                 logger.error("Could not copy data to file " + sb.toString(), e);
-                throw new UncheckedIOException("Could not copy data to file " + sb.toString(), new IOException());
+                throw new UncheckedIOException("Could not copy data to file " + sb.toString(), e);
             }
         } else {
             try {
                 boolean newFile = result.createNewFile();
-                if(!newFile){
+                if (!newFile) {
                     throw new IllegalStateException();
                 }
             } catch (IOException | IllegalStateException e) {
                 logger.error("Could not create new file", e);
-                throw new UncheckedIOException("Could not create new file" + sb.toString(), new IOException());
+                throw new UncheckedIOException("Could not create new file" + sb.toString(), new IOException(e));
             }
         }
         return result;

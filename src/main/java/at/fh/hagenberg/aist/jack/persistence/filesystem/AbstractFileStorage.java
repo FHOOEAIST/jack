@@ -1,6 +1,7 @@
 package at.fh.hagenberg.aist.jack.persistence.filesystem;
 
 
+import at.fh.hagenberg.aist.jack.exception.ExceptionUtils;
 import at.fh.hagenberg.aist.jack.persistence.core.Storage;
 import at.fh.hagenberg.aist.seshat.Logger;
 
@@ -42,7 +43,7 @@ public abstract class AbstractFileStorage<K, V> implements Storage<K, V> {
             boolean success = dir.mkdirs();
             log.info("Directory Path: " + dir.getPath());
             if (!success) {
-                throw new RuntimeException(new NotDirectoryException("Directory could not be created at path (" + completePath + ")"));
+                throw ExceptionUtils.unchecked(new NotDirectoryException("Directory could not be created at path (" + completePath + ")"));
             }
         }
         this.fileExtension = fileExtension;

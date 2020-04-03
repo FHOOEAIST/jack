@@ -46,13 +46,13 @@ public class ExceptionUtilsTest {
     @Test
     public void testThrowingFunctionConversionNoFailure() {
         // given
-        ThrowingFunction<Integer, Integer> correct = i -> i+1;
+        ThrowingFunction<Integer, Integer> correct = i -> i + 1;
 
         // when
         Function<Integer, Integer> uncheck = ExceptionUtils.uncheck(correct);
 
         // then
-        Assert.assertEquals(new Integer(2), uncheck.apply(1));
+        Assert.assertEquals(Integer.valueOf(2), uncheck.apply(1));
     }
 
     @Test(expectedExceptions = Exception.class)
@@ -78,7 +78,7 @@ public class ExceptionUtilsTest {
         Supplier<Integer> uncheck = ExceptionUtils.uncheck(correct);
 
         // then
-        Assert.assertEquals(new Integer(1), uncheck.get());
+        Assert.assertEquals(Integer.valueOf(1), uncheck.get());
     }
 
     @Test(expectedExceptions = Exception.class)

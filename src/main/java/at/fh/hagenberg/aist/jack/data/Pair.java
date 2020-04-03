@@ -33,6 +33,7 @@ public class Pair<S, T> {
      * @param <T> type of the second element
      * @return pair collector
      */
+    @SuppressWarnings("java:S1452") // Because Collectors.toMap already returns it in that way...
     public static <S, T> Collector<Pair<S, T>, ?, Map<S, T>> toMap() {
         return Collectors.toMap(Pair::getFirst, Pair::getSecond);
     }

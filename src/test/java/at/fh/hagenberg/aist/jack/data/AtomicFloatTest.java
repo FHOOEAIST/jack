@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class AtomicFloatTest {
 
     @Test
-    void testConstruct() {
+    public void testConstruct() {
         // given
 
         // when
@@ -24,7 +24,7 @@ public class AtomicFloatTest {
     }
 
     @Test
-    void testConstruct2() {
+    public void testConstruct2() {
         // given
 
         // when
@@ -98,12 +98,12 @@ public class AtomicFloatTest {
     }
 
     @Test
-    public void testWeakCompareAndSetTrue() {
+    public void testWeakCompareAndSetPlainTrue() {
         // given
         AtomicFloat af = new AtomicFloat(2);
 
         // when
-        boolean b = af.weakCompareAndSet(2, 3);
+        boolean b = af.weakCompareAndSetPlain(2, 3);
 
         // then
         Assert.assertTrue(b);
@@ -111,12 +111,12 @@ public class AtomicFloatTest {
     }
 
     @Test
-    public void testWeakCompareAndSetFalse() {
+    public void testWeakCompareAndSetPlainFalse() {
         // given
         AtomicFloat af = new AtomicFloat(2);
 
         // when
-        boolean b = af.weakCompareAndSet(-1, 3);
+        boolean b = af.weakCompareAndSetPlain(-1, 3);
 
         // then
         Assert.assertFalse(b);

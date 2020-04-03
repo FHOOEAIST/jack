@@ -6,7 +6,6 @@ trunk/.idea/
 target
 bin
 *.log
-*.log
 .project
 *.classpath
 *.prefs
@@ -150,9 +149,7 @@ StyleCopReport.xml
 *.tlb
 *.tli
 *.tlh
-*.tmp
 *.tmp_proj
-*.log
 *.vspscc
 *.vssscc
 .builds
@@ -287,7 +284,6 @@ _pkginfo.txt
 
 # Others
 ClientBin/
-~$*
 *~
 *.dbmdl
 *.dbproj.schemaview
@@ -405,16 +401,13 @@ ASALocalRun/
 .mfractor/
 
 # Editor directories and files
-.idea
 .vscode
-*.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw*
 
 # a lot of generated files by java
-.project
 .settings
 .classpath
 .factorypath

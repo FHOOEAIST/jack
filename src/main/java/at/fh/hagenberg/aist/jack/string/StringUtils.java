@@ -14,15 +14,14 @@ import java.util.function.Function;
 // Weaker access cannot be provided, as this is a library and the functions are used outside this library too
 @SuppressWarnings("WeakerAccess")
 public final class StringUtils {
-    private StringUtils() {
-    }
-
     /**
      * Constant to define when an index is not found
      */
     public static final int INDEX_NOT_FOUND = -1;
-
     public static final String REPLACEMENT_PLACEHOLDER = "{}";
+
+    private StringUtils() {
+    }
 
     /**
      * Calls StringUtils{@link #format(String, Function, Object[])} with function {@link Object#toString()}
@@ -80,22 +79,24 @@ public final class StringUtils {
 
     /**
      * Returns the indices of every not overlapping occurrence of the substring in the given string
-     * @param string which contains the substring
+     *
+     * @param string    which contains the substring
      * @param substring which is contained in the string
      * @return a list of all indices of every substring occurence. List is empty if substring is not contained in string
      */
-    public static List<Integer> indicesOf(String string, String substring){
+    public static List<Integer> indicesOf(String string, String substring) {
         return indicesOf(string, substring, true);
     }
 
     /**
      * Returns the indices of every occurrence of the substring in the given string
-     * @param string which contains the substring
-     * @param substring which is contained in the string
+     *
+     * @param string      which contains the substring
+     * @param substring   which is contained in the string
      * @param dontOverlap flag which decides if the occurence of a substring can be overlap with another occurce (e.g. bb in bbb could result in the indices 0 and 1 or just in 0 if overlapping is not allowed)
      * @return a list of all indices of every substring occurence. List is empty if substring is not contained in string
      */
-    public static List<Integer> indicesOf(String string, String substring, boolean dontOverlap){
+    public static List<Integer> indicesOf(String string, String substring, boolean dontOverlap) {
         List<Integer> occurrences = new ArrayList<>();
 
         int offset = dontOverlap ? 1 + substring.length() : 1;

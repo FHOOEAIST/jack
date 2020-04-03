@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class AtomicDoubleTest {
 
     @Test
-    void testConstruct() {
+    public void testConstruct() {
         // given
 
         // when
@@ -24,7 +24,7 @@ public class AtomicDoubleTest {
     }
 
     @Test
-    void testConstruct2() {
+    public void testConstruct2() {
         // given
 
         // when
@@ -98,12 +98,12 @@ public class AtomicDoubleTest {
     }
 
     @Test
-    public void testWeakCompareAndSetTrue() {
+    public void testWeakCompareAndSetPlainTrue() {
         // given
         AtomicDouble ad = new AtomicDouble(2);
 
         // when
-        boolean b = ad.weakCompareAndSet(2, 3);
+        boolean b = ad.weakCompareAndSetPlain(2, 3);
 
         // then
         Assert.assertTrue(b);
@@ -111,12 +111,12 @@ public class AtomicDoubleTest {
     }
 
     @Test
-    public void testWeakCompareAndSetFalse() {
+    public void testWeakCompareAndSetPlainFalse() {
         // given
         AtomicDouble ad = new AtomicDouble(2);
 
         // when
-        boolean b = ad.weakCompareAndSet(-1, 3);
+        boolean b = ad.weakCompareAndSetPlain(-1, 3);
 
         // then
         Assert.assertFalse(b);

@@ -70,8 +70,7 @@ public final class ExceptionUtils {
      * @return nothing, as always an exception will be thrown
      */
     public static <T> T failure(Throwable t) {
-        throwIt(t);
-        throw new IllegalStateException();
+        throw unchecked(t);
     }
 
     /**
@@ -80,7 +79,7 @@ public final class ExceptionUtils {
      *
      * <pre>
      *     .stream()
-     *     .map(x -> ExceptionUtils.uncheck(val -> val.iThrowAnException()));
+     *     .map(x -&gt; ExceptionUtils.uncheck(val -&gt; val.iThrowAnException()));
      * </pre>
      *
      * @param throwingFunction the function that should be executing declaring a checked exception
@@ -91,7 +90,7 @@ public final class ExceptionUtils {
     @SuppressWarnings("squid:S1604")
     public static <T, R> Function<T, R> uncheck(ThrowingFunction<T, R> throwingFunction) {
         //noinspection Convert2Lambda,Anonymous2MethodRef - not possible because annotation is needed to method
-        return new Function<T, R>() {
+        return new Function<>() {
             @Override
             @SneakyThrows
             public R apply(T t) {
@@ -104,7 +103,7 @@ public final class ExceptionUtils {
      * <p>Allows the usage of a lambda expression that would throw an checked exception, and converts that into a {@link Supplier}</p>
      * <pre>
      *     Optional
-     *      .orElseGet(ExceptionUtils.uncheck(() -> someMethodCall.thatThrowsException()));
+     *      .orElseGet(ExceptionUtils.uncheck(() -&gt; someMethodCall.thatThrowsException()));
      * </pre>
      *
      * @param throwingSupplier the supplier that should be executed declaring a checked exception
@@ -114,7 +113,7 @@ public final class ExceptionUtils {
     @SuppressWarnings("squid:S1604")
     public static <T> Supplier<T> uncheck(ThrowingSupplier<T> throwingSupplier) {
         //noinspection Convert2Lambda,Anonymous2MethodRef - not possible because annotation is needed to method
-        return new Supplier<T>() {
+        return new Supplier<>() {
             @Override
             @SneakyThrows
             public T get() {

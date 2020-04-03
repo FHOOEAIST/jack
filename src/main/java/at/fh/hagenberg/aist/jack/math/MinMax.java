@@ -18,42 +18,44 @@ public class MinMax<T> {
     private T min;
     private T max;
 
-    private MinMax(T min, T max){
+    private MinMax(T min, T max) {
         this.min = min;
         this.max = max;
         this.present = true;
     }
 
-    private MinMax(){
+    private MinMax() {
         this.present = false;
     }
 
-    public static <I> MinMax<I> empty(){
+    public static <I> MinMax<I> empty() {
         return new MinMax<>();
     }
 
-    public static <I> MinMax<I> of(I min, I max){
+    public static <I> MinMax<I> of(I min, I max) {
         return new MinMax<>(min, max);
     }
 
     /**
      * Method which executes the given consumer if this is present
+     *
      * @param consumer function which consumes the min (first value) and the max (second value) if present
      */
-    public void ifPresent(BiConsumer<T, T> consumer){
-        if(isPresent()){
+    public void ifPresent(BiConsumer<T, T> consumer) {
+        if (isPresent()) {
             consumer.accept(min, max);
         }
     }
 
     /**
      * Maps the given min and max value if present using the mapper
+     *
      * @param mapper used to map min and max if present
-     * @param <I> result type of the mapping
+     * @param <I>    result type of the mapping
      * @return Optional containing the mapping result iff present else empty
      */
-    public <I> Optional<I> map(BiFunction<T, T, I> mapper){
-        if(isPresent()){
+    public <I> Optional<I> map(BiFunction<T, T, I> mapper) {
+        if (isPresent()) {
             return Optional.of(mapper.apply(min, max));
         } else {
             return Optional.empty();

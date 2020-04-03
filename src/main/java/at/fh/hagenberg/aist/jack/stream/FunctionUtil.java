@@ -11,11 +11,13 @@ import java.util.function.Function;
  * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
  */
 public final class FunctionUtil {
+    @SuppressWarnings("rawtypes")
     private static final Consumer EMPTY_CONSUMER = x -> {
     };
+    @SuppressWarnings("rawtypes")
     private static final BiConsumer EMPTY_BI_CONSUMER = (x, y) -> {
     };
-
+    @SuppressWarnings("rawtypes")
     private static final Function IDENTITY = x -> x;
 
     private FunctionUtil() {

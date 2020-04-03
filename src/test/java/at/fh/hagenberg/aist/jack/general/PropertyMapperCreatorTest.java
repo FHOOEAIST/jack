@@ -104,12 +104,12 @@ public class PropertyMapperCreatorTest {
         Person p = new Person("Andreas", "Pointner", null);
         Function<Person, Person2DTO> propertyMapper = new PropertyMapperCreator<Person, Person2DTO>()
                 .from(Person::getFirstname, Person::getLastname)
-                    .toWith(Person2DTO::setName)
-                    .with((f, l) -> f + " " + l)
+                .toWith(Person2DTO::setName)
+                .with((f, l) -> f + " " + l)
                 .fromIf(Person::getDateOfBirth)
-                    .iff(Objects::nonNull)
-                    .toWith(Person2DTO::setDateOfBirth)
-                    .with(ld -> ld.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")))
+                .iff(Objects::nonNull)
+                .toWith(Person2DTO::setDateOfBirth)
+                .with(ld -> ld.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")))
                 .create(Person2DTO::new);
 
         // when
@@ -161,7 +161,7 @@ public class PropertyMapperCreatorTest {
     @AllArgsConstructor
     @Getter
     @Setter
-    private class Person {
+    private static class Person {
         private String firstname;
         private String lastname;
         private LocalDate dateOfBirth;
@@ -169,7 +169,7 @@ public class PropertyMapperCreatorTest {
 
     @Getter
     @Setter
-    private class PersonDTO {
+    private static class PersonDTO {
         private String firstname;
         private String lastname;
         private String dateOfBirth;
@@ -177,14 +177,14 @@ public class PropertyMapperCreatorTest {
 
     @Getter
     @Setter
-    private class Person2DTO {
+    private static class Person2DTO {
         private String name;
         private String dateOfBirth;
     }
 
     @Getter
     @Setter
-    private class PersonNDTO {
+    private static class PersonNDTO {
         private String data;
     }
     //</editor-fold>

@@ -19,7 +19,7 @@ public class GenericFileStorageTest extends AbstractFileStorageTest {
     private GenericFileStorage<JavaPoint> genericStorage = new GenericFileStorage<>(JavaPoint.class, ".javapoint");
 
     @Test
-    void testCreate1() {
+    public void testCreate1() {
         // given
         JavaPoint jp = new JavaPoint(1, 2);
 
@@ -32,7 +32,7 @@ public class GenericFileStorageTest extends AbstractFileStorageTest {
     }
 
     @Test
-    void testCreate2() {
+    public void testCreate2() {
         // given
         JavaPoint jp = new JavaPoint(1, 2);
 
@@ -44,7 +44,7 @@ public class GenericFileStorageTest extends AbstractFileStorageTest {
     }
 
     @Test
-    void testCreate3() {
+    public void testCreate3() {
         // given
         JavaPoint jp = new JavaPoint(1, 2);
         String key = genericStorage.create(jp, "test");
@@ -59,7 +59,7 @@ public class GenericFileStorageTest extends AbstractFileStorageTest {
     }
 
     @Test
-    void testRead1() {
+    public void testRead1() {
         // given
         JavaPoint jp = new JavaPoint(1, 2);
         String key = genericStorage.create(jp);
@@ -73,7 +73,7 @@ public class GenericFileStorageTest extends AbstractFileStorageTest {
     }
 
     @Test
-    void testRead2() {
+    public void testRead2() {
         // given
 
         // when
@@ -84,18 +84,18 @@ public class GenericFileStorageTest extends AbstractFileStorageTest {
     }
 
     @Test
-    void testRead3() {
+    public void testRead3() {
         // given
 
         // when
         Collection<JavaPoint> readJp = genericStorage.read();
 
         // then
-        Assert.assertTrue(readJp.size() == 0);
+        Assert.assertEquals(readJp.size(), 0);
     }
 
     @Test
-    void testRead4() {
+    public void testRead4() {
         // given
         List<String> list = new ArrayList<>();
         list.add(genericStorage.create(new JavaPoint(1, 2)));
@@ -108,14 +108,14 @@ public class GenericFileStorageTest extends AbstractFileStorageTest {
 
 
         // then
-        Assert.assertTrue(readJp.size() == list.size());
+        Assert.assertEquals(list.size(), readJp.size());
         for (String key : list) {
             checkCreationAndCleanup(genericStorage, key);
         }
     }
 
     @Test
-    void testUpdate1() {
+    public void testUpdate1() {
         // given
         JavaPoint jp = new JavaPoint(1, 2);
         String key = genericStorage.create(jp);
@@ -131,7 +131,7 @@ public class GenericFileStorageTest extends AbstractFileStorageTest {
     }
 
     @Test
-    void testUpdate2() {
+    public void testUpdate2() {
         // given
         JavaPoint jp = new JavaPoint(1, 2);
 
@@ -143,7 +143,7 @@ public class GenericFileStorageTest extends AbstractFileStorageTest {
     }
 
     @Test
-    void testDelete1() {
+    public void testDelete1() {
         // given
         JavaPoint jp = new JavaPoint(1, 2);
         String key = genericStorage.create(jp);
@@ -156,7 +156,7 @@ public class GenericFileStorageTest extends AbstractFileStorageTest {
     }
 
     @Test
-    void testDelete2() {
+    public void testDelete2() {
         // given
 
         // when
@@ -168,7 +168,7 @@ public class GenericFileStorageTest extends AbstractFileStorageTest {
 
     // deleteAllTest priority is necessary so the test is always the last one otherwise the can be concurrency problems
     @Test(priority = 99)
-    void testDeleteAll() {
+    public void testDeleteAll() {
         // given
         JavaPoint jp = new JavaPoint(3, 4);
         JavaPoint jp2 = new JavaPoint(3, 6);

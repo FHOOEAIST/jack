@@ -16,7 +16,7 @@ public class StringUtilsTest {
     @Test
     public void testFormat1() {
         // given
-        String x = "This is a test ("+StringUtils.REPLACEMENT_PLACEHOLDER+") with a placeholder";
+        String x = "This is a test (" + StringUtils.REPLACEMENT_PLACEHOLDER + ") with a placeholder";
         String y = "test";
 
         // when
@@ -29,11 +29,11 @@ public class StringUtilsTest {
     @Test
     public void testFormat2() {
         // given
-        String x = "This is a test ("+StringUtils.REPLACEMENT_PLACEHOLDER+") with a placeholder";
+        String x = "This is a test (" + StringUtils.REPLACEMENT_PLACEHOLDER + ") with a placeholder";
         Object y = "test";
 
         // when
-        String res = StringUtils.format(x, val -> val.toString() + "add",  y);
+        String res = StringUtils.format(x, val -> val.toString() + "add", y);
 
         // then
         Assert.assertEquals(res, "This is a test (testadd) with a placeholder");
@@ -42,12 +42,12 @@ public class StringUtilsTest {
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void testFormatException() {
         // given
-        String x = "This is a test ("+StringUtils.REPLACEMENT_PLACEHOLDER+") with a placeholder";
+        String x = "This is a test (" + StringUtils.REPLACEMENT_PLACEHOLDER + ") with a placeholder";
         Object y = "test";
         Object z = "test";
 
         // when
-        String res = StringUtils.format(x, Object::toString,  y, z);
+        String res = StringUtils.format(x, Object::toString, y, z);
 
         // then
         // expect exception
@@ -56,7 +56,7 @@ public class StringUtilsTest {
     @Test
     public void testCountMatches1() {
         // given
-        String x  = "abcabcabc";
+        String x = "abcabcabc";
         String sub = "bc";
 
         // when
@@ -69,7 +69,7 @@ public class StringUtilsTest {
     @Test
     public void testCountMatches2() {
         // given
-        String x  = "abcabcabc";
+        String x = "abcabcabc";
         String sub = "";
 
         // when

@@ -13,7 +13,7 @@ import java.util.Collection;
  * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
  */
 public class TransformerTest {
-    private Transformer<A, B> abTransformer = new Transformer<A, B>() {
+    private Transformer<A, B> abTransformer = new Transformer<>() {
 
         @Override
         public A transformTo(B b) {

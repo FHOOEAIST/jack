@@ -9,13 +9,12 @@ import java.util.stream.IntStream;
  * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
  */
 // Weaker access cannot be provided, as this is a library and the functions are used outside this library too
-@SuppressWarnings("WeakerAccess")
 public class MathUtils {
+    public static final String VALUES_MUST_NOT_BE_NULL = "Values must not be null";
     /**
      * double difference
      */
     private static final double EPSILON = 9.99999993922529E-9D;
-    public static final String VALUES_MUST_NOT_BE_NULL = "Values must not be null";
 
     private MathUtils() {
         // hide constructor
@@ -184,12 +183,13 @@ public class MathUtils {
 
     /**
      * Gets the min and the max value of the given values
+     *
      * @param values for which min and max should be determined
      * @return MinMax for the given values
      */
-    public static MinMax<Integer> minMax(int... values){
+    public static MinMax<Integer> minMax(int... values) {
         // code duplication to avoid time consuming boxing of primitive data typs
-        if(values == null || values.length == 0){
+        if (values == null || values.length == 0) {
             return MinMax.empty();
         }
 
@@ -197,10 +197,10 @@ public class MathUtils {
         int max = Integer.MIN_VALUE;
 
         for (int i : values) {
-            if(i < min){
+            if (i < min) {
                 min = i;
             }
-            if(i > max){
+            if (i > max) {
                 max = i;
             }
         }
@@ -209,12 +209,13 @@ public class MathUtils {
 
     /**
      * Gets the min and the max value of the given values
+     *
      * @param values for which min and max should be determined
      * @return MinMax for the given values
      */
-    public static MinMax<Double> minMax(double... values){
+    public static MinMax<Double> minMax(double... values) {
         // code duplication to avoid time consuming boxing of primitive data typs
-        if(values == null || values.length == 0){
+        if (values == null || values.length == 0) {
             return MinMax.empty();
         }
 
@@ -222,10 +223,10 @@ public class MathUtils {
         double max = Double.MIN_VALUE;
 
         for (double i : values) {
-            if(i < min){
+            if (i < min) {
                 min = i;
             }
-            if(i > max){
+            if (i > max) {
                 max = i;
             }
         }

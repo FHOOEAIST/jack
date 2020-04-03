@@ -23,7 +23,7 @@ public class FileUtilsTest {
     @Test
     public void testWriteToTempFile() {
         // given
-        try(InputStream resourceAsStream = FileUtilsTest.class.getResourceAsStream("/Test.txt")) {
+        try (InputStream resourceAsStream = FileUtilsTest.class.getResourceAsStream("/Test.txt")) {
 
             // when
             File file = FileUtils.writeToTempFile("test", ".txt", resourceAsStream);
@@ -40,7 +40,7 @@ public class FileUtilsTest {
     @Test
     public void testWriteToTempFile1() {
         // given
-        try(InputStream resourceAsStream = FileUtilsTest.class.getResourceAsStream("/Test.txt")) {
+        try (InputStream resourceAsStream = FileUtilsTest.class.getResourceAsStream("/Test.txt")) {
             String dirPath = FileUtils.toCompliantPath("at/fh/hagenberg/aist/");
 
             // when
@@ -107,7 +107,7 @@ public class FileUtilsTest {
         String s = FileUtils.toCompliantPath(dirPath);
 
         // then
-        if(!"/".equals(File.separator)){
+        if (!"/".equals(File.separator)) {
             Assert.assertFalse(s.contains("/"));
         } else {
             Assert.assertEquals(s, dirPath);

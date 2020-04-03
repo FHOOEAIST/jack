@@ -66,6 +66,7 @@ public class MapUtilsTest {
     }
 }
 
+@SuppressWarnings("unused")
 class A {
     int x = 1;
     double y = 2;

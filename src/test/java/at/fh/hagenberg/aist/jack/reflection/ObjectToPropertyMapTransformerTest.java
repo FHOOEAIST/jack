@@ -30,7 +30,7 @@ public class ObjectToPropertyMapTransformerTest {
         Assert.assertTrue(stringObjectMap.containsKey("b2"));
         Assert.assertEquals(stringObjectMap.get("b2"), "3");
         Assert.assertTrue(stringObjectMap.containsKey("b3"));
-        Assert.assertEquals((Double)stringObjectMap.get("b3"), Math.E, 0.0001);
+        Assert.assertEquals((Double) stringObjectMap.get("b3"), Math.E, 0.0001);
     }
 
     @Test
@@ -50,24 +50,26 @@ public class ObjectToPropertyMapTransformerTest {
         Assert.assertTrue(stringObjectMap.containsKey("a2"));
         Assert.assertEquals(stringObjectMap.get("a2"), "2");
         Assert.assertTrue(stringObjectMap.containsKey("a3"));
-        Assert.assertEquals((Double)stringObjectMap.get("a3"), Math.PI, 0.0001);
+        Assert.assertEquals((Double) stringObjectMap.get("a3"), Math.PI, 0.0001);
         Assert.assertTrue(stringObjectMap.containsKey("b1"));
         Assert.assertEquals(stringObjectMap.get("b1"), 2);
         Assert.assertTrue(stringObjectMap.containsKey("b2"));
         Assert.assertEquals(stringObjectMap.get("b2"), "3");
         Assert.assertTrue(stringObjectMap.containsKey("b3"));
-        Assert.assertEquals((Double)stringObjectMap.get("b3"), Math.E, 0.0001);
+        Assert.assertEquals((Double) stringObjectMap.get("b3"), Math.E, 0.0001);
     }
 
+    @SuppressWarnings("unused")
     private static class A {
-        private int a1 = 1;
-        protected String a2 = "2";
         public double a3 = 3.1415;
+        protected String a2 = "2";
+        private int a1 = 1;
     }
 
+    @SuppressWarnings("unused")
     private static class B extends A {
-        private int b1 = 2;
-        protected String b2 = "3";
         public double b3 = 2.7182;
+        protected String b2 = "3";
+        private int b1 = 2;
     }
 }

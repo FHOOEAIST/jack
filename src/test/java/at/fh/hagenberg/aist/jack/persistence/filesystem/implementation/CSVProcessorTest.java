@@ -24,7 +24,7 @@ import java.util.function.BiFunction;
  * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
  */
 public class CSVProcessorTest {
-    private BiFunction<Point, List<String>, List<String>> elementToColumnFunc =  (elem, columnDefinition) -> Arrays.asList(Double.toString(elem.x), Double.toString(elem.y), Double.toString(elem.z));
+    private BiFunction<Point, List<String>, List<String>> elementToColumnFunc = (elem, columnDefinition) -> Arrays.asList(Double.toString(elem.x), Double.toString(elem.y), Double.toString(elem.z));
     private BiFunction<List<String>, List<String>, Point> columnsToElementFunc = (splittedLines, columnDefinition) -> {
         Point p = new Point();
         for (int i = 0; i < columnDefinition.size(); i++) {
@@ -170,11 +170,11 @@ public class CSVProcessorTest {
         File file = resource.getFile();
         TriConsumer<Point, String, String> triConsumer = (point, s, s2) -> {
             double v = Double.parseDouble(s);
-            if("x".equals(s2)){
+            if ("x".equals(s2)) {
                 point.x = v;
-            } else if ("y".equals(s2)){
+            } else if ("y".equals(s2)) {
                 point.y = v;
-            } else if ("z".equals(s2)){
+            } else if ("z".equals(s2)) {
                 point.z = v;
             }
         };
@@ -194,7 +194,7 @@ public class CSVProcessorTest {
     }
 
 
-    static class Point{
+    static class Point {
         double x;
         double y;
         double z;

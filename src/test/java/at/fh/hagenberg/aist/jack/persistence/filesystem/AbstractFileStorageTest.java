@@ -21,7 +21,7 @@ public abstract class AbstractFileStorageTest {
      * @param storage  file storage used for file creation
      * @param filename Name of file which should has been created
      */
-    protected void checkCreationAndCleanup(GenericFileStorage storage, String filename) {
+    protected void checkCreationAndCleanup(GenericFileStorage<?> storage, String filename) {
         String filepath = storage.getPath() + File.separator + filename + storage.getFileExtension();
         log.debug("Filepath: " + filepath);
         File file = new File(filepath);

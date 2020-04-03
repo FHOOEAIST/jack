@@ -10,6 +10,7 @@ import java.util.Collection;
  * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
  */
 @FunctionalInterface
+@SuppressWarnings("java:S119") // Naming of type arguments
 public interface BackwardCollectionTransformer<FROM, TO> {
     /**
      * Transforms a Collection of TO to a Collection of FROM

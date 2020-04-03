@@ -12,18 +12,20 @@ import java.util.List;
  * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
  */
 public class ReflectionUtils {
-    private ReflectionUtils() {}
+    private ReflectionUtils() {
+    }
 
     /**
      * Collects all fields of class together with all fields of the super classes
+     *
      * @param clazz Class to start with
      * @return list of all fields of the class and it`s parents
      */
-    public static List<Field> getAllFieldsOfClass(Class<?> clazz){
+    public static List<Field> getAllFieldsOfClass(Class<?> clazz) {
         List<Field> fields = new ArrayList<>();
         Collections.addAll(fields, clazz.getDeclaredFields());
         Class<?> superclass = clazz.getSuperclass();
-        if(superclass != null){
+        if (superclass != null) {
             fields.addAll(getAllFieldsOfClass(superclass));
         }
         return fields;

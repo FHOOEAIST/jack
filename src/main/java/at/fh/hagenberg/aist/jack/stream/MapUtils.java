@@ -34,7 +34,7 @@ public final class MapUtils {
         return Arrays.stream(o.getClass().getDeclaredFields())
                 .filter(f -> !f.isSynthetic())
                 .map(f -> {
-                    boolean acc = f.isAccessible();
+                    boolean acc = f.canAccess(o);
                     f.setAccessible(true);
                     try {
                         return Pair.of(prefix + f.getName(), f.get(o));

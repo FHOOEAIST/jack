@@ -47,6 +47,7 @@ import java.util.stream.Collectors;
  * @version 1.0
  * @since 1.0
  */
+@SuppressWarnings({"java:S119", "unused"}) // Naming of type arguments and ignoring unused methods
 public class PropertyMapperCreator<From, To> {
 
     /**
@@ -88,6 +89,7 @@ public class PropertyMapperCreator<From, To> {
     }
 
     //region 1:1 mapping - typesafe
+
     /**
      * <p>From which property the mapping shell start</p>
      * <br>
@@ -118,6 +120,54 @@ public class PropertyMapperCreator<From, To> {
      */
     public <T> PropertyMapperCreatorFromIf<T> fromIf(Function<From, T> from) {
         return new PropertyMapperCreatorFromIf<>(from);
+    }
+
+    /**
+     * <p>Defines two from mappings, that can then be mapped to a single to mapping</p>
+     * <pre>
+     *     propertyMapperCreator
+     *       .from(Person::getFirstName, Person::getLastName);
+     * </pre>
+     *
+     * @param from1 the first from mapping
+     * @param from2 the second from mapping
+     * @param <T1>  the type of the first mapping
+     * @param <T2>  the type of the second mapping
+     * @return a property mapper creator to
+     */
+    public <T1, T2> PropertyMapperCreatorTo2<T1, T2> from(Function<From, T1> from1, Function<From, T2> from2) {
+        return new PropertyMapperCreatorTo2<>(from1, from2, (x, y) -> true);
+    }
+
+    /**
+     * <p>Defines two from mappings, that can then be mapped to a single to mapping</p>
+     * <pre>
+     *     propertyMapperCreator
+     *       .fromIff(Person::getFirstName, Person::getLastName);
+     * </pre>
+     *
+     * @param from1 the first from mapping
+     * @param from2 the second from mapping
+     * @param <T1>  the type of the first mapping
+     * @param <T2>  the type of the second mapping
+     * @return a property mapper creator from if
+     */
+    public <T1, T2> PropertyMapperCreatorFromIf2<T1, T2> fromIf(Function<From, T1> from1, Function<From, T2> from2) {
+        return new PropertyMapperCreatorFromIf2<>(from1, from2);
+    }
+    //endregion
+
+    //region 2:1 mapping - typesafe
+
+    //region n:1 mapping - unsafe
+    @SafeVarargs
+    public final PropertyMapperCreatorToN from(Function<From, ?>... from) {
+        return new PropertyMapperCreatorToN(Arrays.asList(from), x -> true);
+    }
+
+    @SafeVarargs
+    public final PropertyMapperCreatorFromIfN fromIf(Function<From, ?>... from) {
+        return new PropertyMapperCreatorFromIfN(Arrays.asList(from));
     }
 
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -237,42 +287,6 @@ public class PropertyMapperCreator<From, To> {
     }
     //endregion
 
-    //region 2:1 mapping - typesafe
-
-    /**
-     * <p>Defines two from mappings, that can then be mapped to a single to mapping</p>
-     * <pre>
-     *     propertyMapperCreator
-     *       .from(Person::getFirstName, Person::getLastName);
-     * </pre>
-     *
-     * @param from1 the first from mapping
-     * @param from2 the second from mapping
-     * @param <T1> the type of the first mapping
-     * @param <T2> the type of the second mapping
-     * @return a property mapper creator to
-     */
-    public <T1, T2> PropertyMapperCreatorTo2<T1, T2> from(Function<From, T1> from1, Function<From, T2> from2) {
-        return new PropertyMapperCreatorTo2<>(from1, from2, (x, y) -> true);
-    }
-
-    /**
-     * <p>Defines two from mappings, that can then be mapped to a single to mapping</p>
-     * <pre>
-     *     propertyMapperCreator
-     *       .fromIff(Person::getFirstName, Person::getLastName);
-     * </pre>
-     *
-     * @param from1 the first from mapping
-     * @param from2 the second from mapping
-     * @param <T1> the type of the first mapping
-     * @param <T2> the type of the second mapping
-     * @return a property mapper creator from if
-     */
-    public <T1, T2> PropertyMapperCreatorFromIf2<T1, T2> fromIf(Function<From, T1> from1, Function<From, T2> from2) {
-        return new PropertyMapperCreatorFromIf2<>(from1, from2);
-    }
-
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     public class PropertyMapperCreatorFromIf2<T1, T2> {
         private Function<From, T1> from1;
@@ -282,7 +296,7 @@ public class PropertyMapperCreator<From, To> {
          * <p>Adds a predicate that checks if further execution of the mapping is necessary</p>
          * <pre>
          *     fromMapping
-         *       .iff((firstName, lastName) -> !(firstName.empty || lastName.empty));
+         *       .iff((firstName, lastName) -&gt; !(firstName.empty || lastName.empty));
          * </pre>
          *
          * @param predicate the predicate
@@ -337,18 +351,6 @@ public class PropertyMapperCreator<From, To> {
             }
         }
     }
-    //endregion
-
-    //region n:1 mapping - unsafe
-    @SafeVarargs
-    public final PropertyMapperCreatorToN from(Function<From, ?>... from) {
-        return new PropertyMapperCreatorToN(Arrays.asList(from), x -> true);
-    }
-
-    @SafeVarargs
-    public final PropertyMapperCreatorFromIfN fromIf(Function<From, ?>... from) {
-        return new PropertyMapperCreatorFromIfN(Arrays.asList(from));
-    }
 
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     public class PropertyMapperCreatorFromIfN {
@@ -378,7 +380,7 @@ public class PropertyMapperCreator<From, To> {
         }
 
         public <S> PropertyMapperCreatorWith<S> toWith(BiConsumer<To, S> to) {
-            return new PropertyMapperCreatorWith<>(from,  to, predicate);
+            return new PropertyMapperCreatorWith<>(from, to, predicate);
         }
 
         @AllArgsConstructor(access = AccessLevel.PRIVATE)

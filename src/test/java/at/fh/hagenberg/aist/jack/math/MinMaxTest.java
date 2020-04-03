@@ -85,7 +85,7 @@ public class MinMaxTest {
 
         // then
         Assert.assertTrue(map.isPresent());
-        Assert.assertEquals((int)map.get(), i+i2);
+        Assert.assertEquals((int) map.get(), i + i2);
     }
 
     @Test
@@ -102,7 +102,7 @@ public class MinMaxTest {
 
     @Getter
     @Setter
-    private static class TestSignal{
+    private static class TestSignal {
         private boolean set = false;
 
     }

@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
  * @author Oliver Krauss on 19.02.2015.
  * @author Christoph Praschl on 30.10.2018.
  */
+@SuppressWarnings("java:S119") // Naming of type arguments
 public interface Transformer<FROM, TO> extends ForwardTransformer<FROM, TO>, BackwardTransformer<FROM, TO>,
         ForwardCollectionTransformer<FROM, TO>, BackwardCollectionTransformer<FROM, TO> {
     @Override

@@ -24,24 +24,6 @@ public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
     private Map<Class<?>, Function<String, Object>> converters = new HashMap<>();
 
     /**
-     * Add a field which will be ignored so it won't be read or written
-     * @param fieldName name of the ignored field
-     */
-    public void addIgnoredField(String fieldName){
-        ignoredFields.add(fieldName);
-    }
-
-    /**
-     * Add a converter for the given class. This converter will be used for converting the CSV string to the expected field type.
-     * Using this method you can also override the default converters for simple-typed properties only (int, double, float, long, boolean, char, Integer, Float, Double, Long, String, Character, Boolean)
-     * @param clazz for which the converter will be used
-     * @param converter converter which transforms the given csv value to an object of the expected type
-     */
-    public void addFieldConverter(Class<?> clazz, Function<String, Object> converter){
-        converters.put(clazz, converter);
-    }
-
-    /**
      * Constructor of a ReflectionCSVProcessor for domain types with simple-typed properties only (int, double, float, long, boolean, char, Integer, Float, Double, Long, String, Character, Boolean)
      *
      * @param separator        separator used in the csv file
@@ -49,6 +31,7 @@ public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
      * @param clazz            clazz of domain type
      */
     @SneakyThrows
+    @SuppressWarnings("java:S3776") // method complexity
     public ReflectionCSVProcessor(char separator, List<String> columnDefinition, Class<T> clazz) {
         super(separator, columnDefinition);
         try {
@@ -90,12 +73,12 @@ public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
             List<String> result = new ArrayList<>();
             for (String column : columns) {
                 try {
-                    if(ignoredFields.contains(column)){
+                    if (ignoredFields.contains(column)) {
                         continue;
                     }
                     Field field = classFields.getOrDefault(column, null);
                     if (field != null) {
-                        boolean accessible = field.isAccessible();
+                        boolean accessible = field.canAccess(elem);
                         field.setAccessible(true);
                         Object o = field.get(elem);
                         field.setAccessible(accessible);
@@ -130,7 +113,7 @@ public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
             for (int i = 0; i < columns.size(); i++) {
                 String columnName = columns.get(i);
 
-                if(ignoredFields.contains(columnName)){
+                if (ignoredFields.contains(columnName)) {
                     continue;
                 }
 
@@ -138,7 +121,7 @@ public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
                 try {
                     Field field = classFields.getOrDefault(columnName, null);
                     if (field != null) {
-                        boolean accessible = field.isAccessible();
+                        boolean accessible = field.canAccess(obj);
                         field.setAccessible(true);
                         Object castedColumnValue;
                         Class<?> fieldType = field.getType();
@@ -168,8 +151,28 @@ public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
         try {
             return parseFunction.apply(value);
         } catch (Exception e) {
-            logger.error("Could not parse value (" + value +") with given parse function. So using default value", e);
+            logger.error("Could not parse value (" + value + ") with given parse function. So using default value", e);
             return defaultValue;
         }
+    }
+
+    /**
+     * Add a field which will be ignored so it won't be read or written
+     *
+     * @param fieldName name of the ignored field
+     */
+    public void addIgnoredField(String fieldName) {
+        ignoredFields.add(fieldName);
+    }
+
+    /**
+     * Add a converter for the given class. This converter will be used for converting the CSV string to the expected field type.
+     * Using this method you can also override the default converters for simple-typed properties only (int, double, float, long, boolean, char, Integer, Float, Double, Long, String, Character, Boolean)
+     *
+     * @param clazz     for which the converter will be used
+     * @param converter converter which transforms the given csv value to an object of the expected type
+     */
+    public void addFieldConverter(Class<?> clazz, Function<String, Object> converter) {
+        converters.put(clazz, converter);
     }
 }

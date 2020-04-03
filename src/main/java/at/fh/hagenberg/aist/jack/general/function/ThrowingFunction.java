@@ -15,5 +15,6 @@ public interface ThrowingFunction<T, R> {
      * @return the result of the function
      * @throws Exception the exception if one is thrown
      */
+    @SuppressWarnings("java:S112") // Exception is exactly what this should be declaring to allow to use it for all sorts of exceptions
     R apply(T t) throws Exception;
 }

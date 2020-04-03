@@ -14,7 +14,7 @@ public class TextfileStorageTest extends AbstractFileStorageTest {
     private GenericFileStorage<String> textfileStorage = new GenericFileStorage<>(String.class, "text", ".txt");
 
     @Test
-    void testCreate1() {
+    public void testCreate1() {
         // given
         String content = "adfadf adfadfa dfadfa";
 
@@ -27,7 +27,7 @@ public class TextfileStorageTest extends AbstractFileStorageTest {
     }
 
     @Test
-    void testCreate2() {
+    public void testCreate2() {
         // given
         String filename = "test";
         String content = "adfadf adfadfa dfadfa";
@@ -42,7 +42,7 @@ public class TextfileStorageTest extends AbstractFileStorageTest {
 
 
     @Test
-    void testUpdate() {
+    public void testUpdate() {
         // given
         String content = "adfadf adfadfa dfadfa";
         String newContent = "new";
@@ -57,7 +57,7 @@ public class TextfileStorageTest extends AbstractFileStorageTest {
     }
 
     @Test
-    void testDelete() {
+    public void testDelete() {
         // given
         String content = "adfadf adfadfa dfadfa";
         String key = textfileStorage.create(content);
@@ -70,7 +70,7 @@ public class TextfileStorageTest extends AbstractFileStorageTest {
     }
 
     @Test
-    void testRead() {
+    public void testRead() {
         // given
         String content = "adfadf adfadfa dfadfa";
         String key = textfileStorage.create(content);
