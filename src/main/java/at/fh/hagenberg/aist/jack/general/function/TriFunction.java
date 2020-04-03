@@ -14,6 +14,7 @@ import java.util.function.Function;
  * @param <R> the type of the result of the function
  * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
  */
+@FunctionalInterface
 public interface TriFunction<T, U, V, R> {
     /**
      * Applies this function to the given arguments.
