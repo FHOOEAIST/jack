@@ -20,9 +20,6 @@ Currently, JACK consists of the following packages:
 - **String:** Contains useful utility classes for operating with strings
 
 ## Contribution
-If you want to add your own stuff, first check if there is already a package in which it fits in. If not, then create a new package,
-and make sure, that you add it as dependency to the all package. Never add code to the all package, this should only have a single pom file,
-and nothing else. Do not add dependencies to other frameworks like Spring. Also make sure, when you add a new package
-that the order in the base package fits (e.g. all package has always to be the last package to be built).
 
-If you add a new class in an already existing package make sure, you add that class to the corresponding package-info.java file. If you create a new package, make sure to create a new package-info.java file and add a short description for the package + for every class in that package.
+If you want to add your own stuff, first check if there is already a package in which it fits in. If not, then create a new one.
+Do not add dependencies to other frameworks like Spring.
