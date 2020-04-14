@@ -7,6 +7,7 @@ The main goal of this framework is to avoid code duplication in all our project.
 
 Currently, JACK consists of the following packages:
 
+- **Collection:** Contains any collection/iterable related utility methods as `isNullOrEmpty()` check. 
 - **Data:** The data package consists of data wrappers like pair or a LambdaContainer (for manipulating non-final objects in a lambda).
 - **Exception:** Package containing different exception utility functionalty e.g. methods for avoiding checked exceptions checking
 - **General:** The general package consists of miscellaneous classes and interfaces. Amongst other things it contains the `Transformer<FROM, TO>` interfaces, the `PropertyMapperCreator` and a `CopyUtil` for deep object copies.
