@@ -1,17 +1,12 @@
 package at.fh.hagenberg.aist.jack.reflection;
 
-import at.fh.hagenberg.aist.jack.data.Pair;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.stream.Collectors;
-
-import static org.testng.Assert.*;
 
 /**
  * <p>Created by Christoph Praschl on 17/04/2020</p>
