@@ -59,4 +59,34 @@ public final class FunctionUtil {
     public static <T> Function<T, T> identity() {
         return IDENTITY;
     }
+
+    /**
+     * <p>Some sort of hack to convert a method reference to a Function.</p>
+     * <p>So instead of casting anything to use it as a function:
+     * <pre>
+     *     Function&lt;In, Out&gt; func = (Function&lt;In, Out&gt;)obj::method
+     * </pre>
+     * you can use:
+     * <pre>
+     *     Function&lt;In, Out&gt; func = toFunction(obj::method);
+     * </pre>
+     * This is especially useful when using andThen:
+     * <pre>
+     *     Function&lt;In, Out2&gt; func = ((Function&lt;In, Out&gt;)obj::method).andThen(obj2:method2);
+     * </pre>
+     * simply use:
+     * <pre>
+     *     Function&lt;In, Out2&gt; func = toFunction(obj::method).andThen(obj2:method2);
+     * </pre>
+     * </p>
+     *
+     * @param func the function
+     * @param <T>  the input type
+     * @param <R>  the result type
+     * @return the converted function
+     */
+    public static <T, R> Function<T, R> toFunction(Function<T, R> func) {
+        return func;
+    }
+
 }
