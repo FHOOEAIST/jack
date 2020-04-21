@@ -107,4 +107,25 @@ public final class StringUtils {
         }
         return occurrences;
     }
+
+    /**
+     * Returns if <code>true</code> if the given stringToCheck is either null or empty, as in
+     * <code>String.isEmpty()</code>, otherwise <code>false</code>
+     * @param stringToCheck the string to check for null or emptiness
+     * @return <code>true</code> if the passed string is null or empty
+     */
+    public static boolean isNullOrEmpty(String stringToCheck) {
+        return stringToCheck == null || stringToCheck.isEmpty();
+    }
+
+    /**
+     * Returns if <code>true</code> if the given stringToCheck is either null or blank, as in
+     * <code>String.isBlank()</code>, otherwise <code>false</code>
+     * @param stringToCheck the string to check for null or blankness
+     * @return <code>true</code> if the passed string is null or blank, meaning it only contains whitespaces
+     */
+    public static boolean isNullOrBlank(String stringToCheck) {
+        return stringToCheck == null || stringToCheck.isBlank();
+    }
+
 }

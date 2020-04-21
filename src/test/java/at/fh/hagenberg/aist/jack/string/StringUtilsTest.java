@@ -102,4 +102,88 @@ public class StringUtilsTest {
         // then
         Assert.assertEquals(aa.size(), 5);
     }
+
+    @Test
+    public void testIsNullOrEmpty() {
+        // given
+        String x = "Somebody once told me the world is gonna roll me";
+
+        // when
+        boolean isValid = StringUtils.isNullOrEmpty(x);
+
+        // then
+        Assert.assertFalse(isValid);
+    }
+
+    @Test
+    public void testIsNullOrEmptyEmptyString() {
+        // given
+        String x = "";
+
+        // when
+        boolean isValid = StringUtils.isNullOrEmpty(x);
+
+        // then
+        Assert.assertTrue(isValid);
+    }
+
+    @Test
+    public void testIsNullOrEmptyNullString() {
+        // given
+        String x = null;
+
+        // when
+        boolean isValid = StringUtils.isNullOrEmpty(x);
+
+        // then
+        Assert.assertTrue(isValid);
+    }
+
+    @Test
+    public void testIsNullOrBlank() {
+        // given
+        String x = "SEND NUDES";
+
+        // when
+        boolean isValid = StringUtils.isNullOrBlank(x);
+
+        // then
+        Assert.assertFalse(isValid);
+    }
+
+    @Test
+    public void testIsNullOrBlankBlankString() {
+        // given
+        String x = "   \t \n  ";
+
+        // when
+        boolean isValid = StringUtils.isNullOrBlank(x);
+
+        // then
+        Assert.assertTrue(isValid);
+    }
+
+    @Test
+    public void testIsNullOrBlankEmptyString() {
+        // given
+        String x = "";
+
+        // when
+        boolean isValid = StringUtils.isNullOrBlank(x);
+
+        // then
+        Assert.assertTrue(isValid);
+    }
+
+    @Test
+    public void testIsNullOrBlankNullString() {
+        // given
+        String x = null;
+
+        // when
+        boolean isValid = StringUtils.isNullOrBlank(x);
+
+        // then
+        Assert.assertTrue(isValid);
+    }
 }
