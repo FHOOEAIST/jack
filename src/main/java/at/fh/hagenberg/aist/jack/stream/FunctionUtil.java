@@ -62,7 +62,7 @@ public final class FunctionUtil {
 
     /**
      * <p>Some sort of hack to convert a method reference to a Function.</p>
-     * <p>So instead of casting anything to use it as a function:
+     * <p>So instead of casting anything to use it as a function: </p>
      * <pre>
      *     Function&lt;In, Out&gt; func = (Function&lt;In, Out&gt;)obj::method
      * </pre>
@@ -78,7 +78,6 @@ public final class FunctionUtil {
      * <pre>
      *     Function&lt;In, Out2&gt; func = toFunction(obj::method).andThen(obj2:method2);
      * </pre>
-     * </p>
      *
      * @param func the function
      * @param <T>  the input type
