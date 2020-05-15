@@ -79,7 +79,7 @@ public final class ExceptionUtils {
      *
      * <pre>
      *     .stream()
-     *     .map(x -&gt; ExceptionUtils.uncheck(val -&gt; val.iThrowAnException()));
+     *     .map(ExceptionUtils.uncheck(val -&gt; val.iThrowAnException()));
      * </pre>
      *
      * @param throwingFunction the function that should be executing declaring a checked exception
