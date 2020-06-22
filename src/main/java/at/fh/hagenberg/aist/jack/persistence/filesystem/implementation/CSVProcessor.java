@@ -24,7 +24,7 @@ import java.util.stream.Stream;
  */
 @SuppressWarnings("unused")
 public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
-    private static Logger logger = Logger.getInstance(CSVProcessor.class);
+    private static final Logger logger = Logger.getInstance(CSVProcessor.class);
     protected char separator;
     protected List<String> columnDefinition;
     protected BiFunction<T, List<String>, List<String>> elementToFunc;
@@ -149,6 +149,16 @@ public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
     }
 
     /**
+     * TODO #15
+     *
+     * @param columnHeader
+     * @return
+     */
+    protected List<String> normalizeColumnDefinition(List<String> columnHeader) {
+        return columnHeader;
+    }
+
+    /**
      * Method for reading the given csv file and converting the lines to the specific element type using the given {@link BiFunction}
      *
      * @param csvFile                  source file to read
@@ -183,7 +193,9 @@ public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
             }
             while ((st = reader.readLine()) != null) {
                 List<String> splittedLine = split(st, String.valueOf(separator));
-                result.add(columnsToElementFunc.apply(splittedLine, useFileColumnDefinition ? fileColumndefinition : columnDefinition));
+                result.add(columnsToElementFunc.apply(splittedLine, useFileColumnDefinition ?
+                        normalizeColumnDefinition(fileColumndefinition) :
+                        normalizeColumnDefinition(columnDefinition)));
             }
         }
 
