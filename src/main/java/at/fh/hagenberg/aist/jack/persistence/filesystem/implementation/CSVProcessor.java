@@ -149,7 +149,7 @@ public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
     }
 
     /**
-     * TODO #15
+     * Defines the normalisation of the header files. Adapter method
      *
      * @param columnHeader
      * @return

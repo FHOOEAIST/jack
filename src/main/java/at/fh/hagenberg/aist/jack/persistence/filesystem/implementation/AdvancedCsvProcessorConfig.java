@@ -14,8 +14,10 @@ import java.util.Map;
 @Builder
 @Getter
 public class AdvancedCsvProcessorConfig {
-    private final List<Character> charactersToRemove;
-    private final Map<Character, String> charactersToReplace;
+    @Builder.Default
+    private final List<String> charactersToRemove = List.of();
+    @Builder.Default
+    private final Map<String, String> charactersToReplace = Map.of();
 
 
 }

@@ -3,14 +3,13 @@ package at.fh.hagenberg.aist.jack.persistence.filesystem.implementation;
 import at.fh.hagenberg.aist.jack.string.StringUtils;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * <p>TODO insert documentation for this class</p>
+ * <p>Extension of the {@link ReflectionCSVProcessor}. It is advanced as it takes an {@link AdvancedCsvProcessorConfig}
+ * in order to configure the normalisation of the column headers to allow improved mapping of csv files to objects</p>
  *
  * @author Rainer Meindl, rainer.meindl@fh-hagenberg.at, 22.06.2020
  */
@@ -19,12 +18,14 @@ public class AdvancedCsvProcessor<T> extends ReflectionCSVProcessor<T> {
     private AdvancedCsvProcessorConfig config;
 
     /**
-     * Constructor of a ReflectionCSVProcessor for domain types with simple-typed properties only (int, double, float, long, boolean, char, Integer, Float, Double, Long, String, Character, Boolean)
+     * Constructor of a AdvancedCsvProcessor for domain types with simple-typed properties only (int, double, float,
+     * long, boolean, char, Integer, Float, Double, Long, String, Character, Boolean)
      *
      * @param separator          separator used in the csv file
-     * @param columnDefinition   columnDefinition of the csv file (can be null for reading if the CSV file contains a header which is used in {@link CSVProcessor#read(File, boolean, boolean)})
+     * @param columnDefinition   columnDefinition of the csv file (can be null for reading if the CSV file contains a
+     *                           header which is used in {@link CSVProcessor#read(File, boolean, boolean)})
      * @param clazz              clazz of domain type
-     * @param csvProcessorConfig
+     * @param csvProcessorConfig Configuration for this class. Defines how the header normalization shoudl be handled
      */
     public AdvancedCsvProcessor(char separator, List<String> columnDefinition, Class<T> clazz,
                                 AdvancedCsvProcessorConfig csvProcessorConfig) {
@@ -32,21 +33,40 @@ public class AdvancedCsvProcessor<T> extends ReflectionCSVProcessor<T> {
         this.config = csvProcessorConfig;
     }
 
+    /**
+     * Constructor of a AdvancedCsvProcessor for domain types with simple-typed properties only (int, double,
+     * float, long, boolean, char, Integer, Float, Double, Long, String, Character, Boolean). The configuration is set
+     * to a default, meaning only whitespaces of the column headers are trimmed and concated into one "word"
+     *
+     * @param separator        separator used in the csv file
+     * @param columnDefinition columnDefinition of the csv file (can be null for reading if the CSV file contains a
+     *                         header which is used in {@link CSVProcessor#read(File, boolean, boolean)})
+     * @param clazz            clazz of domain type
+     */
     public AdvancedCsvProcessor(char separator, List<String> columnDefinition, Class<T> clazz) {
         super(separator, columnDefinition, clazz);
         this.config = AdvancedCsvProcessorConfig.builder()
-                .charactersToRemove(List.of(' '))
+                .charactersToRemove(List.of(" "))
+                .charactersToReplace(Map.of())
                 .build();
     }
 
+    /**
+     * Normalizes the headers according to the {@link AdvancedCsvProcessorConfig}. It first removes the strings defined
+     * in the config.charactersToRemove, then replaces the strings defined in config.charactersToReplace.
+     *
+     * @param columnHeader the extracted column headers to be used to map them to object fields
+     * @return normalized column headers as define in the {@link AdvancedCsvProcessorConfig}. Should allow mapping
+     * of the values to objects.
+     */
     @Override
     protected List<String> normalizeColumnDefinition(List<String> columnHeader) {
         return columnHeader.stream()
                 .map(String::strip)
                 .map(s -> StringUtils.removeAll(s,
-                        config.getCharactersToRemove().stream()
-                                .map(String::valueOf)
-                                .collect(Collectors.toList())))
+                        config.getCharactersToRemove()))
+                .map(s -> StringUtils.replaceAll(s,
+                        config.getCharactersToReplace()))
                 .collect(Collectors.toList());
     }
 }
