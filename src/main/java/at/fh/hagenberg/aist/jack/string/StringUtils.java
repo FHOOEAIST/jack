@@ -2,8 +2,10 @@ package at.fh.hagenberg.aist.jack.string;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 /**
  * <p>Created by Andreas Pointner on 12/09/2019</p>
@@ -111,6 +113,7 @@ public final class StringUtils {
     /**
      * Returns if <code>true</code> if the given stringToCheck is either null or empty, as in
      * <code>String.isEmpty()</code>, otherwise <code>false</code>
+     *
      * @param stringToCheck the string to check for null or emptiness
      * @return <code>true</code> if the passed string is null or empty
      */
@@ -121,11 +124,32 @@ public final class StringUtils {
     /**
      * Returns if <code>true</code> if the given stringToCheck is either null or blank, as in
      * <code>String.isBlank()</code>, otherwise <code>false</code>
+     *
      * @param stringToCheck the string to check for null or blankness
      * @return <code>true</code> if the passed string is null or blank, meaning it only contains whitespaces
      */
     public static boolean isNullOrBlank(String stringToCheck) {
         return stringToCheck == null || stringToCheck.isBlank();
     }
+
+
+    /**
+     * Removes all occurrences of a the given Strings in the stringToCheck. the charsToRemove are iterated over and
+     * each element is used as a parameter in the <code>String::replaceAll</code> method
+     *
+     * @param stringToCheck the string, which contains characters that should be removed. If null, null is returned
+     * @param charsToRemove a collection of string containing strings that need to be replaced in the stringToCheck parameter
+     * @return stringToCheck, where all charsToRemove have been replaced with the empty String
+     */
+    public static String removeAll(String stringToCheck, Collection<String> charsToRemove) {
+
+        if (stringToCheck == null || charsToRemove == null)
+            throw new IllegalArgumentException("neither parameter may be null");
+
+        for (var character : charsToRemove)
+            stringToCheck = stringToCheck.replace(character, "");
+        return stringToCheck;
+    }
+
 
 }

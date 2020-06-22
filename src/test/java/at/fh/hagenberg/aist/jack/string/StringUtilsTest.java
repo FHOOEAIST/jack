@@ -186,4 +186,68 @@ public class StringUtilsTest {
         // then
         Assert.assertTrue(isValid);
     }
+
+    @Test
+    public void testReplaceAll() {
+        // given
+        String x = "Some Test to test the test";
+
+        // when
+        var res = StringUtils.removeAll(x, List.of("ome", " ", "test"));
+
+        // then
+        Assert.assertEquals(res, "STesttothe");
+    }
+
+    @Test
+    public void testReplaceAllEmptyString() {
+        // given
+        String x = "";
+
+        // when
+        var res = StringUtils.removeAll(x, List.of("ome", " ", "test"));
+
+        // then
+        Assert.assertEquals(res, "");
+
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testReplaceAllOnNull() {
+        // given
+        String x = null;
+
+        // when
+        var res = StringUtils.removeAll(x, List.of("ome", " ", "test"));
+
+        // then
+        Assert.assertNull(res);
+
+    }
+
+    @Test
+    public void testReplaceAllEmptyCollection() {
+        // given
+        String x = "Some Test to test the test";
+
+        // when
+        var res = StringUtils.removeAll(x, List.of(""));
+
+        // then
+        Assert.assertEquals(res, x);
+
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testReplaceAllNullCollection() {
+        // given
+        String x = "Some Test to test the test";
+
+        // when
+        var res = StringUtils.removeAll(x, null);
+
+        // then
+        Assert.assertEquals(res, x);
+
+    }
 }

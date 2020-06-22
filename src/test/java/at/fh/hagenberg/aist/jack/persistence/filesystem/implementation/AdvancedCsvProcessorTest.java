@@ -44,4 +44,26 @@ public class AdvancedCsvProcessorTest {
         // then
         Assert.assertEquals(result, expected);
     }
+
+    @SneakyThrows
+    @Test
+    public void testInvalidHeadersCustomConfig() {
+        // given
+        AdvancedCsvProcessor<TestData> csvProcessor = new AdvancedCsvProcessor<>(',',
+                null, TestData.class, AdvancedCsvProcessorConfig.builder()
+                .charactersToRemove(List.of(' ', '(', ')'))
+                .build());
+
+        ClassPathResource resource = new ClassPathResource("advancedCustomTest.csv");
+        File file = resource.getFile();
+        var expected = List.of(new TestData(45, "abc", 1),
+                new TestData(73, "def", 5),
+                new TestData(99, "ghi", -1));
+
+        // when
+        var result = csvProcessor.read(file, true, true);
+
+        // then
+        Assert.assertEquals(result, expected);
+    }
 }
