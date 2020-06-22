@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>Created by Andreas Pointner on 12/09/2019</p>
@@ -188,7 +189,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testReplaceAll() {
+    public void testRemoveAll() {
         // given
         String x = "Some Test to test the test";
 
@@ -200,7 +201,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testReplaceAllEmptyString() {
+    public void testRemoveAllEmptyString() {
         // given
         String x = "";
 
@@ -213,7 +214,7 @@ public class StringUtilsTest {
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
-    public void testReplaceAllOnNull() {
+    public void testRemoveAllOnNull() {
         // given
         String x = null;
 
@@ -226,7 +227,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testReplaceAllEmptyCollection() {
+    public void testRemoveAllEmptyCollection() {
         // given
         String x = "Some Test to test the test";
 
@@ -239,7 +240,7 @@ public class StringUtilsTest {
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
-    public void testReplaceAllNullCollection() {
+    public void testRemoveAllNullCollection() {
         // given
         String x = "Some Test to test the test";
 
@@ -248,6 +249,68 @@ public class StringUtilsTest {
 
         // then
         Assert.assertEquals(res, x);
+    }
 
+    @Test
+    public void testReplaceAll() {
+        // given
+        String x = "Some Test to test the test";
+
+        // when
+        var res = StringUtils.replaceAll(x, Map.of("Test", "Fuck", "test", "fuck"));
+
+        // then
+        Assert.assertEquals(res, "Some Fuck to fuck the fuck");
+    }
+
+    @Test
+    public void testReplaceAllEmptyString() {
+        // given
+        String x = "";
+
+        // when
+        var res = StringUtils.replaceAll(x, Map.of("Test", "Fuck", "test", "fuck"));
+
+        // then
+        Assert.assertEquals(res, x);
+    }
+
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testReplaceAllNullString() {
+        // given
+        String x = null;
+
+        // when
+        StringUtils.replaceAll(x, Map.of("Test", "Fuck", "test", "fuck"));
+
+        // then
+
+    }
+
+
+    @Test
+    public void testReplaceAllEmptyCollection() {
+        // given
+        String x = "Some Test to test the test";
+
+        // when
+        var res = StringUtils.replaceAll(x, Map.of());
+
+        // then
+        Assert.assertEquals(res, x);
+    }
+
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testReplaceAllNullCollection() {
+        // given
+        String x = "Some Test to test the test";
+
+        // when
+        var res = StringUtils.replaceAll(x, null);
+
+        // then
+        Assert.assertEquals(res, x);
     }
 }

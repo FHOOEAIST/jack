@@ -1,9 +1,6 @@
 package at.fh.hagenberg.aist.jack.string;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -148,6 +145,26 @@ public final class StringUtils {
 
         for (var character : charsToRemove)
             stringToCheck = stringToCheck.replace(character, "");
+        return stringToCheck;
+    }
+
+    /**
+     * Replaces all occurrences of a the given Strings in the stringToCheck. the charsToRemove are iterated over and
+     * each key of the map is used as a the search parameter and each value as the
+     * replacement in the <code>String::replace</code> method.
+     *
+     * @param stringToCheck the string, which contains characters that should be removed. If null, null is returned
+     * @param replacementMapper key value pairs describing how one string should be replaced. Key is the search term,
+     *                          value is the replacement string
+     * @return stringToCheck, where all charsToRemove have been replaced with the empty String
+     */
+    public static String replaceAll(String stringToCheck, Map<String, String> replacementMapper) {
+
+        if (stringToCheck == null || replacementMapper == null)
+            throw new IllegalArgumentException("neither parameter may be null");
+
+        for (var character : replacementMapper.keySet())
+            stringToCheck = stringToCheck.replace(character, replacementMapper.get(character));
         return stringToCheck;
     }
 
