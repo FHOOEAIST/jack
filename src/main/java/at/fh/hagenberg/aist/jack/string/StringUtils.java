@@ -1,8 +1,9 @@
 package at.fh.hagenberg.aist.jack.string;
 
+import lombok.NonNull;
+
 import java.util.*;
 import java.util.function.Function;
-import java.util.stream.Stream;
 
 /**
  * <p>Created by Andreas Pointner on 12/09/2019</p>
@@ -138,11 +139,7 @@ public final class StringUtils {
      * @param charsToRemove a collection of string containing strings that need to be replaced in the stringToCheck parameter
      * @return stringToCheck, where all charsToRemove have been replaced with the empty String
      */
-    public static String removeAll(String stringToCheck, Collection<String> charsToRemove) {
-
-        if (stringToCheck == null || charsToRemove == null)
-            throw new IllegalArgumentException("neither parameter may be null");
-
+    public static String removeAll(@NonNull String stringToCheck, @NonNull Collection<String> charsToRemove) {
         for (var character : charsToRemove)
             stringToCheck = stringToCheck.replace(character, "");
         return stringToCheck;
@@ -153,18 +150,14 @@ public final class StringUtils {
      * each key of the map is used as a the search parameter and each value as the
      * replacement in the <code>String::replace</code> method.
      *
-     * @param stringToCheck the string, which contains characters that should be removed. If null, null is returned
+     * @param stringToCheck     the string, which contains characters that should be removed. If null, null is returned
      * @param replacementMapper key value pairs describing how one string should be replaced. Key is the search term,
      *                          value is the replacement string
      * @return stringToCheck, where all charsToRemove have been replaced with the empty String
      */
-    public static String replaceAll(String stringToCheck, Map<String, String> replacementMapper) {
-
-        if (stringToCheck == null || replacementMapper == null)
-            throw new IllegalArgumentException("neither parameter may be null");
-
-        for (var character : replacementMapper.keySet())
-            stringToCheck = stringToCheck.replace(character, replacementMapper.get(character));
+    public static String replaceAll(@NonNull String stringToCheck, @NonNull Map<String, String> replacementMapper) {
+        for (var replacementEntry : replacementMapper.entrySet())
+            stringToCheck = stringToCheck.replace(replacementEntry.getKey(), replacementEntry.getValue());
         return stringToCheck;
     }
 

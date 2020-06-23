@@ -1,5 +1,6 @@
 package at.fh.hagenberg.aist.jack.string;
 
+import org.springframework.lang.Nullable;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -213,7 +214,7 @@ public class StringUtilsTest {
 
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
+    @Test(expectedExceptions = NullPointerException.class)
     public void testRemoveAllOnNull() {
         // given
         String x = null;
@@ -239,7 +240,7 @@ public class StringUtilsTest {
 
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
+    @Test(expectedExceptions = NullPointerException.class)
     public void testRemoveAllNullCollection() {
         // given
         String x = "Some Test to test the test";
@@ -276,7 +277,7 @@ public class StringUtilsTest {
     }
 
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
+    @Test(expectedExceptions = NullPointerException.class)
     public void testReplaceAllNullString() {
         // given
         String x = null;
@@ -302,7 +303,7 @@ public class StringUtilsTest {
     }
 
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
+    @Test(expectedExceptions = NullPointerException.class)
     public void testReplaceAllNullCollection() {
         // given
         String x = "Some Test to test the test";
