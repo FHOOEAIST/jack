@@ -4,7 +4,7 @@
 
     <groupId>at.fh.hagenberg.aist.jack</groupId>
     <artifactId>jack</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.4</version>
 
     <properties>
         <!-- versions -->
@@ -81,7 +81,7 @@
     <scm>
         <developerConnection>scm:git:ssh://git@aist.fh-hagenberg.at:2224/Development/jack.git
         </developerConnection>
-        <tag>HEAD</tag>
+        <tag>jack-1.0.4</tag>
     </scm>
     <distributionManagement>
         <repository>
