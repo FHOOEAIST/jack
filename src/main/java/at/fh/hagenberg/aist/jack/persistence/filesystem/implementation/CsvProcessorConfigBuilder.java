@@ -8,11 +8,28 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <p>TODO insert documentation for this class</p>
+ * <p>Builder class for {@link AdvancedCsvProcessorConfig}. Has one static build method that takes all relevant
+ * parameters for the config</p>
+ *
+ * <h2>Usage</h2>
+ * <code>
+ * AdvancedCsvProcessorConfig config = CsvProcessorConfigBuilder.builder()<br>
+ * .colCharactersToRemove(List.of("\""))<br>
+ * .build());
+ * </code>
  *
  * @author Rainer Meindl, rainer.meindl@fh-hagenberg.at, 28.07.2020
  */
 public class CsvProcessorConfigBuilder {
+    /**
+     * builds a new config using the given parameters
+     *
+     * @param headerCharactersToRemove  which characters should be removed from the csv header
+     * @param headerCharactersToReplace which characters should be replaced with what in the csv header
+     * @param colCharactersToRemove     which characters should be removed from the csv content
+     * @param colCharactersToReplace    which characters should be replaced with what from the csv content
+     * @return an {@link AdvancedCsvProcessorConfig} initialized with the given parameters
+     */
     @Builder
     private static AdvancedCsvProcessorConfig newConfig(List<String> headerCharactersToRemove,
                                                         Map<String, String> headerCharactersToReplace,

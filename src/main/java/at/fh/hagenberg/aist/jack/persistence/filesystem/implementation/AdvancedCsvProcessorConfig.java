@@ -11,6 +11,14 @@ import java.util.Map;
 
 /**
  * <p>Configuration definition for {@link at.fh.hagenberg.aist.jack.persistence.filesystem.implementation.AdvancedCsvProcessor}.</p>
+ * <p>Use {@link CsvProcessorConfigBuilder} to create a configuration</p>
+ *
+ * <h2>Usage</h2>
+ * <code>
+ * AdvancedCsvProcessorConfig config = CsvProcessorConfigBuilder.builder()<br>
+ *     .colCharactersToRemove(List.of("\""))<br>
+ *     .build());
+ * </code>
  *
  * @author Rainer Meindl, rainer.meindl@fh-hagenberg.at, 22.06.2020
  */

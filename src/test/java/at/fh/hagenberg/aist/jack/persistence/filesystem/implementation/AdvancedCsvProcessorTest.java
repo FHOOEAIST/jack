@@ -123,7 +123,7 @@ public class AdvancedCsvProcessorTest {
         ClassPathResource resource = new ClassPathResource("advancedCustomTestMixed.csv");
         File file = resource.getFile();
         var expected = List.of(new TestData(45, "bbc", 1),
-                new TestData(73, "aef", 5),
+                new TestData(73, "bef", 5),
                 new TestData(99, "ghi", -1));
 
         // when
