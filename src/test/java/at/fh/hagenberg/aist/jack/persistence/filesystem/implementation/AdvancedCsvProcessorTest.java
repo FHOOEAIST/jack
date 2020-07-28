@@ -45,8 +45,8 @@ public class AdvancedCsvProcessorTest {
     public void testInvalidHeadersCustomConfig() {
         // given
         AdvancedCsvProcessor<TestData> csvProcessor = new AdvancedCsvProcessor<>(',',
-                null, TestData.class, AdvancedCsvProcessorConfig.builder()
-                .charactersToRemove(List.of(" ", "(", ")"))
+                null, TestData.class, CsvProcessorConfigBuilder.builder()
+                .headerCharactersToRemove(List.of(" ", "(", ")"))
                 .build());
 
         ClassPathResource resource = new ClassPathResource("advancedCustomTest.csv");
@@ -67,9 +67,9 @@ public class AdvancedCsvProcessorTest {
     public void testInvalidHeadersCustomConfigWithReplace() {
         // given
         AdvancedCsvProcessor<TestData> csvProcessor = new AdvancedCsvProcessor<>(',',
-                null, TestData.class, AdvancedCsvProcessorConfig.builder()
-                .charactersToRemove(List.of(" "))
-                .charactersToReplace(Map.of("(", "", ")", ""))
+                null, TestData.class, CsvProcessorConfigBuilder.builder()
+                .headerCharactersToRemove(List.of(" ", "(", ")"))
+                .headerCharactersToReplace(Map.of("(", "", ")", ""))
                 .build());
 
         ClassPathResource resource = new ClassPathResource("advancedCustomTest.csv");

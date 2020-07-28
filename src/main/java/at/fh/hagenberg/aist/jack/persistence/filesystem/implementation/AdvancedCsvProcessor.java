@@ -45,9 +45,8 @@ public class AdvancedCsvProcessor<T> extends ReflectionCSVProcessor<T> {
      */
     public AdvancedCsvProcessor(char separator, List<String> columnDefinition, Class<T> clazz) {
         super(separator, columnDefinition, clazz);
-        this.config = AdvancedCsvProcessorConfig.builder()
-                .charactersToRemove(List.of(" "))
-                .charactersToReplace(Map.of())
+        this.config = CsvProcessorConfigBuilder.builder()
+                .headerCharactersToRemove(List.of(" "))
                 .build();
     }
 
@@ -64,9 +63,9 @@ public class AdvancedCsvProcessor<T> extends ReflectionCSVProcessor<T> {
         return columnHeader.stream()
                 .map(String::strip)
                 .map(s -> StringUtils.removeAll(s,
-                        config.getCharactersToRemove()))
+                        config.getHeaderCharactersToRemove()))
                 .map(s -> StringUtils.replaceAll(s,
-                        config.getCharactersToReplace()))
+                        config.getHeaderCharactersToReplace()))
                 .collect(Collectors.toList());
     }
 }
