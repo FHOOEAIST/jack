@@ -16,14 +16,21 @@ import java.util.Map;
  * <h2>Usage</h2>
  * <code>
  * AdvancedCsvProcessorConfig config = CsvProcessorConfigBuilder.builder()<br>
- *     .colCharactersToRemove(List.of("\""))<br>
- *     .build());
+ * .colCharactersToRemove(List.of("\""))<br>
+ * .build());
  * </code>
  *
  * @author Rainer Meindl, rainer.meindl@fh-hagenberg.at, 22.06.2020
  */
 @Builder(access = AccessLevel.PACKAGE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class AdvancedCsvProcessorConfig {
+
+    @Builder.Default
+    private final HeaderConfig headerConfig = new HeaderConfig();
+    @Builder.Default
+    private final ColumnConfig columnConfig = new ColumnConfig();
 
     public Collection<String> getHeaderCharactersToRemove() {
         return headerConfig.charactersToRemove;
@@ -60,9 +67,4 @@ public class AdvancedCsvProcessorConfig {
         @Builder.Default
         private final Map<String, String> charactersToReplace = Map.of();
     }
-
-    @Builder.Default
-    private final HeaderConfig headerConfig = new HeaderConfig();
-    @Builder.Default
-    private final ColumnConfig columnConfig = new ColumnConfig();
 }
