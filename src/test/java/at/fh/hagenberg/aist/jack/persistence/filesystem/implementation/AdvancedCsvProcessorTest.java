@@ -42,6 +42,99 @@ public class AdvancedCsvProcessorTest {
 
     @SneakyThrows
     @Test
+    public void testInvalidContentCustomConfig() {
+        // given
+        AdvancedCsvProcessor<TestData> csvProcessor = new AdvancedCsvProcessor<>(',',
+                null, TestData.class, CsvProcessorConfigBuilder.builder()
+                .colCharactersToRemove(List.of("\""))
+                .build());
+
+        ClassPathResource resource = new ClassPathResource("advancedCustomTestContent.csv");
+        File file = resource.getFile();
+        var expected = List.of(new TestData(45, "abc", 1),
+                new TestData(73, "def", 5),
+                new TestData(99, "ghi", -1));
+
+        // when
+        var result = csvProcessor.read(file, true, true);
+
+        // then
+        Assert.assertEquals(result, expected);
+    }
+
+    @SneakyThrows
+    @Test
+    public void testInvalidContentCustomConfigWithReplace() {
+        // given
+        AdvancedCsvProcessor<TestData> csvProcessor = new AdvancedCsvProcessor<>(',',
+                null, TestData.class, CsvProcessorConfigBuilder.builder()
+                .colCharactersToRemove(List.of("\""))
+                .colCharactersToReplace(Map.of("a", "b"))
+                .build());
+
+        ClassPathResource resource = new ClassPathResource("advancedCustomTestContent.csv");
+        File file = resource.getFile();
+        var expected = List.of(new TestData(45, "bbc", 1),
+                new TestData(73, "def", 5),
+                new TestData(99, "ghi", -1));
+
+        // when
+        var result = csvProcessor.read(file, true, true);
+
+        // then
+        Assert.assertEquals(result, expected);
+    }
+
+    @SneakyThrows
+    @Test
+    public void testInvalidContentAndHeadersCustomConfig() {
+        // given
+        AdvancedCsvProcessor<TestData> csvProcessor = new AdvancedCsvProcessor<>(',',
+                null, TestData.class, CsvProcessorConfigBuilder.builder()
+                .headerCharactersToRemove(List.of(" ", "(", ")"))
+                .colCharactersToRemove(List.of("\""))
+                .build());
+
+        ClassPathResource resource = new ClassPathResource("advancedCustomTestMixed.csv");
+        File file = resource.getFile();
+        var expected = List.of(new TestData(45, "abc", 1),
+                new TestData(73, "def", 5),
+                new TestData(99, "ghi", -1));
+
+        // when
+        var result = csvProcessor.read(file, true, true);
+
+        // then
+        Assert.assertEquals(result, expected);
+    }
+
+    @SneakyThrows
+    @Test
+    public void testInvalidContentAndHeadersCustomConfigWithReplace() {
+        // given
+        AdvancedCsvProcessor<TestData> csvProcessor = new AdvancedCsvProcessor<>(',',
+                null, TestData.class, CsvProcessorConfigBuilder.builder()
+                .headerCharactersToRemove(List.of(" ", "(", ")"))
+                .headerCharactersToReplace(Map.of("(", "", ")", ""))
+                .colCharactersToRemove(List.of("\""))
+                .colCharactersToReplace(Map.of("a", "b", "d", "a"))
+                .build());
+
+        ClassPathResource resource = new ClassPathResource("advancedCustomTestMixed.csv");
+        File file = resource.getFile();
+        var expected = List.of(new TestData(45, "bbc", 1),
+                new TestData(73, "aef", 5),
+                new TestData(99, "ghi", -1));
+
+        // when
+        var result = csvProcessor.read(file, true, true);
+
+        // then
+        Assert.assertEquals(result, expected);
+    }
+
+    @SneakyThrows
+    @Test
     public void testInvalidHeadersCustomConfig() {
         // given
         AdvancedCsvProcessor<TestData> csvProcessor = new AdvancedCsvProcessor<>(',',

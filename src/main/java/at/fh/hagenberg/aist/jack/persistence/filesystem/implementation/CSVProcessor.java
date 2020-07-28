@@ -151,12 +151,21 @@ public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
     /**
      * Defines the normalisation of the header files. Adapter method
      *
-     * @param columnHeader
-     * @return
+     * @param columnHeader the split header definition of the csv file
      */
     protected List<String> normalizeColumnDefinition(List<String> columnHeader) {
         return columnHeader;
     }
+
+    /**
+     * Defines the normalisation of a singular csv line after the header. Adapter method
+     *
+     * @param csvLine the split line of a csv file.
+     */
+    protected List<String> normalizeRow(List<String> csvLine) {
+        return csvLine;
+    }
+
 
     /**
      * Method for reading the given csv file and converting the lines to the specific element type using the given {@link BiFunction}
@@ -193,7 +202,7 @@ public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
             }
             while ((st = reader.readLine()) != null) {
                 List<String> splittedLine = split(st, String.valueOf(separator));
-                result.add(columnsToElementFunc.apply(splittedLine, useFileColumnDefinition ?
+                result.add(columnsToElementFunc.apply(normalizeRow(splittedLine), useFileColumnDefinition ?
                         normalizeColumnDefinition(fileColumndefinition) :
                         normalizeColumnDefinition(columnDefinition)));
             }

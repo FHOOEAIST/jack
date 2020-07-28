@@ -4,7 +4,6 @@ import at.fh.hagenberg.aist.jack.string.StringUtils;
 
 import java.io.File;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -66,6 +65,16 @@ public class AdvancedCsvProcessor<T> extends ReflectionCSVProcessor<T> {
                         config.getHeaderCharactersToRemove()))
                 .map(s -> StringUtils.replaceAll(s,
                         config.getHeaderCharactersToReplace()))
+                .collect(Collectors.toList());
+
+    }
+
+    @Override
+    protected List<String> normalizeRow(List<String> csvLine) {
+        return csvLine.stream()
+                .map(String::strip)
+                .map((stringToCheck) -> StringUtils.removeAll(stringToCheck, config.getContentCharactersToRemove()))
+                .map(s -> StringUtils.replaceAll(s, config.getContentCharactersToReplace()))
                 .collect(Collectors.toList());
     }
 }
