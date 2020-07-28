@@ -117,13 +117,13 @@ public class AdvancedCsvProcessorTest {
                 .headerCharactersToRemove(List.of(" ", "(", ")"))
                 .headerCharactersToReplace(Map.of("(", "", ")", ""))
                 .colCharactersToRemove(List.of("\""))
-                .colCharactersToReplace(Map.of("a", "b", "d", "a"))
+                .colCharactersToReplace(Map.of("a", "b", "d", "1"))
                 .build());
 
         ClassPathResource resource = new ClassPathResource("advancedCustomTestMixed.csv");
         File file = resource.getFile();
         var expected = List.of(new TestData(45, "bbc", 1),
-                new TestData(73, "bef", 5),
+                new TestData(73, "1ef", 5),
                 new TestData(99, "ghi", -1));
 
         // when
