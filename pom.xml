@@ -23,11 +23,10 @@
         <commons-fileupload.version>1.4</commons-fileupload.version>
 
         <!-- sonar variables -->
-        <jacoco.plugin.version>0.8.4</jacoco.plugin.version>
-        <project.jacoco.ut.reportPath>${user.dir}/target/site/jacoco/jacoco.xml</project.jacoco.ut.reportPath>
-        <project.jacoco.it.reportPath>${user.dir}/target/site/jacoco-it/jacoco.xml</project.jacoco.it.reportPath>
-        <sonar.coverage.jacoco.xmlReportPaths>${project.jacoco.ut.reportPath},${project.jacoco.it.reportPath}</sonar.coverage.jacoco.xmlReportPaths>
-        <sonar.java.libraries>${project.build.directory}/dependency</sonar.java.libraries>
+        <jacoco.plugin.version>0.8.5</jacoco.plugin.version>
+        <project.jacoco.ut.reportPath>${user.dir}/target/jacoco.exec</project.jacoco.ut.reportPath>
+        <project.jacoco.it.reportPath>${user.dir}/target/jacoco-it.exec</project.jacoco.it.reportPath>
+        <sonar.jacoco.reportPaths>${project.jacoco.ut.reportPath},${project.jacoco.it.reportPath}</sonar.jacoco.reportPaths>
         <sonar-jacoco-listeners.version>5.14.0.18788</sonar-jacoco-listeners.version>
         <maven-site-plugin.version>3.8.2</maven-site-plugin.version>
         <wagon-webdav-jackrabbit.version>3.3.4</wagon-webdav-jackrabbit.version>
@@ -311,13 +310,6 @@
                                     <propertyName>jacoco.agent.it.arg</propertyName>
                                     <append>true</append>
                                 </configuration>
-                            </execution>
-                            <execution>
-                                <id>jacoco-site</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>report</goal>
-                                </goals>
                             </execution>
                         </executions>
                     </plugin>
