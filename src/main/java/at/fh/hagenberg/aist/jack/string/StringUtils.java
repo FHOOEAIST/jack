@@ -2,7 +2,10 @@ package at.fh.hagenberg.aist.jack.string;
 
 import lombok.NonNull;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 
 /**
@@ -139,7 +142,7 @@ public final class StringUtils {
      * @param charsToRemove a collection of string containing strings that need to be replaced in the stringToCheck parameter
      * @return stringToCheck, where all charsToRemove have been replaced with the empty String
      */
-    public static String removeAll(@NonNull String stringToCheck, @NonNull Collection<String> charsToRemove) {
+    public static String removeAll(@NonNull String stringToCheck, @NonNull Iterable<String> charsToRemove) {
         for (var character : charsToRemove)
             stringToCheck = stringToCheck.replace(character, "");
         return stringToCheck;

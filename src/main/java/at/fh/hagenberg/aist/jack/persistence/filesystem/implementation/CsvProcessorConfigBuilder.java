@@ -1,6 +1,8 @@
 package at.fh.hagenberg.aist.jack.persistence.filesystem.implementation;
 
+import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +22,7 @@ import java.util.Map;
  *
  * @author Rainer Meindl, rainer.meindl@fh-hagenberg.at, 28.07.2020
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CsvProcessorConfigBuilder {
     /**
      * builds a new config using the given parameters
