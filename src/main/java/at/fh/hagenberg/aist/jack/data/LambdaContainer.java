@@ -9,7 +9,7 @@ import lombok.Setter;
  * <p>Helper class that contains a value so it can be modified inside of a lambda expression</p>
  *
  * @param <T> The type of the contained value
- * @author Oliver Krauss on 12.10.2015.
+ * @author Oliver Krauss
  */
 @Getter
 @Setter

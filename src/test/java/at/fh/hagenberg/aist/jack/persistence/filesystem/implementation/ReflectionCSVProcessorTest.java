@@ -20,7 +20,7 @@ import java.util.Objects;
  * <p>Created by Christoph Praschl on 24/01/2020</p>
  * <p>Test class for {@link ReflectionCSVProcessor}</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 public class ReflectionCSVProcessorTest {
 

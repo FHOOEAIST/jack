@@ -12,7 +12,7 @@ import java.util.Map;
  * <p>Created by Christoph Praschl on 17/04/2020</p>
  * <p>Test class for {@link Autoboxers}</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 public class AutoboxersTest {
 

@@ -8,12 +8,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
- * Util class defining functions to create copies of other objects.
+ * <p>Util class defining functions to create copies of other objects.</p>
  *
- * @author Daniel Wilfing on 13.04.2015
+ * @author Rainer Meindl
  */
 public final class CopyUtils {
-    private static Logger logger = Logger.getInstance(CopyUtils.class);
+    private static final Logger logger = Logger.getInstance(CopyUtils.class);
 
     private CopyUtils() {
     }

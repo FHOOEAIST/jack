@@ -11,7 +11,7 @@ import static at.fh.hagenberg.aist.jack.data.Pair.of;
  * <p>Created by Andreas Pointner on 28/08/2019</p>
  * <p>Test class for {@link MapUtils}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public class MapUtilsTest {
 

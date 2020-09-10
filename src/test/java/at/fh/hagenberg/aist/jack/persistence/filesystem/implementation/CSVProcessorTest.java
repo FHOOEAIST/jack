@@ -21,15 +21,15 @@ import java.util.function.BiFunction;
  * <p>Created by Christoph Praschl on 20/01/2020</p>
  * <p>Test class for {@link CSVProcessor}</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 public class CSVProcessorTest {
-    private BiFunction<Point, List<String>, List<String>> elementToColumnFunc = (elem, columnDefinition) -> Arrays.asList(Double.toString(elem.x), Double.toString(elem.y), Double.toString(elem.z));
-    private BiFunction<List<String>, List<String>, Point> columnsToElementFunc = (splittedLines, columnDefinition) -> {
+    private final BiFunction<Point, List<String>, List<String>> elementToColumnFunc = (elem, columnDefinition) -> Arrays.asList(Double.toString(elem.x), Double.toString(elem.y), Double.toString(elem.z));
+    private final BiFunction<List<String>, List<String>, Point> columnsToElementFunc = (splitLines, columnDefinition) -> {
         Point p = new Point();
         for (int i = 0; i < columnDefinition.size(); i++) {
             String s = columnDefinition.get(i);
-            double v = Double.parseDouble(splittedLines.get(i));
+            double v = Double.parseDouble(splitLines.get(i));
             if ("x".equals(s)) {
                 p.x = v;
             } else if ("y".equals(s)) {

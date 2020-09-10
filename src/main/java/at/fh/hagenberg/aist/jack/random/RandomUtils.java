@@ -3,9 +3,9 @@ package at.fh.hagenberg.aist.jack.random;
 import java.util.Random;
 
 /**
- * Created by Lukas Reithmeier on 19.06.2018
+ * <p>Created by Lukas Reithmeier on 19.06.2018</p>
  *
- * @author Lukas Reithmeier lukas.reithmeier@fh-hagenberg.at
+ * @author Lukas Reithmeier
  */
 public class RandomUtils {
     /**

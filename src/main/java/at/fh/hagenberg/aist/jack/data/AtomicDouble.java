@@ -9,13 +9,13 @@ import static java.lang.Double.longBitsToDouble;
  * <p>Created by Andreas Pointner on 03.12.2019</p>
  * <p>Implementation of AtomicFloat based on {@link AtomicLong}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public class AtomicDouble extends Number {
     /**
      * The bits of the float object
      */
-    private AtomicLong bits;
+    private final AtomicLong bits;
 
     /**
      * Default constructor which initializes the object with 0d

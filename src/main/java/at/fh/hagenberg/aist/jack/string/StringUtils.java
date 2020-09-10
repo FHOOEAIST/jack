@@ -12,7 +12,7 @@ import java.util.function.Function;
  * <p>Created by Andreas Pointner on 12/09/2019</p>
  * <p>Different Util methods for {@link String}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 // Weaker access cannot be provided, as this is a library and the functions are used outside this library too
 @SuppressWarnings("WeakerAccess")
@@ -85,7 +85,7 @@ public final class StringUtils {
      *
      * @param string    which contains the substring
      * @param substring which is contained in the string
-     * @return a list of all indices of every substring occurence. List is empty if substring is not contained in string
+     * @return a list of all indices of every substring occurrence. List is empty if substring is not contained in string
      */
     public static List<Integer> indicesOf(String string, String substring) {
         return indicesOf(string, substring, true);
@@ -96,8 +96,8 @@ public final class StringUtils {
      *
      * @param string      which contains the substring
      * @param substring   which is contained in the string
-     * @param dontOverlap flag which decides if the occurence of a substring can be overlap with another occurce (e.g. bb in bbb could result in the indices 0 and 1 or just in 0 if overlapping is not allowed)
-     * @return a list of all indices of every substring occurence. List is empty if substring is not contained in string
+     * @param dontOverlap flag which decides if the occurrence of a substring can be overlap with another occurrence (e.g. bb in bbb could result in the indices 0 and 1 or just in 0 if overlapping is not allowed)
+     * @return a list of all indices of every substring occurrence. List is empty if substring is not contained in string
      */
     public static List<Integer> indicesOf(String string, String substring, boolean dontOverlap) {
         List<Integer> occurrences = new ArrayList<>();
@@ -159,9 +159,11 @@ public final class StringUtils {
      * @return stringToCheck, where all charsToRemove have been replaced with the empty String
      */
     public static String replaceAll(@NonNull String stringToCheck, @NonNull Map<String, String> replacementMapper) {
-        for (var replacementEntry : replacementMapper.entrySet())
-            stringToCheck = stringToCheck.replace(replacementEntry.getKey(), replacementEntry.getValue());
-        return stringToCheck;
+        return replacementMapper.entrySet()
+                .stream()
+                .reduce(stringToCheck,
+                        (s, re) ->  s.replace(re.getKey(), re.getValue()),
+                        String::concat);
     }
 
 

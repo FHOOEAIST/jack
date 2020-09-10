@@ -3,12 +3,12 @@ package at.fh.hagenberg.aist.jack.persistence.core;
 import java.util.Collection;
 
 /**
- * Created by Christoph Praschl on 14.06.2017.
+ * <p>Created by Christoph Praschl on 14.06.2017.</p>
+ * <p>Storage Interface for storing objects</p>
  *
  * @param <K> DataType of key which is used to save value
  * @param <V> DataType of objects which should be stored
- * @author Christoph Praschl p41743@fh-hagenberg.at
- * Description: Storage Interface for storing objects
+ * @author Christoph Praschl
  */
 
 

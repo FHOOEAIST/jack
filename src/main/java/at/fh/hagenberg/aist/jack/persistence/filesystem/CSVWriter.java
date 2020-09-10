@@ -7,7 +7,7 @@ import java.util.List;
  * <p>Created by Christoph Praschl on 25/02/2020</p>
  * <p>Interface for writing elements to a CSV file</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 public interface CSVWriter<T> {
     /**

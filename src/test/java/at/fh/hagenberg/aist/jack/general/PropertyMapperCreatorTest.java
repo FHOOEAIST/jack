@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 /**
  * <p>Created by Andreas Pointner on 03.12.2018</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public class PropertyMapperCreatorTest {
     @Test

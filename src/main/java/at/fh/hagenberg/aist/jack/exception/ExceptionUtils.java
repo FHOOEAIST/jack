@@ -11,7 +11,7 @@ import java.util.function.Supplier;
  * <p>Created by Andreas Pointner on 22/08/2019</p>
  * <p>Util class for Exception handling</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public final class ExceptionUtils {
     private ExceptionUtils() {

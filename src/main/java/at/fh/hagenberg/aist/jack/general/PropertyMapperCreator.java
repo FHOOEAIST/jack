@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 /**
  * <p>Created by Andreas Pointner on 03.12.2018</p>
- * <p>This class creates a PropertyMapper, that is based on the ideas of Andreas Schuler PropertyMapper from the archtype</p>
+ * <p>This class creates a PropertyMapper, that is based on the ideas of Andreas Schuler PropertyMapper from the archetype</p>
  * <p>The property mapper creator is able to define mappings from one class into another class.
  * Therefore different mappings can be defined, then the actual PropertyMapper can be created using {@link PropertyMapperCreator#create()}
  * method, which is going to create a Function, which then contains the mapping between those to elements.</p>
@@ -43,7 +43,7 @@ import java.util.stream.Collectors;
  *
  * @param <From> The source class for the mapping
  * @param <To>   The target class for the mapping
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  * @version 1.0
  * @since 1.0
  */
@@ -53,7 +53,7 @@ public class PropertyMapperCreator<From, To> {
     /**
      * A list which contains the mappings for the different properties
      */
-    private List<BiConsumer<From, To>> mappings;
+    private final List<BiConsumer<From, To>> mappings;
 
     /**
      * Creates a new empty property mapper creator and initializes all internal fields.
@@ -175,7 +175,7 @@ public class PropertyMapperCreator<From, To> {
         /**
          * The function which create the source object.
          */
-        private Function<From, T> from;
+        private final Function<From, T> from;
 
         /**
          * iff --&gt; if and only if. the problem is that if is a keyword, therefore we ues iff
@@ -203,12 +203,12 @@ public class PropertyMapperCreator<From, To> {
         /**
          * The function which create the source object.
          */
-        private Function<From, T> from;
+        private final Function<From, T> from;
 
         /**
          * The predicate to be check if the mapping should be done
          */
-        private Predicate<T> predicate;
+        private final Predicate<T> predicate;
 
         /**
          * <p>Creates the to mapping with an additional mapping function</p>
@@ -251,17 +251,17 @@ public class PropertyMapperCreator<From, To> {
             /**
              * The function which creates the source object
              */
-            private Function<From, T> from;
+            private final Function<From, T> from;
 
             /**
              * The consumer which stores the sources object into the target object
              */
-            private BiConsumer<To, S> to;
+            private final BiConsumer<To, S> to;
 
             /**
              * The predicate to be check if the mapping should be done
              */
-            private Predicate<T> predicate;
+            private final Predicate<T> predicate;
 
             /**
              * <p>defines a function, of how the source property should be mapped to the target one</p>
@@ -289,8 +289,8 @@ public class PropertyMapperCreator<From, To> {
 
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     public class PropertyMapperCreatorFromIf2<T1, T2> {
-        private Function<From, T1> from1;
-        private Function<From, T2> from2;
+        private final Function<From, T1> from1;
+        private final Function<From, T2> from2;
 
         /**
          * <p>Adds a predicate that checks if further execution of the mapping is necessary</p>
@@ -309,9 +309,9 @@ public class PropertyMapperCreator<From, To> {
 
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     public class PropertyMapperCreatorTo2<T1, T2> {
-        private Function<From, T1> from1;
-        private Function<From, T2> from2;
-        private BiPredicate<T1, T2> predicate;
+        private final Function<From, T1> from1;
+        private final Function<From, T2> from2;
+        private final BiPredicate<T1, T2> predicate;
 
         public PropertyMapperCreator<From, To> to(TriConsumer<To, T1, T2> to) {
             mappings.add((input, output) -> {
@@ -331,13 +331,13 @@ public class PropertyMapperCreator<From, To> {
 
         @AllArgsConstructor(access = AccessLevel.PRIVATE)
         public class PropertyMapperCreatorWith<S> {
-            private Function<From, T1> from1;
+            private final Function<From, T1> from1;
 
-            private Function<From, T2> from2;
+            private final Function<From, T2> from2;
 
-            private BiConsumer<To, S> to;
+            private final BiConsumer<To, S> to;
 
-            private BiPredicate<T1, T2> predicate;
+            private final BiPredicate<T1, T2> predicate;
 
             public PropertyMapperCreator<From, To> with(BiFunction<T1, T2, S> mapping) {
                 mappings.add((input, output) -> {
@@ -354,7 +354,7 @@ public class PropertyMapperCreator<From, To> {
 
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     public class PropertyMapperCreatorFromIfN {
-        private List<Function<From, ?>> from;
+        private final List<Function<From, ?>> from;
 
         public PropertyMapperCreatorToN iff(Predicate<List<?>> predicate) {
             return new PropertyMapperCreatorToN(from, predicate);
@@ -363,8 +363,8 @@ public class PropertyMapperCreator<From, To> {
 
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     public class PropertyMapperCreatorToN {
-        private List<Function<From, ?>> from;
-        private Predicate<List<?>> predicate;
+        private final List<Function<From, ?>> from;
+        private final Predicate<List<?>> predicate;
 
         public PropertyMapperCreator<From, To> to(BiConsumer<To, List<?>> to) {
             mappings.add((input, output) -> {
@@ -385,9 +385,9 @@ public class PropertyMapperCreator<From, To> {
 
         @AllArgsConstructor(access = AccessLevel.PRIVATE)
         public class PropertyMapperCreatorWith<S> {
-            private List<Function<From, ?>> from;
-            private BiConsumer<To, S> to;
-            private Predicate<List<?>> predicate;
+            private final List<Function<From, ?>> from;
+            private final BiConsumer<To, S> to;
+            private final Predicate<List<?>> predicate;
 
             public PropertyMapperCreator<From, To> with(Function<List<?>, S> mapping) {
                 mappings.add((input, output) -> {

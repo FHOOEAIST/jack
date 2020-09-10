@@ -9,7 +9,7 @@ import java.util.Map;
  * <p>Created by Andreas Pointner on 17.03.2020</p>
  * <p>Test class for {@link ObjectToPropertyMapTransformer}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 
 public class ObjectToPropertyMapTransformerTest {
@@ -63,13 +63,13 @@ public class ObjectToPropertyMapTransformerTest {
     private static class A {
         public double a3 = 3.1415;
         protected String a2 = "2";
-        private int a1 = 1;
+        private final int a1 = 1;
     }
 
     @SuppressWarnings("unused")
     private static class B extends A {
         public double b3 = 2.7182;
         protected String b2 = "3";
-        private int b1 = 2;
+        private final int b1 = 2;
     }
 }

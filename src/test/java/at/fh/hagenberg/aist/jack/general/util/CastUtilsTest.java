@@ -12,7 +12,7 @@ import static at.fh.hagenberg.aist.jack.general.util.CastUtils.cast;
  * <p>Created by Andreas Pointner on 08.05.2020</p>
  * <p>Test class for {@link CastUtils}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 
 public class CastUtilsTest {

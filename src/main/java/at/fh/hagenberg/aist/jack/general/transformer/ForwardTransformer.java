@@ -5,7 +5,7 @@ package at.fh.hagenberg.aist.jack.general.transformer;
  *
  * @param <FROM> FROM which should be transformed to TO
  * @param <TO>   TO which is transformed from FROM
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 @FunctionalInterface
 @SuppressWarnings("java:S119") // Naming of type arguments

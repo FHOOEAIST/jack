@@ -12,7 +12,7 @@ import java.util.function.Function;
  * @param <U> the type of the second argument to the function
  * @param <V> the type of the third argument to the function
  * @param <R> the type of the result of the function
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 @FunctionalInterface
 public interface TriFunction<T, U, V, R> {

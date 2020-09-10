@@ -20,7 +20,7 @@ import java.util.Map;
  * .build());
  * </code>
  *
- * @author Rainer Meindl, rainer.meindl@fh-hagenberg.at, 22.06.2020
+ * @author Rainer Meindl
  */
 @Builder(access = AccessLevel.PACKAGE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)

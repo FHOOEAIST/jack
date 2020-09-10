@@ -12,7 +12,7 @@ import java.util.stream.Stream;
  * <p>Created by Andreas Pointner on 12.02.2018</p>
  * <p>Class that helps adds some comfort functions to {@link Map}s with the usage of {@link Stream}s</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public final class MapUtils {
     private static final Logger logger = Logger.getInstance(MapUtils.class);

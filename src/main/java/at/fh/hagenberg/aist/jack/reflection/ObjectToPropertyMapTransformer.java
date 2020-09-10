@@ -14,7 +14,7 @@ import java.util.stream.Stream;
  * <p>Created by Andreas Pointner on 17.03.2020</p>
  * <p>Transformer to transform an kind of object into a property map</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 @Setter
 public class ObjectToPropertyMapTransformer implements ForwardTransformer<Object, Map<String, Object>> {

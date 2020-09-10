@@ -20,18 +20,18 @@ import java.util.stream.Stream;
  * <p>Created by Christoph Praschl on 17/01/2020</p>
  * <p>Class for accessing domain classes in CSV files. Allows to read and write .csv files containing domain types</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 @SuppressWarnings("unused")
 public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
     private static final Logger logger = Logger.getInstance(CSVProcessor.class);
-    protected char separator;
-    protected List<String> columnDefinition;
+    protected final char separator;
+    protected final List<String> columnDefinition;
     protected BiFunction<T, List<String>, List<String>> elementToFunc;
     protected BiFunction<List<String>, List<String>, T> columnsToElementFunc;
 
     /**
-     * Creates a CSVPointProcessor with given seperator and coloumn definition
+     * Creates a CSVPointProcessor with given separator and column definition
      *
      * @param separator            separator symbol used in csv file
      * @param columnDefinition     column definition of the csv file (can be null for reading if the CSV file contains a header which is used in {@link CSVProcessor#read(File, boolean, boolean)})
@@ -132,18 +132,18 @@ public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
                                                    Supplier<O> elementSupplier,
                                                    TriConsumer<O, String, String> fieldConsumer) {
 
-        BiFunction<List<String>, List<String>, O> func = (splittedLines, cDefinition) -> {
+        BiFunction<List<String>, List<String>, O> func = (splitLines, cDefinition) -> {
             O t = elementSupplier.get();
             for (int i = 0; i < cDefinition.size(); i++) {
-                fieldConsumer.accept(t, splittedLines.get(i), cDefinition.get(i));
+                fieldConsumer.accept(t, splitLines.get(i), cDefinition.get(i));
             }
             return t;
         };
         return getProcessor(separator, columnDefinition, elementToColumnFunc, func);
     }
 
-    private static List<String> split(String string, String delim) {
-        return Stream.of(string.replace(delim, " " + delim + " ").split(delim))
+    private static List<String> split(String string, String delimiter) {
+        return Stream.of(string.replace(delimiter, " " + delimiter + " ").split(delimiter))
                 .map(String::trim)
                 .collect(Collectors.toList());
     }
@@ -201,8 +201,8 @@ public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
                 }
             }
             while ((st = reader.readLine()) != null) {
-                List<String> splittedLine = split(st, String.valueOf(separator));
-                result.add(columnsToElementFunc.apply(normalizeRow(splittedLine), useFileColumnDefinition ?
+                List<String> splitLine = split(st, String.valueOf(separator));
+                result.add(columnsToElementFunc.apply(normalizeRow(splitLine), useFileColumnDefinition ?
                         normalizeColumnDefinition(fileColumndefinition) :
                         normalizeColumnDefinition(columnDefinition)));
             }

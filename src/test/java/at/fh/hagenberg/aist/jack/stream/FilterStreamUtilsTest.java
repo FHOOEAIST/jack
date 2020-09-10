@@ -11,7 +11,7 @@ import java.util.stream.Stream;
  * <p>Created by Andreas Pointner on 02/09/2019</p>
  * <p>Test class for {@link FilterStreamUtils}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public class FilterStreamUtilsTest {
 
@@ -36,9 +36,9 @@ public class FilterStreamUtilsTest {
 }
 
 class Person {
-    private String firstName;
-    private String lastName;
-    private String id;
+    private final String firstName;
+    private final String lastName;
+    private final String id;
 
     Person(String firstName, String lastName, String id) {
         this.firstName = firstName;

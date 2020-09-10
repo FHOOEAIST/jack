@@ -8,7 +8,7 @@ import java.util.function.Function;
  * <p>Created by Andreas Pointner on 29.04.2019</p>
  * <p>Util class to provide different helper function for {@link java.util.function}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public final class FunctionUtil {
     @SuppressWarnings("rawtypes")

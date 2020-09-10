@@ -17,22 +17,22 @@ import java.util.stream.Stream;
  * <p>Created by Christoph Praschl on 14.06.2017.</p>
  * <p>Description: Generic Implementation of the AbstractFileStorage</p>
  *
- * @author Christoph Praschl p41743@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 @SuppressWarnings("unused")
 public class GenericFileStorage<V extends Serializable> extends AbstractFileStorage<String, V> {
-    private Class<V> clazz;
+    private final Class<V> clazz;
 
     public GenericFileStorage(Class<V> clazz) {
         this(clazz, ".ser");
     }
 
-    public GenericFileStorage(Class<V> clazz, String fileextension) {
-        this(clazz, fileextension, File.separator + clazz.getSimpleName());
+    public GenericFileStorage(Class<V> clazz, String fileExtension) {
+        this(clazz, fileExtension, File.separator + clazz.getSimpleName());
     }
 
-    public GenericFileStorage(Class<V> clazz, String fileextension, String subfolder) {
-        super(File.separator + subfolder, fileextension);
+    public GenericFileStorage(Class<V> clazz, String fileExtension, String subfolder) {
+        super(File.separator + subfolder, fileExtension);
         this.clazz = clazz;
     }
 

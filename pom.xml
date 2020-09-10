@@ -33,6 +33,7 @@
         <maven-clover-plugin.version>2.4</maven-clover-plugin.version>
         <maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
         <mapstruct-processor.version>1.3.1.Final</mapstruct-processor.version>
+        <maven-scm-publish-plugin.version>3.0.0</maven-scm-publish-plugin.version>
     </properties>
 
     <dependencies>
@@ -85,23 +86,39 @@
     <distributionManagement>
         <repository>
             <id>maven-releases</id>
+            <!-- TODO change to sonatype -->
             <url>https://aist.fh-hagenberg.at/nexus/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>maven-snapshots</id>
+            <!-- TODO change to sonatype -->
             <url>https://aist.fh-hagenberg.at/nexus/repository/maven-snapshots/</url>
         </snapshotRepository>
         <site>
-            <id>javadoc</id>
-            <url>dav:https://aist.fh-hagenberg.at/nexus/repository/javadoc/jack/${project.version}</url>
+            <id>site_id</id>
+            <url>scm:git:ssh://git@github.com/FHOOEAIST/jack.git</url>
         </site>
     </distributionManagement>
 
     <name>Java AIST Class Kit</name>
     <description>A collection of useful Java extensions</description>
+    <url>https://github.com/FHOOEAIST/jack</url>
+    <organization>
+        <name>Advanced Information Systems and Technology</name>
+        <url>https://aist.fh-hagenberg.at</url>
+    </organization>
+    <!-- TODO -->
+    <licenses>
+        <license>
+            <name/>
+            <url/>
+            <distribution/>
+            <comments/>
+        </license>
+    </licenses>
     <issueManagement>
-        <system>Gitlab</system>
-        <url>https://aist.fh-hagenberg.at/git/Development/jack</url>
+        <system>GitHub</system>
+        <url>https://github.com/FHOOEAIST/jack/issues</url>
     </issueManagement>
     <ciManagement>
         <system>Jenkins</system>
@@ -109,26 +126,15 @@
     </ciManagement>
     <developers>
         <developer>
-            <id>a.pointner</id>
-            <name>Andreas Pointner</name>
-            <email>andreas.pointner@fh-hagenberg.at</email>
+            <id>AIST</id>
+            <name>Advanced Information Systems and Technology</name>
+            <email>z10221@fhooe.at</email>
             <roles>
-                <role>Research Associate</role>
+                <role>Research Group</role>
             </roles>
-            <url>https://research.fh-ooe.at/de/staff/39812</url>
-            <organization>AIST – Advanced Information Systems and Technology</organization>
-            <organizationUrl>https://aist.fh-hagenberg.at</organizationUrl>
-        </developer>
-        <developer>
-            <id>c.praschl</id>
-            <name>Christoph Praschl</name>
-            <email>christoph.praschl@fh-hagenberg.at</email>
-            <roles>
-                <role>Research Associate</role>
-            </roles>
-            <url>https://research.fh-ooe.at/de/staff/39814</url>
-            <organization>AIST – Advanced Information Systems and Technology</organization>
-            <organizationUrl>https://aist.fh-hagenberg.at</organizationUrl>
+            <url>https://aist.fh-hagenberg.at</url>
+            <organization>University of Applied Sciences Upper Austria</organization>
+            <organizationUrl>https://www.fh-ooe.at/</organizationUrl>
         </developer>
     </developers>
 
@@ -225,6 +231,14 @@
                         <version>${wagon-webdav-jackrabbit.version}</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-publish-plugin</artifactId>
+                <version>${maven-scm-publish-plugin.version}</version>
+                <configuration>
+                    <scmBranch>site</scmBranch>
+                </configuration>
             </plugin>
         </plugins>
     </build>

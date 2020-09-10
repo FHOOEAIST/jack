@@ -13,7 +13,7 @@ import java.util.List;
  * <p>Created by Christoph Praschl on 02/10/2019</p>
  * <p>Test class for {@link ReflectionUtils}</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 public class ReflectionUtilsTest {
 

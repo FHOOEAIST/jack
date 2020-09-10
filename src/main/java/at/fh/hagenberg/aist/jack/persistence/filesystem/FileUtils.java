@@ -10,10 +10,10 @@ import java.nio.file.Paths;
  * <p>Created by Christoph Praschl on 02/10/2019</p>
  * <p>Utility class for files</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 public class FileUtils {
-    private static Logger logger = Logger.getInstance(FileUtils.class);
+    private static final Logger logger = Logger.getInstance(FileUtils.class);
 
     private FileUtils() {
     }
@@ -21,7 +21,7 @@ public class FileUtils {
     /**
      * Help method which creates a compliant path string using {@link File#separator}, which is required by the methods of {@link FileUtils}
      *
-     * @param path path which contains slash "/" as file seperator
+     * @param path path which contains slash "/" as file separator
      * @return compliant path string
      */
     public static String toCompliantPath(String path) {
@@ -29,14 +29,14 @@ public class FileUtils {
     }
 
     /**
-     * Method which creates a directory in the temp folder based on the given directoryHierachy (subfolder separated by {@link File#separator})
+     * Method which creates a directory in the temp folder based on the given directoryHierarchy (subfolder separated by {@link File#separator})
      *
      * @param directoryHierarchy defining the sub folders' name
      * @return path to the temp directory
      */
     public static Path createTempDirectory(String directoryHierarchy) {
         if (directoryHierarchy.contains(".")) {
-            throw new IllegalArgumentException("directory hierachy must not contain a file name");
+            throw new IllegalArgumentException("directory hierarchy must not contain a file name");
         }
         StringBuilder sb = new StringBuilder();
         String tempDir = System.getProperty("java.io.tmpdir");
@@ -85,11 +85,11 @@ public class FileUtils {
     }
 
     /**
-     * Writes the given inputstream to a file (given by the file name and file extension) in the local TEMP directory
+     * Writes the given inputStream to a file (given by the file name and file extension) in the local TEMP directory
      *
      * @param fileName      name of the file which should be created
      * @param fileExtension file extension of the file which should be created
-     * @param is            InputStream which should be written to a new file in the TEMP directory (is not closed inside of this method!); if null nothing is writen to the created file
+     * @param is            InputStream which should be written to a new file in the TEMP directory (is not closed inside of this method!); if null nothing is written to the created file
      * @return the created file
      */
     public static File writeToTempFile(String fileName, String fileExtension, InputStream is) {
@@ -97,12 +97,12 @@ public class FileUtils {
     }
 
     /**
-     * Writes the given inputstream to a file (given by the file name and file extension) into a subfolder of the local TEMP directory
+     * Writes the given inputStream to a file (given by the file name and file extension) into a subfolder of the local TEMP directory
      *
      * @param dirPath       Path of the subfolder in the local TEMP directory (may be null; if not use {@link File#separator} for separating different subfolders!)
      * @param fileName      name of the file which should be created
      * @param fileExtension file extension of the file which should be created
-     * @param is            InputStream which should be written to a new file in the TEMP directory (is not closed inside of this method!); if null nothing is writen to the created file
+     * @param is            InputStream which should be written to a new file in the TEMP directory (is not closed inside of this method!); if null nothing is written to the created file
      * @return the created file
      */
     public static File writeToTempFile(String dirPath, String fileName, String fileExtension, InputStream is) {

@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * Created by Andreas Pointner on 24.04.2017.
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public class JavaPoint implements Serializable {
     private double x;

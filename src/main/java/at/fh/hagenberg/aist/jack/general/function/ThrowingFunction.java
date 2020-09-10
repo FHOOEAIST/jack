@@ -4,8 +4,11 @@ package at.fh.hagenberg.aist.jack.general.function;
  * <p>Created by Andreas Pointner on 05.02.2020</p>
  * <p>Implementation of {@link java.util.function.Function} to allow also exceptions</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
+ * @param <R> the result of the function
+ * @param <T> the input of the function
  */
+@FunctionalInterface
 public interface ThrowingFunction<T, R> {
 
     /**

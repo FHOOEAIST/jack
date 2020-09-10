@@ -10,13 +10,13 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Created by Christoph Praschl on 14.06.2017.
+ * <p>Created by Christoph Praschl on 14.06.2017.</p>
+ * <p>Test class for GenericFileStorage</p>
  *
- * @author Christoph Praschl p41743@fh-hagenberg.at
- * Description: Test class for GenericFileStorage
+ * @author Christoph Praschl
  */
 public class GenericFileStorageTest extends AbstractFileStorageTest {
-    private GenericFileStorage<JavaPoint> genericStorage = new GenericFileStorage<>(JavaPoint.class, ".javapoint");
+    private final GenericFileStorage<JavaPoint> genericStorage = new GenericFileStorage<>(JavaPoint.class, ".javapoint");
 
     @Test
     public void testCreate1() {

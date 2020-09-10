@@ -11,19 +11,19 @@ import java.nio.file.NotDirectoryException;
 import java.security.SecureRandom;
 
 /**
- * Created by Christoph Praschl on 14.06.2017.
+ * <p>Created by Christoph Praschl on 14.06.2017.</p>
+ * <p>Abstract Implementation of Storage Interface for storing objects in the TEMP folder of the file system</p>
  *
  * @param <K> DataType of key which is used to save value
  * @param <V> DataType of objects which should be stored
- * @author Christoph Praschl p41743@fh-hagenberg.at
- * Description: Abstract Implementation of Storage Interface for storing objects in the TEMP folder of the file system
+ * @author Christoph Praschl
  */
 public abstract class AbstractFileStorage<K, V> implements Storage<K, V> {
     protected final Logger log = Logger.getInstance(getClass());
     protected final String pathToTempFolder;
     protected final String completePath;
     protected final String fileExtension;
-    private SecureRandom random = new SecureRandom();
+    private final SecureRandom random = new SecureRandom();
 
     public AbstractFileStorage(String pathToSubFolder, String fileExtension) {
         this(pathToSubFolder, fileExtension, "aist");

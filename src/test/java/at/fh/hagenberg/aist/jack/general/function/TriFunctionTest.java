@@ -3,13 +3,11 @@ package at.fh.hagenberg.aist.jack.general.function;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
 /**
  * <p>Created by Andreas Pointner on 03.04.2020</p>
  * <p>Test class for {@link TriFunction}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 
 public class TriFunctionTest {

@@ -6,7 +6,7 @@ import lombok.experimental.UtilityClass;
  * <p>Created by Andreas Pointner on 08.05.2020</p>
  * <p>Helper class for casting</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 @UtilityClass
 public class CastUtils {

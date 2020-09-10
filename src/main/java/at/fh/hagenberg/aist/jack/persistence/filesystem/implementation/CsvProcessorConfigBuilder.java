@@ -20,7 +20,7 @@ import java.util.Map;
  * .build());
  * </code>
  *
- * @author Rainer Meindl, rainer.meindl@fh-hagenberg.at, 28.07.2020
+ * @author Rainer Meindl
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CsvProcessorConfigBuilder {

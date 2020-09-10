@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * <p>Created by Andreas Pointner on 02/09/2019</p>
  * <p>Class that contains different filter helper functions for {@link java.util.stream.Stream}s</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public final class FilterStreamUtils {
     private FilterStreamUtils() {

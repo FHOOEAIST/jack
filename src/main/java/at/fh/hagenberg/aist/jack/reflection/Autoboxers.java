@@ -9,6 +9,7 @@ import java.lang.reflect.Array;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -16,7 +17,7 @@ import java.util.stream.Stream;
  * <p>Created by Christoph Praschl on 12/03/2019</p>
  * <p>Class containing utility functionality for reflection based programming with primitive and boxing types</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Autoboxers {
@@ -48,12 +49,12 @@ public class Autoboxers {
         BOXING_CLASSES = collect.stream().collect(Collectors.toMap(Pair::getFirst, Pair::getSecond));
         PRIMITIVE_CLASSES = collect.stream().collect(Collectors.toMap(Pair::getSecond, Pair::getFirst));
         DEFAULT_VALUES = BOXING_CLASSES.values().stream()
-                .collect(Collectors.toMap(clazz -> (Class<?>) clazz, clazz -> Array.get(Array.newInstance(clazz, 1), 0)));
+                .collect(Collectors.toMap(Function.identity(),clazz -> Array.get(Array.newInstance(clazz, 1), 0)));
 
     }
 
     /**
-     * @return a map of boxing classes (key) with the corresponding primitve classes (value)
+     * @return a map of boxing classes (key) with the corresponding primitive classes (value)
      */
     public static Map<Class<?>, Class<?>> getBoxingClasses() {
         return Collections.unmodifiableMap(BOXING_CLASSES);

@@ -5,13 +5,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
- * Created by Christoph Praschl on 14.06.2017.
+ * <p>Created by Christoph Praschl on 14.06.2017.</p>
+ * <p>Test class for testing TextfileStorage</p>
  *
- * @author Christoph Praschl p41743@fh-hagenberg.at
- * Description: Test class for testing TextfileStorage
+ * @author Christoph Praschl
  */
 public class TextfileStorageTest extends AbstractFileStorageTest {
-    private GenericFileStorage<String> textfileStorage = new GenericFileStorage<>(String.class, "text", ".txt");
+    private final GenericFileStorage<String> textfileStorage = new GenericFileStorage<>(String.class, "text", ".txt");
 
     @Test
     public void testCreate1() {

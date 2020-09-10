@@ -7,7 +7,7 @@ import java.util.Map;
  * <p>Created by Christoph Praschl on 14/04/2020</p>
  * <p>Util class for {@link java.util.Collection} and {@link java.lang.Iterable}</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 public class CollectionUtils {
     private CollectionUtils() {

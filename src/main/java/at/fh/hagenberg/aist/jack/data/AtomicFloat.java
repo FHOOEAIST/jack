@@ -9,13 +9,13 @@ import static java.lang.Float.intBitsToFloat;
  * <p>Created by Andreas Pointner on 03.12.2019</p>
  * <p>Implementation of AtomicFloat based on {@link AtomicInteger}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public class AtomicFloat extends Number {
     /**
      * The bits of the float object
      */
-    private AtomicInteger bits;
+    private final AtomicInteger bits;
 
     /**
      * Default constructor which initializes the object with 0f

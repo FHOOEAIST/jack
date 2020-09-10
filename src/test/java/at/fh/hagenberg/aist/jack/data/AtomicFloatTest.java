@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
  * <p>Created by Andreas Pointner on 03.12.2019</p>
  * <p>Test class for {@link AtomicFloat}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 
 public class AtomicFloatTest {

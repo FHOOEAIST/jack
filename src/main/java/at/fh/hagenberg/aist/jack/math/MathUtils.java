@@ -1,12 +1,14 @@
 package at.fh.hagenberg.aist.jack.math;
 
+import lombok.NonNull;
+
 import java.util.stream.IntStream;
 
 /**
  * Created by Lukas Reithmeier on 11.07.2018
  *
- * @author Lukas Reithmeier lukas.reithmeier@fh-hagenberg.at
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Lukas Reithmeier
+ * @author Andreas Pointner
  */
 // Weaker access cannot be provided, as this is a library and the functions are used outside this library too
 public class MathUtils {
@@ -50,10 +52,7 @@ public class MathUtils {
      * @param epsilon the epsilon to be used to check if two double values are equal
      * @return a == b
      */
-    public static boolean equals(Double a, Double b, double epsilon) {
-        if (a == null || b == null) {
-            throw new IllegalArgumentException(VALUES_MUST_NOT_BE_NULL);
-        }
+    public static boolean equals(@NonNull Double a, @NonNull Double b, double epsilon) {
         return Math.abs(a - b) < epsilon;
     }
 
@@ -78,10 +77,7 @@ public class MathUtils {
      * @param epsilon the epsilon to be used to check which double value is bigger
      * @return true, if the first value is bigger than the second value
      */
-    public static boolean biggerThan(Double a, Double b, double epsilon) {
-        if (a == null || b == null) {
-            throw new IllegalArgumentException(VALUES_MUST_NOT_BE_NULL);
-        }
+    public static boolean biggerThan(@NonNull Double a, @NonNull Double b, double epsilon) {
         return (a - b) > epsilon;
     }
 
@@ -106,10 +102,7 @@ public class MathUtils {
      * @param epsilon the epsilon to be used to check which double value is lower
      * @return true, if the second value is bigger than the first value
      */
-    public static boolean lowerThan(Double a, Double b, double epsilon) {
-        if (a == null || b == null) {
-            throw new IllegalArgumentException(VALUES_MUST_NOT_BE_NULL);
-        }
+    public static boolean lowerThan(@NonNull Double a, @NonNull Double b, double epsilon) {
         return (b - a) > epsilon;
     }
 
@@ -164,11 +157,7 @@ public class MathUtils {
      * @return the maximum value
      */
     public static int max(int... val) {
-        int max = Integer.MIN_VALUE;
-        for (int v : val)
-            if (v > max)
-                max = v;
-        return max;
+        return IntStream.of(val).max().orElse(Integer.MIN_VALUE);
     }
 
     /**

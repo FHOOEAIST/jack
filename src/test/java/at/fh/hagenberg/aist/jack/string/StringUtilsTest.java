@@ -1,6 +1,5 @@
 package at.fh.hagenberg.aist.jack.string;
 
-import org.springframework.lang.Nullable;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,7 +10,7 @@ import java.util.Map;
  * <p>Created by Andreas Pointner on 12/09/2019</p>
  * <p>Test class for {@link StringUtils}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public class StringUtilsTest {
 
@@ -144,7 +143,7 @@ public class StringUtilsTest {
     @Test
     public void testIsNullOrBlank() {
         // given
-        String x = "SEND NUDES";
+        String x = "HELLO WORLD!";
 
         // when
         boolean isValid = StringUtils.isNullOrBlank(x);
@@ -258,10 +257,10 @@ public class StringUtilsTest {
         String x = "Some Test to test the test";
 
         // when
-        var res = StringUtils.replaceAll(x, Map.of("Test", "Fuck", "test", "fuck"));
+        var res = StringUtils.replaceAll(x, Map.of("Test", "Duck", "test", "duck"));
 
         // then
-        Assert.assertEquals(res, "Some Fuck to fuck the fuck");
+        Assert.assertEquals(res, "Some Duck to duck the duck");
     }
 
     @Test
@@ -270,7 +269,7 @@ public class StringUtilsTest {
         String x = "";
 
         // when
-        var res = StringUtils.replaceAll(x, Map.of("Test", "Fuck", "test", "fuck"));
+        var res = StringUtils.replaceAll(x, Map.of("Test", "Duck", "test", "duck"));
 
         // then
         Assert.assertEquals(res, x);
@@ -283,7 +282,7 @@ public class StringUtilsTest {
         String x = null;
 
         // when
-        StringUtils.replaceAll(x, Map.of("Test", "Fuck", "test", "fuck"));
+        StringUtils.replaceAll(x, Map.of("Test", "Duck", "test", "duck"));
 
         // then
 

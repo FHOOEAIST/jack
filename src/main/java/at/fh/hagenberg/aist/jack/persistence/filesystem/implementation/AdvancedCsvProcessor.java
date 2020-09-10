@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  * <p>Extension of the {@link ReflectionCSVProcessor}. It is advanced as it takes an {@link AdvancedCsvProcessorConfig}
  * in order to configure the normalisation of the column headers to allow improved mapping of csv files to objects</p>
  *
- * @author Rainer Meindl, rainer.meindl@fh-hagenberg.at, 22.06.2020
+ * @author Rainer Meindl
  */
 public class AdvancedCsvProcessor<T> extends ReflectionCSVProcessor<T> {
 
@@ -24,7 +24,7 @@ public class AdvancedCsvProcessor<T> extends ReflectionCSVProcessor<T> {
      * @param columnDefinition   columnDefinition of the csv file (can be null for reading if the CSV file contains a
      *                           header which is used in {@link CSVProcessor#read(File, boolean, boolean)})
      * @param clazz              clazz of domain type
-     * @param csvProcessorConfig Configuration for this class. Defines how the header normalization shoudl be handled
+     * @param csvProcessorConfig Configuration for this class. Defines how the header normalization should be handled
      */
     public AdvancedCsvProcessor(char separator, List<String> columnDefinition, Class<T> clazz,
                                 AdvancedCsvProcessorConfig csvProcessorConfig) {
@@ -35,7 +35,7 @@ public class AdvancedCsvProcessor<T> extends ReflectionCSVProcessor<T> {
     /**
      * Constructor of a AdvancedCsvProcessor for domain types with simple-typed properties only (int, double,
      * float, long, boolean, char, Integer, Float, Double, Long, String, Character, Boolean). The configuration is set
-     * to a default, meaning only whitespaces of the column headers are trimmed and concated into one "word"
+     * to a default, meaning only whitespaces of the column headers are trimmed and concatenated into one "word"
      *
      * @param separator        separator used in the csv file
      * @param columnDefinition columnDefinition of the csv file (can be null for reading if the CSV file contains a
@@ -73,7 +73,7 @@ public class AdvancedCsvProcessor<T> extends ReflectionCSVProcessor<T> {
     protected List<String> normalizeRow(List<String> csvLine) {
         return csvLine.stream()
                 .map(String::strip)
-                .map((stringToCheck) -> StringUtils.removeAll(stringToCheck, config.getContentCharactersToRemove()))
+                .map(stringToCheck -> StringUtils.removeAll(stringToCheck, config.getContentCharactersToRemove()))
                 .map(s -> StringUtils.replaceAll(s, config.getContentCharactersToReplace()))
                 .collect(Collectors.toList());
     }

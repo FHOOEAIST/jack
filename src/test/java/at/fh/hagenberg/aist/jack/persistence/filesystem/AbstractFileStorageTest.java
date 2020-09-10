@@ -7,10 +7,10 @@ import org.testng.Assert;
 import java.io.File;
 
 /**
- * Created by Christoph Praschl on 14.06.2017.
+ * <p>Created by Christoph Praschl on 14.06.2017.</p>
+ * <p>Abstract storagetest class</p>
  *
- * @author Christoph Praschl p41743@fh-hagenberg.at
- * Description: Abstract storagetest class
+ * @author Christoph Praschl
  */
 public abstract class AbstractFileStorageTest {
     protected final Logger log = Logger.getInstance(getClass());

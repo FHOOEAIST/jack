@@ -9,7 +9,7 @@ import java.util.*;
  * <p>Created by Christoph Praschl on 14/04/2020</p>
  * <p>Test class for {@link CollectionUtils}</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 public class CollectionUtilsTest {
 

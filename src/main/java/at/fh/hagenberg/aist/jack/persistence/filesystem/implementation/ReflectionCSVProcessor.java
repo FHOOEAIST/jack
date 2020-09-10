@@ -15,13 +15,13 @@ import java.util.stream.Collectors;
  * <p>Created by Christoph Praschl on 24/01/2020</p>
  * <p>Reflection based implementation for reading/writing CSV files. </p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
-    private static Logger logger = Logger.getInstance(CSVProcessor.class);
+    private static final Logger logger = Logger.getInstance(CSVProcessor.class);
 
-    private Set<String> ignoredFields = new HashSet<>();
-    private Map<Class<?>, Function<String, Object>> converters = new HashMap<>();
+    private final Set<String> ignoredFields = new HashSet<>();
+    private final Map<Class<?>, Function<String, Object>> converters = new HashMap<>();
 
     /**
      * Constructor of a ReflectionCSVProcessor for domain types with simple-typed properties only (int, double, float, long, boolean, char, Integer, Float, Double, Long, String, Character, Boolean)
@@ -101,7 +101,7 @@ public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
             return result;
         };
 
-        this.columnsToElementFunc = (splittedLines, columns) -> {
+        this.columnsToElementFunc = (splitLines, columns) -> {
             T obj;
             try {
                 obj = clazz.getDeclaredConstructor().newInstance();
@@ -117,7 +117,7 @@ public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
                     continue;
                 }
 
-                String columnValue = splittedLines.get(i);
+                String columnValue = splitLines.get(i);
                 try {
                     Field field = classFields.getOrDefault(columnName, null);
                     if (field != null) {

@@ -16,15 +16,15 @@ import java.util.stream.Stream;
  *
  * @param <S> type of the first value
  * @param <T> type of the second value
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 @Getter
 @EqualsAndHashCode
 @ToString
 @AllArgsConstructor(staticName = "of")
 public class Pair<S, T> {
-    private S first;
-    private T second;
+    private final S first;
+    private final T second;
 
     /**
      * A collector to create a {@link Map} from a {@link Stream} of {@link Pair}s.

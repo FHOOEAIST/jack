@@ -9,7 +9,7 @@ import java.io.Serializable;
  * <p>Created by Andreas Pointner on 28/08/2019</p>
  * <p>Test class for {@link CopyUtils}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public class CopyUtilsTest {
     @Test

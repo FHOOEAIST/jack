@@ -10,10 +10,10 @@ import java.util.Collection;
  * <p>Created by Andreas Pointner on 28/08/2019</p>
  * <p>Test class for {@link Transformer}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public class TransformerTest {
-    private Transformer<A, B> abTransformer = new Transformer<>() {
+    private final Transformer<A, B> abTransformer = new Transformer<>() {
 
         @Override
         public A transformTo(B b) {

@@ -11,7 +11,7 @@ import java.util.Map;
  * <p>Created by Andreas Pointner on 28/08/2019</p>
  * <p>Test class for {@link Pair}</p>
  *
- * @author Andreas Pointner andreas.pointner@fh-hagenberg.at
+ * @author Andreas Pointner
  */
 public class PairTest {
 

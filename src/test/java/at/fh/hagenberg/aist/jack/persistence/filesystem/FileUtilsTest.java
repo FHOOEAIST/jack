@@ -15,10 +15,10 @@ import java.nio.file.Path;
  * <p>Created by Christoph Praschl on 02/10/2019</p>
  * <p>Test class for {@link FileUtils}</p>
  *
- * @author Christoph Praschl christoph.praschl@fh-hagenberg.at
+ * @author Christoph Praschl
  */
 public class FileUtilsTest {
-    private static Logger logger = Logger.getInstance(FileUtils.class);
+    private static final Logger logger = Logger.getInstance(FileUtils.class);
 
     @Test
     public void testWriteToTempFile() {
@@ -33,7 +33,7 @@ public class FileUtilsTest {
             Files.delete(file.toPath());
             Assert.assertFalse(file.exists());
         } catch (IOException e) {
-            logger.debug("Inputstream could not be closed", e);
+            logger.debug("InputStream could not be closed", e);
         }
     }
 
@@ -51,7 +51,7 @@ public class FileUtilsTest {
             Files.delete(file.toPath());
             Assert.assertFalse(file.exists());
         } catch (IOException e) {
-            logger.debug("Inputstream could not be closed", e);
+            logger.debug("InputStream could not be closed", e);
         }
     }
 

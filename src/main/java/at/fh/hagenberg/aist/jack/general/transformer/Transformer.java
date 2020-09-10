@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
  *
  * @param <FROM> Item to be transferred to TO
  * @param <TO>   TO to be transferred to Item
- * @author Oliver Krauss on 19.02.2015.
- * @author Christoph Praschl on 30.10.2018.
+ * @author Oliver Krauss
+ * @author Christoph Praschl
  */
 @SuppressWarnings("java:S119") // Naming of type arguments
 public interface Transformer<FROM, TO> extends ForwardTransformer<FROM, TO>, BackwardTransformer<FROM, TO>,
