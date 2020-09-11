@@ -152,6 +152,7 @@ public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
      * Defines the normalisation of the header files. Adapter method
      *
      * @param columnHeader the split header definition of the csv file
+     * @return the normalized column header
      */
     protected List<String> normalizeColumnDefinition(List<String> columnHeader) {
         return columnHeader;
@@ -161,6 +162,7 @@ public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
      * Defines the normalisation of a singular csv line after the header. Adapter method
      *
      * @param csvLine the split line of a csv file.
+     * @return the normalized csv lines
      */
     protected List<String> normalizeRow(List<String> csvLine) {
         return csvLine;

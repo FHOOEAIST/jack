@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.regex.Pattern;
 
 /**
  * <p>Created by Andreas Pointner on 12/09/2019</p>
@@ -71,6 +72,7 @@ public final class StringUtils {
         if (str == null || str.isEmpty() || sub == null || sub.isEmpty()) {
             return 0;
         }
+
         int count = 0;
         int idx = 0;
         while ((idx = str.indexOf(sub, idx)) != INDEX_NOT_FOUND) {

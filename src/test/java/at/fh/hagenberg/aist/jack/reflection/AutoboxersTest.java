@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * <p>Created by Christoph Praschl on 17/04/2020</p>
@@ -25,10 +26,9 @@ public class AutoboxersTest {
 
         // then
         Assert.assertEquals(boxingClasses.size(), 8);
-        for (Class<? extends Serializable> aClass : Arrays.asList(Boolean.class, Byte.class, Character.class, Double.class, Float.class, Integer.class, Long.class, Short.class)) {
-            Assert.assertTrue(boxingClasses.containsKey(aClass));
-        }
-
+        Stream.of(Boolean.class, Byte.class, Character.class, Double.class, Float.class, Integer.class, Long.class, Short.class)
+                .map(boxingClasses::containsKey)
+                .forEach(Assert::assertTrue);
     }
 
     @Test
@@ -40,9 +40,9 @@ public class AutoboxersTest {
 
         // then
         Assert.assertEquals(boxingClasses.size(), 8);
-        for (Class<? extends Serializable> aClass : Arrays.asList(boolean.class, byte.class, char.class, double.class, float.class, int.class, long.class, short.class)) {
-            Assert.assertTrue(boxingClasses.containsKey(aClass));
-        }
+        Stream.of(boolean.class, byte.class, char.class, double.class, float.class, int.class, long.class, short.class)
+                .map(boxingClasses::containsKey)
+                .forEach(Assert::assertTrue);
     }
 
     @Test

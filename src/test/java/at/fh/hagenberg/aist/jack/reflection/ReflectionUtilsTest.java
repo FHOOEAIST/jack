@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import java.lang.reflect.Field;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -22,10 +23,12 @@ public class ReflectionUtilsTest {
         // given
 
         // when
-        List<Field> allFieldsOfClass = ReflectionUtils.getAllFieldsOfClass(B.class);
+        List<Field> allFieldsOfClass = ReflectionUtils.getAllFieldsOfClass(B.class)
+                // remove synthetic fields because execution otherwise fails on CI
+                .stream().filter(f -> !f.isSynthetic()).collect(Collectors.toList());
 
         // then
-        Assert.assertTrue(allFieldsOfClass.size() >= 6); // weird check because of synthetic fields on jenkins
+        Assert.assertEquals(allFieldsOfClass.size(), 6);
     }
 
     @Test
@@ -33,10 +36,12 @@ public class ReflectionUtilsTest {
         // given
 
         // when
-        List<Field> allFieldsOfClass = ReflectionUtils.getAllFieldsOfClass(A.class);
+        List<Field> allFieldsOfClass = ReflectionUtils.getAllFieldsOfClass(A.class)
+                // remove synthetic fields because execution otherwise fails on CI
+                .stream().filter(f -> !f.isSynthetic()).collect(Collectors.toList());
 
         // then
-        Assert.assertTrue(allFieldsOfClass.size() >= 3); // weird check because of synthetic fields on jenkins
+        Assert.assertEquals(allFieldsOfClass.size(), 3);
 
     }
 }

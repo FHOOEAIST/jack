@@ -16,23 +16,6 @@ import static at.fh.hagenberg.aist.jack.data.Pair.of;
 public class MapUtilsTest {
 
     @Test
-    public void testElementPropertiesToMap() {
-        // given
-        A a = new A();
-
-        // when
-        Map<String, Object> aMap = MapUtils.elementPropertiesToMap(a, "a_");
-
-        // then
-        Assert.assertTrue(aMap.containsKey("a_x"));
-        Assert.assertEquals(aMap.get("a_x"), 1);
-        Assert.assertTrue(aMap.containsKey("a_y"));
-        Assert.assertEquals(aMap.get("a_y"), 2d);
-        Assert.assertTrue(aMap.containsKey("a_z"));
-        Assert.assertEquals(aMap.get("a_z"), "3");
-    }
-
-    @Test
     public void testPrefixMapKey() {
         // given
         Map<String, Object> map = MapUtils.mapOfValues(of("x", 1), of("y", 2d), of("z", "3"));
@@ -64,11 +47,4 @@ public class MapUtilsTest {
         Assert.assertTrue(map.containsKey("z"));
         Assert.assertEquals(map.get("z"), "3");
     }
-}
-
-@SuppressWarnings("unused")
-class A {
-    int x = 1;
-    double y = 2;
-    String z = "3";
 }

@@ -50,7 +50,6 @@ public class ObjectToPropertyMapTransformer implements ForwardTransformer<Object
             } finally {
                 f.setAccessible(access);
             }
-        }))
-                .collect(Pair.toMap());
+        })).collect(Pair.toMap());
     }
 }

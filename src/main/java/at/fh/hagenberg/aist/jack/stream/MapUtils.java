@@ -1,11 +1,8 @@
 package at.fh.hagenberg.aist.jack.stream;
 
 import at.fh.hagenberg.aist.jack.data.Pair;
-import at.fh.hagenberg.aist.seshat.Logger;
 
-import java.util.Arrays;
 import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Stream;
 
 /**
@@ -15,38 +12,7 @@ import java.util.stream.Stream;
  * @author Andreas Pointner
  */
 public final class MapUtils {
-    private static final Logger logger = Logger.getInstance(MapUtils.class);
-
     private MapUtils() {
-    }
-
-    /**
-     * Returns all properties of a specific object. Therefore it extracts the fields via reflections and get its value.
-     * This function only returns the values from the "main"-class. So if the class is e.g. String, then it returns only
-     * fields from the class String and not from its superclass Object!
-     * Then it create a Map with Key = FieldName, Value = FieldValue
-     *
-     * @param o      the where the value should be extracted
-     * @param prefix the prefix which should be added to the map
-     * @return a map with Key = FieldName, Value = FieldValue
-     */
-    public static Map<String, Object> elementPropertiesToMap(Object o, String prefix) {
-        return Arrays.stream(o.getClass().getDeclaredFields())
-                .filter(f -> !f.isSynthetic())
-                .map(f -> {
-                    boolean acc = f.canAccess(o);
-                    f.setAccessible(true);
-                    try {
-                        return Pair.of(prefix + f.getName(), f.get(o));
-                    } catch (IllegalAccessException e) {
-                        logger.debug(e.getMessage(), e);
-                        return null;
-                    } finally {
-                        f.setAccessible(acc);
-                    }
-                })
-                .filter(Objects::nonNull)
-                .collect(Pair.toMap());
     }
 
     /**

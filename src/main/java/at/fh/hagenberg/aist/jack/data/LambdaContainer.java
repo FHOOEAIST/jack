@@ -19,5 +19,5 @@ public class LambdaContainer<T> {
     /**
      * the stored value inside the container
      */
-    private T val;
+    private T value;
 }

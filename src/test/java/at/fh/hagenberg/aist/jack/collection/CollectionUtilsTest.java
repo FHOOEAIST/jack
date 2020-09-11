@@ -11,6 +11,7 @@ import java.util.*;
  *
  * @author Christoph Praschl
  */
+@SuppressWarnings("ConstantConditions") // we exactly want to test that
 public class CollectionUtilsTest {
 
     @Test

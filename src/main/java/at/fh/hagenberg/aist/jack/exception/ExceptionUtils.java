@@ -44,6 +44,13 @@ public final class ExceptionUtils {
      *   }
      * </pre>
      * <p>you can directly use: </p>
+     * <pre>
+     *   try {
+     *     doSomething();
+     *   } catch (IOException ioe) {
+     *     throw ExceptionUtils.unchecked(ioe); // this will throw IOException directly
+     *   }
+     * </pre>
      *
      * @param t the exception to be thrown
      * @return a runtimeException to avoid compiler checks

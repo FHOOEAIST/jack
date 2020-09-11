@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faqs xmlns="http://maven.apache.org/FML/1.0.1"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+>
+    <part id="General">
+        <faq id="Why yet another utility framework">
+            <question>Why yet another utility framework?</question>
+            <answer>
+                <p>
+                    Basically, there is no valid reason to create another utility framework, beside the 1000 other one
+                    already existing on the market. Nevertheless, we tried out some frameworks and non of it had all the
+                    functionality we required. Moreover, most of these frameworks have dependencies to other big frameworks,
+                    which led to a load of dependencies even for small projects, resulting in big-jars. We wanted to
+                    overcome that limitation and therefore created this framework, with the restriction,
+                    that it must not depend on other big frameworks.
+                </p>
+            </answer>
+        </faq>
+    </part>
+</faqs>

@@ -18,7 +18,7 @@ public class AdvancedCsvProcessorTest {
     private static class TestData {
         private int valid;
         private String invalidStuff;
-        private int crazyShit;
+        private int fancyInt;
     }
 
     @SneakyThrows

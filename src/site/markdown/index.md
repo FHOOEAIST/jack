@@ -1,7 +1,8 @@
 # Java AIST Class Kit (JACK)
 
-JACK is our internal multipurpose Java framework, which consists of multiple, reusable utility classes.
-The main goal of this framework is to avoid code duplication in all our project. Therefore, JACK provides a simple way to have a code basis across project boundaries.
+JACK is our multipurpose Java framework, which consists of multiple, reusable utility classes.
+The main goal of this framework is to avoid code duplication in all our project. Therefore, JACK provides a simple way 
+to have a code basis across project boundaries.
 
 ## Content
 
@@ -19,8 +20,3 @@ Currently, JACK consists of the following packages:
 - **Reflection:** Contains different utility functionality for reflection based code like extracting all fields of a class containing also the super classes' fields.
 - **Stream:** The stream package consists of extensions for `java.lang.Stream` like different mapping methods.
 - **String:** Contains useful utility classes for operating with strings
-
-## Contribution
-
-If you want to add your own stuff, first check if there is already a package in which it fits in. If not, then create a new one.
-Do not add dependencies to other frameworks like Spring.

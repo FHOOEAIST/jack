@@ -72,50 +72,50 @@ public class MathUtils {
     /**
      * determines if  one value is bigger than an other value
      *
-     * @param a       first value
-     * @param b       second value
+     * @param bigger       first value
+     * @param smaller       second value
      * @param epsilon the epsilon to be used to check which double value is bigger
      * @return true, if the first value is bigger than the second value
      */
-    public static boolean biggerThan(@NonNull Double a, @NonNull Double b, double epsilon) {
-        return (a - b) > epsilon;
+    public static boolean biggerThan(@NonNull Double bigger, @NonNull Double smaller, double epsilon) {
+        return (bigger - smaller) > epsilon;
     }
 
 
     /**
      * determines if  one value is bigger than an other value
      *
-     * @param a first value
-     * @param b second value
+     * @param bigger first value
+     * @param smaller second value
      * @return true, if the first value is bigger than the second value
      * @see MathUtils#biggerThan(Double, Double, double)
      */
-    public static boolean biggerThan(Double a, Double b) {
-        return biggerThan(a, b, EPSILON);
+    public static boolean biggerThan(Double bigger, Double smaller) {
+        return biggerThan(bigger, smaller, EPSILON);
     }
 
     /**
      * determines if  one value is bigger than an other value
      *
-     * @param a       first value
-     * @param b       second value
+     * @param lower       first value
+     * @param bigger       second value
      * @param epsilon the epsilon to be used to check which double value is lower
      * @return true, if the second value is bigger than the first value
      */
-    public static boolean lowerThan(@NonNull Double a, @NonNull Double b, double epsilon) {
-        return (b - a) > epsilon;
+    public static boolean lowerThan(@NonNull Double lower, @NonNull Double bigger, double epsilon) {
+        return (bigger - lower) > epsilon;
     }
 
     /**
      * determines if  one value is bigger than an other value
      *
-     * @param a first value
-     * @param b second value
+     * @param lower first value
+     * @param bigger second value
      * @return true, if the second value is bigger than the first value
      * @see MathUtils#lowerThan(Double, Double, double)
      */
-    public static boolean lowerThan(Double a, Double b) {
-        return lowerThan(a, b, EPSILON);
+    public static boolean lowerThan(Double lower, Double bigger) {
+        return lowerThan(lower, bigger, EPSILON);
     }
 
     /**
