@@ -5,13 +5,14 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
 
 /**
- * <p>Created by Andreas Pointner on 08.05.2020</p>
  * <p>Test class for {@link CastUtils}</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 
 public class CastUtilsTest {

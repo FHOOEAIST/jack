@@ -7,10 +7,10 @@ import java.util.Arrays;
 import java.util.Collection;
 
 /**
- * <p>Created by Andreas Pointner on 28/08/2019</p>
  * <p>Test class for {@link Transformer}</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 public class TransformerTest {
     private final Transformer<A, B> abTransformer = new Transformer<>() {

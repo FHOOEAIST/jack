@@ -9,17 +9,13 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * <p>Test class for {@link AdvancedCsvProcessor}</p>
+ *
+ * @author Rainer Meindl
+ * @since 1.0
+ */
 public class AdvancedCsvProcessorTest {
-
-    @Getter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @EqualsAndHashCode
-    private static class TestData {
-        private int valid;
-        private String invalidStuff;
-        private int fancyInt;
-    }
 
     @SneakyThrows
     @Test
@@ -176,5 +172,15 @@ public class AdvancedCsvProcessorTest {
 
         // then
         Assert.assertEquals(result, expected);
+    }
+
+    @Getter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @EqualsAndHashCode
+    private static class TestData {
+        private int valid;
+        private String invalidStuff;
+        private int fancyInt;
     }
 }

@@ -6,10 +6,10 @@ import static java.lang.Float.floatToIntBits;
 import static java.lang.Float.intBitsToFloat;
 
 /**
- * <p>Created by Andreas Pointner on 03.12.2019</p>
  * <p>Implementation of AtomicFloat based on {@link AtomicInteger}</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 public class AtomicFloat extends Number {
     /**

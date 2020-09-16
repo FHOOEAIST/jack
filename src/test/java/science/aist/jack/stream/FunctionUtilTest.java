@@ -8,10 +8,10 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**
- * <p>Created by Andreas Pointner on 03/09/2019</p>
  * <p>Test class for {@link FunctionUtil}</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 public class FunctionUtilTest {
 

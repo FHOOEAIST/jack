@@ -1,11 +1,11 @@
 package science.aist.jack.persistence.filesystem.implementation;
 
-import science.aist.jack.general.function.TriConsumer;
-import science.aist.jack.persistence.filesystem.CSVReader;
-import science.aist.jack.persistence.filesystem.CSVWriter;
 import at.fh.hagenberg.aist.seshat.Logger;
 import lombok.NonNull;
 import lombok.SneakyThrows;
+import science.aist.jack.general.function.TriConsumer;
+import science.aist.jack.persistence.filesystem.CSVReader;
+import science.aist.jack.persistence.filesystem.CSVWriter;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -17,10 +17,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * <p>Created by Christoph Praschl on 17/01/2020</p>
  * <p>Class for accessing domain classes in CSV files. Allows to read and write .csv files containing domain types</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 @SuppressWarnings("unused")
 public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {

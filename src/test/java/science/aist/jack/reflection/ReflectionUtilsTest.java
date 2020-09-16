@@ -1,9 +1,9 @@
 package science.aist.jack.reflection;
 
-import science.aist.jack.reflection.domain.A;
-import science.aist.jack.reflection.domain.B;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.jack.reflection.domain.A;
+import science.aist.jack.reflection.domain.B;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -11,10 +11,10 @@ import java.util.stream.Collectors;
 
 
 /**
- * <p>Created by Christoph Praschl on 02/10/2019</p>
  * <p>Test class for {@link ReflectionUtils}</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 public class ReflectionUtilsTest {
 

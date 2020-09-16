@@ -1,9 +1,9 @@
 package science.aist.jack.exception;
 
-import science.aist.jack.general.function.ThrowingFunction;
-import science.aist.jack.general.function.ThrowingSupplier;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.jack.general.function.ThrowingFunction;
+import science.aist.jack.general.function.ThrowingSupplier;
 
 import java.io.IOException;
 import java.util.function.Function;
@@ -12,7 +12,12 @@ import java.util.function.Supplier;
 import static science.aist.jack.exception.ExceptionUtils.failure;
 import static science.aist.jack.exception.ExceptionUtils.unchecked;
 
-
+/**
+ * <p>Test class for {@link ExceptionUtils}</p>
+ *
+ * @author Andreas Pointner
+ * @since 1.0
+ */
 public class ExceptionUtilsTest {
 
     @Test(expectedExceptions = IOException.class)

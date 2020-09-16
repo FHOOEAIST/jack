@@ -6,10 +6,10 @@ import org.testng.annotations.Test;
 import java.util.Map;
 
 /**
- * <p>Created by Andreas Pointner on 17.03.2020</p>
  * <p>Test class for {@link ObjectToPropertyMapTransformer}</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 
 public class ObjectToPropertyMapTransformerTest {
@@ -61,15 +61,15 @@ public class ObjectToPropertyMapTransformerTest {
 
     @SuppressWarnings("unused")
     private static class A {
+        private final int a1 = 1;
         public double a3 = 3.1415;
         protected String a2 = "2";
-        private final int a1 = 1;
     }
 
     @SuppressWarnings("unused")
     private static class B extends A {
+        private final int b1 = 2;
         public double b3 = 2.7182;
         protected String b2 = "3";
-        private final int b1 = 2;
     }
 }

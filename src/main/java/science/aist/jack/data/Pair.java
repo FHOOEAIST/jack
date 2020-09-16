@@ -11,12 +11,12 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * <p>Created by Andreas Pointner on 27/08/2019</p>
  * <p>Pair class to store two value</p>
  *
  * @param <S> type of the first value
  * @param <T> type of the second value
  * @author Andreas Pointner
+ * @since 1.0
  */
 @Getter
 @EqualsAndHashCode

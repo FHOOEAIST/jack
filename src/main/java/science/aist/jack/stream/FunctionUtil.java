@@ -5,10 +5,10 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**
- * <p>Created by Andreas Pointner on 29.04.2019</p>
  * <p>Util class to provide different helper function for {@link java.util.function}</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 public final class FunctionUtil {
     @SuppressWarnings("rawtypes")

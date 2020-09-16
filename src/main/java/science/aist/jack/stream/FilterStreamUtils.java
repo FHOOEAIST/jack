@@ -9,10 +9,10 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
- * <p>Created by Andreas Pointner on 02/09/2019</p>
  * <p>Class that contains different filter helper functions for {@link java.util.stream.Stream}s</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 public final class FilterStreamUtils {
     private FilterStreamUtils() {

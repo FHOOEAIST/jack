@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
  * in order to configure the normalisation of the column headers to allow improved mapping of csv files to objects</p>
  *
  * @author Rainer Meindl
+ * @since 1.0
  */
 public class AdvancedCsvProcessor<T> extends ReflectionCSVProcessor<T> {
 

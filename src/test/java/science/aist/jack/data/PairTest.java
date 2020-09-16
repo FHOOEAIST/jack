@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <p>Created by Andreas Pointner on 28/08/2019</p>
  * <p>Test class for {@link Pair}</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 public class PairTest {
 

@@ -4,9 +4,10 @@ package science.aist.jack.persistence.filesystem.domain;
 import java.io.Serializable;
 
 /**
- * Created by Andreas Pointner on 24.04.2017.
+ * <p>Test domain object</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 public class JavaPoint implements Serializable {
     private double x;

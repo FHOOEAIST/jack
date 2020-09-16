@@ -6,10 +6,10 @@ import org.testng.annotations.Test;
 import java.util.*;
 
 /**
- * <p>Created by Christoph Praschl on 14/04/2020</p>
  * <p>Test class for {@link CollectionUtils}</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 @SuppressWarnings("ConstantConditions") // we exactly want to test that
 public class CollectionUtilsTest {

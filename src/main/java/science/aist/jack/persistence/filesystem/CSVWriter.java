@@ -4,10 +4,10 @@ import java.io.File;
 import java.util.List;
 
 /**
- * <p>Created by Christoph Praschl on 25/02/2020</p>
  * <p>Interface for writing elements to a CSV file</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 public interface CSVWriter<T> {
     /**

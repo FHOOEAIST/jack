@@ -3,7 +3,6 @@ package science.aist.jack.general.function;
 import java.util.function.BiFunction;
 
 /**
- * <p>Created by Andreas Pointner on 12.03.2019</p>
  * <p>Represents a function that accepts two arguments and produces an boolean-valued
  * result.  This is the {@code boolean}-producing primitive specialization for
  * {@link BiFunction}.</p>
@@ -15,6 +14,7 @@ import java.util.function.BiFunction;
  * @param <U> the type of the second argument to the function
  * @author Andreas Pointner
  * @see BiFunction
+ * @since 1.0
  */
 @FunctionalInterface
 public interface ToBooleanBiFunction<T, U> {

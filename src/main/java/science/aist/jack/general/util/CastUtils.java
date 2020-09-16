@@ -3,10 +3,10 @@ package science.aist.jack.general.util;
 import lombok.experimental.UtilityClass;
 
 /**
- * <p>Created by Andreas Pointner on 08.05.2020</p>
  * <p>Helper class for casting</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 @UtilityClass
 public class CastUtils {
@@ -17,7 +17,7 @@ public class CastUtils {
      *     Object o = "abc";
      *     String s = cast(o);
      * </pre>
-     *
+     * <p>
      * Supports to cast generic types:
      * <pre>
      *     List&lt;Object&gt; oList = ...

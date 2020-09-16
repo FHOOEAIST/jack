@@ -1,8 +1,8 @@
 package science.aist.jack.persistence.filesystem.implementation;
 
-import science.aist.jack.reflection.ReflectionUtils;
 import at.fh.hagenberg.aist.seshat.Logger;
 import lombok.SneakyThrows;
+import science.aist.jack.reflection.ReflectionUtils;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -12,10 +12,10 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
- * <p>Created by Christoph Praschl on 24/01/2020</p>
  * <p>Reflection based implementation for reading/writing CSV files. </p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
     private static final Logger logger = Logger.getInstance(CSVProcessor.class);

@@ -1,8 +1,8 @@
 package science.aist.jack.general;
 
-import science.aist.jack.general.function.TriConsumer;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import science.aist.jack.general.function.TriConsumer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,7 +11,6 @@ import java.util.function.*;
 import java.util.stream.Collectors;
 
 /**
- * <p>Created by Andreas Pointner on 03.12.2018</p>
  * <p>This class creates a PropertyMapper, that is based on the ideas of Andreas Schuler PropertyMapper from the archetype</p>
  * <p>The property mapper creator is able to define mappings from one class into another class.
  * Therefore different mappings can be defined, then the actual PropertyMapper can be created using {@link PropertyMapperCreator#create()}
@@ -45,6 +44,7 @@ import java.util.stream.Collectors;
  * @param <To>   The target class for the mapping
  * @author Andreas Pointner
  * @version 1.0
+ * @since 1.0
  * @since 1.0
  */
 @SuppressWarnings({"java:S119", "unused"}) // Naming of type arguments and ignoring unused methods

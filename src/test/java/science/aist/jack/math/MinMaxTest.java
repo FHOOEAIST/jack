@@ -9,10 +9,10 @@ import java.util.Optional;
 import java.util.function.BiConsumer;
 
 /**
- * <p>Created by Christoph Praschl on 25/02/2020</p>
  * <p>Test class for {@link MinMax}</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 public class MinMaxTest {
 

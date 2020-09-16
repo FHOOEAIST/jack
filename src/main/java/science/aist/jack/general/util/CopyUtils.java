@@ -11,6 +11,7 @@ import java.io.ObjectOutputStream;
  * <p>Util class defining functions to create copies of other objects.</p>
  *
  * @author Rainer Meindl
+ * @since 1.0
  */
 public final class CopyUtils {
     private static final Logger logger = Logger.getInstance(CopyUtils.class);

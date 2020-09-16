@@ -1,14 +1,14 @@
 package science.aist.jack.persistence.filesystem;
 
-import science.aist.jack.persistence.filesystem.implementation.GenericFileStorage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.jack.persistence.filesystem.implementation.GenericFileStorage;
 
 /**
- * <p>Created by Christoph Praschl on 14.06.2017.</p>
  * <p>Test class for testing TextfileStorage</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 public class TextfileStorageTest extends AbstractFileStorageTest {
     private final GenericFileStorage<String> textfileStorage = new GenericFileStorage<>(String.class, "text", ".txt");

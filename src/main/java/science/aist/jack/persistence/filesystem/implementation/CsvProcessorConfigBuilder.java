@@ -21,6 +21,7 @@ import java.util.Map;
  * </code>
  *
  * @author Rainer Meindl
+ * @since 1.0
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CsvProcessorConfigBuilder {

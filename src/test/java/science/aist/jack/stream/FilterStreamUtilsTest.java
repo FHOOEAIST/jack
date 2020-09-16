@@ -8,10 +8,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * <p>Created by Andreas Pointner on 02/09/2019</p>
  * <p>Test class for {@link FilterStreamUtils}</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 public class FilterStreamUtilsTest {
 

@@ -12,10 +12,10 @@ import java.nio.file.Path;
 
 
 /**
- * <p>Created by Christoph Praschl on 02/10/2019</p>
  * <p>Test class for {@link FileUtils}</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 public class FileUtilsTest {
     private static final Logger logger = Logger.getInstance(FileUtils.class);

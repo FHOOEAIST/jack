@@ -8,10 +8,10 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 /**
- * <p>Created by Christoph Praschl on 17/04/2020</p>
  * <p>Test class for {@link Autoboxers}</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 public class AutoboxersTest {
 
@@ -52,13 +52,13 @@ public class AutoboxersTest {
 
         // then
         Assert.assertEquals(primitiveDefaultValues.get(boolean.class), false);
-        Assert.assertEquals(primitiveDefaultValues.get(byte.class), (byte)0);
-        Assert.assertEquals(primitiveDefaultValues.get(char.class), (char)0);
+        Assert.assertEquals(primitiveDefaultValues.get(byte.class), (byte) 0);
+        Assert.assertEquals(primitiveDefaultValues.get(char.class), (char) 0);
         Assert.assertEquals(primitiveDefaultValues.get(double.class), 0d);
         Assert.assertEquals(primitiveDefaultValues.get(float.class), 0f);
         Assert.assertEquals(primitiveDefaultValues.get(int.class), 0);
         Assert.assertEquals(primitiveDefaultValues.get(long.class), 0L);
-        Assert.assertEquals(primitiveDefaultValues.get(short.class), (short)0);
+        Assert.assertEquals(primitiveDefaultValues.get(short.class), (short) 0);
     }
 
     @Test

@@ -7,10 +7,10 @@ import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 
 /**
- * <p>Created by Christoph Praschl on 25/02/2020</p>
  * <p>Optional-like Wrapper class for wrapping two values: a min and a max value</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 @Getter
 public class MinMax<T> {

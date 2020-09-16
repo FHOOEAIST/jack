@@ -1,19 +1,19 @@
 package science.aist.jack.persistence.filesystem.implementation;
 
-import science.aist.jack.persistence.filesystem.AbstractFileStorageTest;
-import science.aist.jack.persistence.filesystem.domain.JavaPoint;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.jack.persistence.filesystem.AbstractFileStorageTest;
+import science.aist.jack.persistence.filesystem.domain.JavaPoint;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 /**
- * <p>Created by Christoph Praschl on 14.06.2017.</p>
  * <p>Test class for GenericFileStorage</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 public class GenericFileStorageTest extends AbstractFileStorageTest {
     private final GenericFileStorage<JavaPoint> genericStorage = new GenericFileStorage<>(JavaPoint.class, ".javapoint");

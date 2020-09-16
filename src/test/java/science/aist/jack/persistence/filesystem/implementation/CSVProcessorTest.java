@@ -1,12 +1,12 @@
 package science.aist.jack.persistence.filesystem.implementation;
 
+import org.springframework.core.io.ClassPathResource;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import science.aist.jack.general.function.TriConsumer;
 import science.aist.jack.math.MathUtils;
 import science.aist.jack.persistence.filesystem.CSVReader;
 import science.aist.jack.persistence.filesystem.CSVWriter;
-import org.springframework.core.io.ClassPathResource;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,10 +18,10 @@ import java.util.Objects;
 import java.util.function.BiFunction;
 
 /**
- * <p>Created by Christoph Praschl on 20/01/2020</p>
  * <p>Test class for {@link CSVProcessor}</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 public class CSVProcessorTest {
     private final BiFunction<Point, List<String>, List<String>> elementToColumnFunc = (elem, columnDefinition) -> Arrays.asList(Double.toString(elem.x), Double.toString(elem.y), Double.toString(elem.z));

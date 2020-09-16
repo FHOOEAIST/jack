@@ -5,10 +5,11 @@ import lombok.NonNull;
 import java.util.stream.IntStream;
 
 /**
- * Created by Lukas Reithmeier on 11.07.2018
+ * <p>Utility class for different math related operations</p>
  *
  * @author Lukas Reithmeier
  * @author Andreas Pointner
+ * @since 1.0
  */
 // Weaker access cannot be provided, as this is a library and the functions are used outside this library too
 public class MathUtils {
@@ -72,8 +73,8 @@ public class MathUtils {
     /**
      * determines if  one value is bigger than an other value
      *
-     * @param bigger       first value
-     * @param smaller       second value
+     * @param bigger  first value
+     * @param smaller second value
      * @param epsilon the epsilon to be used to check which double value is bigger
      * @return true, if the first value is bigger than the second value
      */
@@ -85,7 +86,7 @@ public class MathUtils {
     /**
      * determines if  one value is bigger than an other value
      *
-     * @param bigger first value
+     * @param bigger  first value
      * @param smaller second value
      * @return true, if the first value is bigger than the second value
      * @see MathUtils#biggerThan(Double, Double, double)
@@ -97,8 +98,8 @@ public class MathUtils {
     /**
      * determines if  one value is bigger than an other value
      *
-     * @param lower       first value
-     * @param bigger       second value
+     * @param lower   first value
+     * @param bigger  second value
      * @param epsilon the epsilon to be used to check which double value is lower
      * @return true, if the second value is bigger than the first value
      */
@@ -109,7 +110,7 @@ public class MathUtils {
     /**
      * determines if  one value is bigger than an other value
      *
-     * @param lower first value
+     * @param lower  first value
      * @param bigger second value
      * @return true, if the second value is bigger than the first value
      * @see MathUtils#lowerThan(Double, Double, double)

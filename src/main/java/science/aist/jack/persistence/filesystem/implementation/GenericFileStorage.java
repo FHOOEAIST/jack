@@ -15,10 +15,10 @@ import java.util.List;
 import java.util.stream.Stream;
 
 /**
- * <p>Created by Christoph Praschl on 14.06.2017.</p>
  * <p>Description: Generic Implementation of the AbstractFileStorage</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 @SuppressWarnings("unused")
 public class GenericFileStorage<V extends Serializable> extends AbstractFileStorage<String, V> {

@@ -9,10 +9,10 @@ import java.util.Map;
 import java.util.function.Function;
 
 /**
- * <p>Created by Andreas Pointner on 12/09/2019</p>
  * <p>Different Util methods for {@link String}</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 // Weaker access cannot be provided, as this is a library and the functions are used outside this library too
 @SuppressWarnings("WeakerAccess")
@@ -163,7 +163,7 @@ public final class StringUtils {
         return replacementMapper.entrySet()
                 .stream()
                 .reduce(stringToCheck,
-                        (s, re) ->  s.replace(re.getKey(), re.getValue()),
+                        (s, re) -> s.replace(re.getKey(), re.getValue()),
                         String::concat);
     }
 

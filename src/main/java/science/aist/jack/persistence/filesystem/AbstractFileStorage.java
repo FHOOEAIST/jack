@@ -1,9 +1,9 @@
 package science.aist.jack.persistence.filesystem;
 
 
+import at.fh.hagenberg.aist.seshat.Logger;
 import science.aist.jack.exception.ExceptionUtils;
 import science.aist.jack.persistence.core.Storage;
-import at.fh.hagenberg.aist.seshat.Logger;
 
 import java.io.File;
 import java.math.BigInteger;
@@ -11,12 +11,12 @@ import java.nio.file.NotDirectoryException;
 import java.security.SecureRandom;
 
 /**
- * <p>Created by Christoph Praschl on 14.06.2017.</p>
  * <p>Abstract Implementation of Storage Interface for storing objects in the TEMP folder of the file system</p>
  *
  * @param <K> DataType of key which is used to save value
  * @param <V> DataType of objects which should be stored
  * @author Christoph Praschl
+ * @since 1.0
  */
 public abstract class AbstractFileStorage<K, V> implements Storage<K, V> {
     protected final Logger log = Logger.getInstance(getClass());

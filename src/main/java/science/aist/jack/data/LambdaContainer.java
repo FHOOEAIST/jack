@@ -10,6 +10,7 @@ import lombok.Setter;
  *
  * @param <T> The type of the contained value
  * @author Oliver Krauss
+ * @since 1.0
  */
 @Getter
 @Setter

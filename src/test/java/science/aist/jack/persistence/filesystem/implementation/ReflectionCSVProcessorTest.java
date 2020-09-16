@@ -1,12 +1,12 @@
 package science.aist.jack.persistence.filesystem.implementation;
 
-import science.aist.jack.math.MathUtils;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.core.io.ClassPathResource;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import science.aist.jack.math.MathUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,10 +17,10 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * <p>Created by Christoph Praschl on 24/01/2020</p>
  * <p>Test class for {@link ReflectionCSVProcessor}</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 public class ReflectionCSVProcessorTest {
 

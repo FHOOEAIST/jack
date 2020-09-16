@@ -14,9 +14,10 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
- * <p>Created by Andreas Pointner on 03.12.2018</p>
+ * <p>Tests class for {@link PropertyMapperCreator}</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 public class PropertyMapperCreatorTest {
     @Test

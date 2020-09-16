@@ -1,7 +1,7 @@
 /**
- * <p>Created by Andreas Pointner on 02/09/2019</p>
  * <p>Different methods that provide additional functionality for {@link java.util.stream.Stream}</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 package science.aist.jack.stream;

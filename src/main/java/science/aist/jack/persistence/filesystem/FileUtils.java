@@ -7,10 +7,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * <p>Created by Christoph Praschl on 02/10/2019</p>
  * <p>Utility class for files</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 public class FileUtils {
     private static final Logger logger = Logger.getInstance(FileUtils.class);

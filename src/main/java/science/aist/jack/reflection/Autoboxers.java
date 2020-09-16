@@ -1,8 +1,8 @@
 package science.aist.jack.reflection;
 
-import science.aist.jack.data.Pair;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import science.aist.jack.data.Pair;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
@@ -14,10 +14,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * <p>Created by Christoph Praschl on 12/03/2019</p>
  * <p>Class containing utility functionality for reflection based programming with primitive and boxing types</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Autoboxers {
@@ -49,7 +49,7 @@ public class Autoboxers {
         BOXING_CLASSES = collect.stream().collect(Collectors.toMap(Pair::getFirst, Pair::getSecond));
         PRIMITIVE_CLASSES = collect.stream().collect(Collectors.toMap(Pair::getSecond, Pair::getFirst));
         DEFAULT_VALUES = BOXING_CLASSES.values().stream()
-                .collect(Collectors.toMap(Function.identity(),clazz -> Array.get(Array.newInstance(clazz, 1), 0)));
+                .collect(Collectors.toMap(Function.identity(), clazz -> Array.get(Array.newInstance(clazz, 1), 0)));
 
     }
 
@@ -69,7 +69,7 @@ public class Autoboxers {
 
     /**
      * @param clazz for which default value is needed
-     * @param <T> type parameter
+     * @param <T>   type parameter
      * @return default value of the given class or NULL if given clazz is not primitive
      */
     @SuppressWarnings("unchecked")
@@ -86,39 +86,43 @@ public class Autoboxers {
 
     /**
      * Checks if given clazz is a boxing clazz
+     *
      * @param clazz clazz to check
      * @return true if clazz is a boxing class else false
      */
-    public static boolean isBoxingClass(Class<?> clazz){
+    public static boolean isBoxingClass(Class<?> clazz) {
         return BOXING_CLASSES.containsKey(clazz);
     }
 
     /**
      * Checks if given clazz is a primitive clazz
+     *
      * @param clazz clazz to check
      * @return true if clazz is a primitive class else false
      */
-    public static boolean isPrimitiveClass(Class<?> clazz){
+    public static boolean isPrimitiveClass(Class<?> clazz) {
         return PRIMITIVE_CLASSES.containsKey(clazz);
     }
 
     /**
      * Checks if given clazz is a primitive clazz or a boxing clazz
+     *
      * @param clazz clazz to check
      * @return true if clazz is a primitive or a boxing class else false
      */
-    public static boolean isPrimitiveOrBoxingClass(Class<?> clazz){
+    public static boolean isPrimitiveOrBoxingClass(Class<?> clazz) {
         return isBoxingClass(clazz) || isPrimitiveClass(clazz);
     }
 
     /**
      * Returns the associated boxing type for a given primitive class
+     *
      * @param primitiveClass for which boxing type is required
      * @return boxing type
      * @throws IllegalArgumentException if given class is not a primitive type
      */
-    public static Class<?> getBoxingClass(Class<?> primitiveClass){
-        if(!isPrimitiveClass(primitiveClass)){
+    public static Class<?> getBoxingClass(Class<?> primitiveClass) {
+        if (!isPrimitiveClass(primitiveClass)) {
             throw new IllegalArgumentException("Given class is not a primitive class");
         }
 
@@ -127,12 +131,13 @@ public class Autoboxers {
 
     /**
      * Returns the associated primitive type for a given boxing class
+     *
      * @param boxingClass for which primitive type is required
      * @return primitive type
      * @throws IllegalArgumentException if given class is not a boxing type
      */
-    public static Class<?> getPrimitiveClass(Class<?> boxingClass){
-        if(!isBoxingClass(boxingClass)){
+    public static Class<?> getPrimitiveClass(Class<?> boxingClass) {
+        if (!isBoxingClass(boxingClass)) {
             throw new IllegalArgumentException("Given class is not a boxing class");
         }
 

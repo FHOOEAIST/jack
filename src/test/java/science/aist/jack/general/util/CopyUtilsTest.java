@@ -6,10 +6,10 @@ import org.testng.annotations.Test;
 import java.io.Serializable;
 
 /**
- * <p>Created by Andreas Pointner on 28/08/2019</p>
  * <p>Test class for {@link CopyUtils}</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 public class CopyUtilsTest {
     @Test

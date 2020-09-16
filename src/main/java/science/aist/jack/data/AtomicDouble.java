@@ -6,10 +6,10 @@ import static java.lang.Double.doubleToLongBits;
 import static java.lang.Double.longBitsToDouble;
 
 /**
- * <p>Created by Andreas Pointner on 03.12.2019</p>
  * <p>Implementation of AtomicFloat based on {@link AtomicLong}</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 public class AtomicDouble extends Number {
     /**

@@ -1,17 +1,17 @@
 package science.aist.jack.exception;
 
+import lombok.SneakyThrows;
 import science.aist.jack.general.function.ThrowingFunction;
 import science.aist.jack.general.function.ThrowingSupplier;
-import lombok.SneakyThrows;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
- * <p>Created by Andreas Pointner on 22/08/2019</p>
  * <p>Util class for Exception handling</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 public final class ExceptionUtils {
     private ExceptionUtils() {

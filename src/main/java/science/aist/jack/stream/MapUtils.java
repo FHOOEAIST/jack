@@ -6,10 +6,10 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 /**
- * <p>Created by Andreas Pointner on 12.02.2018</p>
  * <p>Class that helps adds some comfort functions to {@link Map}s with the usage of {@link Stream}s</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 public final class MapUtils {
     private MapUtils() {

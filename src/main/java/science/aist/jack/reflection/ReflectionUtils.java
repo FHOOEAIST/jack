@@ -6,10 +6,10 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * <p>Created by Christoph Praschl on 02/10/2019</p>
  * <p>Utility class for reflection based stuff</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 public class ReflectionUtils {
     private ReflectionUtils() {

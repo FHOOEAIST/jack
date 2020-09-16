@@ -1,11 +1,12 @@
 package science.aist.jack.general.transformer;
 
 /**
- * Generic interface for a unidirectional Transformer between a class to another
+ * <p>Generic interface for a unidirectional Transformer between a class to another</p>
  *
  * @param <FROM> FROM which should be transformed to TO
  * @param <TO>   TO which is transformed from FROM
  * @author Christoph Praschl
+ * @since 1.0
  */
 @FunctionalInterface
 @SuppressWarnings("java:S119") // Naming of type arguments

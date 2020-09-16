@@ -3,11 +3,12 @@ package science.aist.jack.general.transformer;
 import java.util.Collection;
 
 /**
- * Generic interface for a reversed unidirectional Transformer between a collection of a class to collection of another
+ * <p>Generic interface for a reversed unidirectional Transformer between a collection of a class to collection of another</p>
  *
  * @param <FROM> TO which should be transformed to FROM
  * @param <TO>   FROM which is transformed from TO
  * @author Christoph Praschl
+ * @since 1.0
  */
 @FunctionalInterface
 @SuppressWarnings("java:S119") // Naming of type arguments

@@ -1,9 +1,10 @@
 package science.aist.jack.reflection.domain;
 
 /**
- * <p>Created by Christoph Praschl on 02/10/2019</p>
+ * <p>Test domain class</p>
  *
  * @author Christoph Praschl
+ * @since 1.0
  */
 @SuppressWarnings("unused")
 public class A {

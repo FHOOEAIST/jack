@@ -1,9 +1,9 @@
 package science.aist.jack.reflection;
 
+import lombok.Setter;
 import science.aist.jack.data.Pair;
 import science.aist.jack.exception.ExceptionUtils;
 import science.aist.jack.general.transformer.ForwardTransformer;
-import lombok.Setter;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -11,10 +11,10 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 /**
- * <p>Created by Andreas Pointner on 17.03.2020</p>
  * <p>Transformer to transform an kind of object into a property map</p>
  *
  * @author Andreas Pointner
+ * @since 1.0
  */
 @Setter
 public class ObjectToPropertyMapTransformer implements ForwardTransformer<Object, Map<String, Object>> {
