@@ -1,0 +1,13 @@
+package science.aist.jack.reflection.domain;
+
+/**
+ * <p>Created by Christoph Praschl on 02/10/2019</p>
+ *
+ * @author Christoph Praschl
+ */
+@SuppressWarnings("unused")
+public class B extends A {
+    public A reference;
+    protected Integer y;
+    private String x;
+}

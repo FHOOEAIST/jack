@@ -21,9 +21,9 @@ Example for Apache Maven:
 
 ```xml
 <dependency>
-  <groupId>at.fh.hagenberg.aist.jack</groupId>
+  <groupId>science.aist</groupId>
   <artifactId>jack</artifactId>
-  <version>1.1.0</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
