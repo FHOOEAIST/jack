@@ -5,16 +5,16 @@ additions to the java core classes.
 
 ## Introduction
 
-JACK allows you to create projects and reduce some common code classes. It provides base functionality that should
-in our opinion be directly included into the java framework itself.  
+JACK provides base functionality that we think should be included in vanilla Java itself. This allows you to reduce some 
+common code classes and focus on the more interesting code bits.  
 
 For more information on what jack is capable of, please check out our [examples section](https://fhooeaist.github.io/jack/examples.html) 
-as well as take a look at the unit tests.
+and take a look at the unit tests.
 
 ## Getting Started
 
-JACK is a single module java maven project based on Java 11. If you want to use code of this project we recommend you 
-to add a dependency based on your dependency management tooling. For further help please check out the following page: 
+JACK is a single module java maven project based on Java 11. If you want to use code of this project we recommend adding 
+a dependency based on your dependency management tooling. For further help please check out the following page: 
 [Dependency Information](https://fhooeaist.github.io/jack/dependency-info.html)
 
 Example for Apache Maven:
@@ -37,20 +37,21 @@ If you have any questions, please checkout our [FAQ](https://fhooeaist.github.io
 
 ## Contributing
 
-First make sure to read our [general contribution guidelines](https://fhooeaist.github.io/contributing.html).
+**First make sure to read our [general contribution guidelines](https://fhooeaist.github.io/contributing.html).**
 
 In addition to that, the following applies to this repository:
- - If you want to add your own stuff, first check if there is already a package in which it fits in. If not, then create a new one.
+ - If you want to check in your code, first ensure if there is a package, that fits the logic of your code. Only if this 
+ does not apply, create a new one.
  - Do not add dependencies to other frameworks like Spring (Test-Dependencies are ok though). 
 
 ## Contact
 
-If you have any further requests please do contact us via email: [z10221@fhooe.at](mailto:z10221@fhooe.at).
+If you have any further requests please do contact us via email: [contact@aist.science](mailto:contact@aist.science).
 
-We ask you not to contact any author directly, we are getting together periodically to maintain your requests.
+We ask you not to contact any author directly, as we are delegating maintenance of this repository internally.
 
 Please be aware of the fact, that we are a non-profit research organisation and do not have the resources to answer
-your questions right away. Nevertheless, we are committed to processes your request within a few workdays. 
+your questions right away. Nevertheless, we are committed **to processes your request within a few workdays**. 
 
 ## Licence
 

@@ -3,6 +3,7 @@ package at.fh.hagenberg.aist.jack.random;
 import java.util.Random;
 
 /**
+ * <p>Provides functions to generate random numbers</p>
  * <p>Created by Lukas Reithmeier on 19.06.2018</p>
  *
  * @author Lukas Reithmeier

@@ -13,7 +13,7 @@ String second = myPair.getSecond();
 
 ## Handling Exceptions
 
-### Get rid of check exceptions
+### Get rid of checked exceptions
 
 ```java
 void someIOFunction() throws IOException {}
@@ -29,7 +29,7 @@ void someOtherFunction() {
 }
 ```
 
-### Stream with check exception
+### Stream with checked exception
 
 It can be annoying if you have a stream where you want to call a mapping function that declares a checked exception:
 
@@ -58,7 +58,7 @@ void myStreamExecusion() {
 
 Why and how is this working?
 
-We provide a few custom implementation of the java.util.function package, e.g. ThrowingFunction, which has the same
+We provide a few custom implementations of the java.util.function package, e.g. ThrowingFunction, which has the same
 signature as the Function class, with the addition to declare throwing Exception. The ExceptionUtils classes are then
 implemented to use these function and return the original corresponding object from the java.util.function package and
 converting the checked exception to an unchecked one.

@@ -9,12 +9,12 @@
             <question>Why yet another utility framework?</question>
             <answer>
                 <p>
-                    Basically, there is no valid reason to create another utility framework, beside the 1000 other one
-                    already existing on the market. Nevertheless, we tried out some frameworks and non of it had all the
-                    functionality we required. Moreover, most of these frameworks have dependencies to other big frameworks,
-                    which led to a load of dependencies even for small projects, resulting in big-jars. We wanted to
-                    overcome that limitation and therefore created this framework, with the restriction,
-                    that it must not depend on other big frameworks.
+                    Basically, there is no valid reason to create another utility framework, beside the 1000 other ones
+                    already existing on the market. Nevertheless, we tried out some frameworks and non of them had all the
+                    functionality we required. Furthermore, most of these frameworks have dependencies to other big frameworks,
+                    which led to a load of dependencies even for small projects, resulting in jars of big size. We wanted
+                    to overcome that limitation and, thus, this framework is born. So one major design philosophy of this
+                    project is to <strong>must not</strong> depend on other bigger frameworks.
                 </p>
             </answer>
         </faq>
