@@ -1,7 +1,7 @@
 package science.aist.jack.persistence.filesystem;
 
 
-import at.fh.hagenberg.aist.seshat.Logger;
+import lombok.CustomLog;
 import science.aist.jack.exception.ExceptionUtils;
 import science.aist.jack.persistence.core.Storage;
 
@@ -18,8 +18,8 @@ import java.security.SecureRandom;
  * @author Christoph Praschl
  * @since 1.0
  */
+@CustomLog
 public abstract class AbstractFileStorage<K, V> implements Storage<K, V> {
-    protected final Logger log = Logger.getInstance(getClass());
     protected final String pathToTempFolder;
     protected final String completePath;
     protected final String fileExtension;

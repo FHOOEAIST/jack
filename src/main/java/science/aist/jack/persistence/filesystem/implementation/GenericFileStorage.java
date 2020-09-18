@@ -1,5 +1,6 @@
 package science.aist.jack.persistence.filesystem.implementation;
 
+import lombok.CustomLog;
 import science.aist.jack.exception.ExceptionUtils;
 import science.aist.jack.persistence.core.Storage;
 import science.aist.jack.persistence.filesystem.AbstractFileStorage;
@@ -21,6 +22,7 @@ import java.util.stream.Stream;
  * @since 1.0
  */
 @SuppressWarnings("unused")
+@CustomLog
 public class GenericFileStorage<V extends Serializable> extends AbstractFileStorage<String, V> {
     private final Class<V> clazz;
 

@@ -1,6 +1,6 @@
 package science.aist.jack.general.util;
 
-import at.fh.hagenberg.aist.seshat.Logger;
+import lombok.CustomLog;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -13,9 +13,8 @@ import java.io.ObjectOutputStream;
  * @author Rainer Meindl
  * @since 1.0
  */
+@CustomLog
 public final class CopyUtils {
-    private static final Logger logger = Logger.getInstance(CopyUtils.class);
-
     private CopyUtils() {
     }
 
@@ -36,7 +35,7 @@ public final class CopyUtils {
             ObjectInputStream ois = new ObjectInputStream(bais);
             return (T) ois.readObject();
         } catch (Exception e) {
-            logger.error(e.getMessage(), e);
+            log.error(e.getMessage(), e);
             return null;
         }
     }

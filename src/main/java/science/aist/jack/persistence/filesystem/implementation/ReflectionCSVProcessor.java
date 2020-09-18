@@ -1,6 +1,6 @@
 package science.aist.jack.persistence.filesystem.implementation;
 
-import at.fh.hagenberg.aist.seshat.Logger;
+import lombok.CustomLog;
 import lombok.SneakyThrows;
 import science.aist.jack.reflection.ReflectionUtils;
 
@@ -17,9 +17,8 @@ import java.util.stream.Collectors;
  * @author Christoph Praschl
  * @since 1.0
  */
+@CustomLog
 public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
-    private static final Logger logger = Logger.getInstance(CSVProcessor.class);
-
     private final Set<String> ignoredFields = new HashSet<>();
     private final Map<Class<?>, Function<String, Object>> converters = new HashMap<>();
 
@@ -93,7 +92,7 @@ public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
                     }
                 } catch (IllegalAccessException e) {
                     String error = "Reflective access of field (" + column + ") was not able.";
-                    logger.error(error, e);
+                    log.error(error, e);
                     throw new IllegalArgumentException(error);
                 }
             }
@@ -107,7 +106,7 @@ public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
                 obj = clazz.getDeclaredConstructor().newInstance();
             } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException | InstantiationException e) {
                 String error = "Can't access the constructor of the declared class " + clazz;
-                logger.error(error, e);
+                log.error(error, e);
                 throw new IllegalArgumentException(error);
             }
             for (int i = 0; i < columns.size(); i++) {
@@ -139,7 +138,7 @@ public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
                     }
                 } catch (IllegalAccessException e) {
                     String error = "Reflective access of field (" + columnName + ") was not able.";
-                    logger.error(error, e);
+                    log.error(error, e);
                     throw new IllegalArgumentException(error);
                 }
             }
@@ -151,7 +150,7 @@ public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
         try {
             return parseFunction.apply(value);
         } catch (Exception e) {
-            logger.error("Could not parse value (" + value + ") with given parse function. So using default value", e);
+            log.error("Could not parse value (" + value + ") with given parse function. So using default value", e);
             return defaultValue;
         }
     }

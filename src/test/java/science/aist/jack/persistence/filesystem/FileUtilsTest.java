@@ -1,6 +1,6 @@
 package science.aist.jack.persistence.filesystem;
 
-import at.fh.hagenberg.aist.seshat.Logger;
+import lombok.CustomLog;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -17,9 +17,8 @@ import java.nio.file.Path;
  * @author Christoph Praschl
  * @since 1.0
  */
+@CustomLog
 public class FileUtilsTest {
-    private static final Logger logger = Logger.getInstance(FileUtils.class);
-
     @Test
     public void testWriteToTempFile() {
         // given
@@ -33,7 +32,7 @@ public class FileUtilsTest {
             Files.delete(file.toPath());
             Assert.assertFalse(file.exists());
         } catch (IOException e) {
-            logger.debug("InputStream could not be closed", e);
+            log.debug("InputStream could not be closed", e);
         }
     }
 
@@ -51,7 +50,7 @@ public class FileUtilsTest {
             Files.delete(file.toPath());
             Assert.assertFalse(file.exists());
         } catch (IOException e) {
-            logger.debug("InputStream could not be closed", e);
+            log.debug("InputStream could not be closed", e);
         }
     }
 

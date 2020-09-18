@@ -1,5 +1,6 @@
 package science.aist.jack.persistence.filesystem.implementation;
 
+import lombok.CustomLog;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import science.aist.jack.persistence.filesystem.AbstractFileStorageTest;
@@ -15,6 +16,7 @@ import java.util.List;
  * @author Christoph Praschl
  * @since 1.0
  */
+@CustomLog
 public class GenericFileStorageTest extends AbstractFileStorageTest {
     private final GenericFileStorage<JavaPoint> genericStorage = new GenericFileStorage<>(JavaPoint.class, ".javapoint");
 

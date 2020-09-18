@@ -1,6 +1,6 @@
 package science.aist.jack.persistence.filesystem;
 
-import at.fh.hagenberg.aist.seshat.Logger;
+import lombok.CustomLog;
 import org.testng.Assert;
 import science.aist.jack.persistence.filesystem.implementation.GenericFileStorage;
 
@@ -12,9 +12,8 @@ import java.io.File;
  * @author Christoph Praschl
  * @since 1.0
  */
+@CustomLog
 public abstract class AbstractFileStorageTest {
-    protected final Logger log = Logger.getInstance(getClass());
-
     /**
      * Method for checking file creation and for clean up (= delete file)
      *

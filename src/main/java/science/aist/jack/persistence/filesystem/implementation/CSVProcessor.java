@@ -1,6 +1,6 @@
 package science.aist.jack.persistence.filesystem.implementation;
 
-import at.fh.hagenberg.aist.seshat.Logger;
+import lombok.CustomLog;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import science.aist.jack.general.function.TriConsumer;
@@ -23,8 +23,8 @@ import java.util.stream.Stream;
  * @since 1.0
  */
 @SuppressWarnings("unused")
+@CustomLog
 public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
-    private static final Logger logger = Logger.getInstance(CSVProcessor.class);
     protected final char separator;
     protected final List<String> columnDefinition;
     protected BiFunction<T, List<String>, List<String>> elementToFunc;
@@ -231,7 +231,7 @@ public class CSVProcessor<T> implements CSVReader<T>, CSVWriter<T> {
                 writeLine(writer, elementToFunc.apply(element, columnDefinition));
             }
         } catch (IOException e) {
-            logger.error("Could not write file", e);
+            log.error("Could not write file", e);
             return false;
         }
         return true;

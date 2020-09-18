@@ -1,6 +1,6 @@
 package science.aist.jack.persistence.filesystem;
 
-import at.fh.hagenberg.aist.seshat.Logger;
+import lombok.CustomLog;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -12,9 +12,8 @@ import java.nio.file.Paths;
  * @author Christoph Praschl
  * @since 1.0
  */
+@CustomLog
 public class FileUtils {
-    private static final Logger logger = Logger.getInstance(FileUtils.class);
-
     private FileUtils() {
     }
 
@@ -54,7 +53,7 @@ public class FileUtils {
         }
         File folder = new File(sb.toString());
         if (!folder.exists() && !folder.mkdirs()) {
-            logger.debug("Could not create folder " + sb.toString());
+            log.debug("Could not create folder " + sb.toString());
             throw new UncheckedIOException("Could not create folder " + sb.toString(), new IOException());
         }
 
@@ -137,7 +136,7 @@ public class FileUtils {
             try (OutputStream outputStream = new FileOutputStream(result)) {
                 copyStream(is, outputStream);
             } catch (IOException e) {
-                logger.error("Could not copy data to file " + sb.toString(), e);
+                log.error("Could not copy data to file " + sb.toString(), e);
                 throw new UncheckedIOException("Could not copy data to file " + sb.toString(), e);
             }
         } else {
@@ -147,7 +146,7 @@ public class FileUtils {
                     throw new IllegalStateException();
                 }
             } catch (IOException | IllegalStateException e) {
-                logger.error("Could not create new file", e);
+                log.error("Could not create new file", e);
                 throw new UncheckedIOException("Could not create new file" + sb.toString(), new IOException(e));
             }
         }
