@@ -98,10 +98,6 @@
     <name>Java AIST Class Kit</name>
     <description>A collection of useful Java extensions</description>
     <url>https://github.com/FHOOEAIST/jack</url>
-    <organization>
-        <name>Advanced Information Systems and Technology</name>
-        <url>https://aist.fh-hagenberg.at</url>
-    </organization>
     <licenses>
         <license>
             <name>Mozilla Public License (MPL) version 2.0</name>
@@ -121,15 +117,19 @@
         <developer>
             <id>AIST</id>
             <name>Advanced Information Systems and Technology</name>
-            <email>z10221@fhooe.at</email>
+            <email>contact@aist.science</email>
             <roles>
                 <role>Research Group</role>
             </roles>
-            <url>https://aist.fh-hagenberg.at</url>
+            <url>http://aist.science</url>
             <organization>University of Applied Sciences Upper Austria</organization>
             <organizationUrl>https://www.fh-ooe.at/</organizationUrl>
         </developer>
     </developers>
+    <organization>
+        <name>Advanced Information Systems and Technology</name>
+        <url>http://aist.science</url>
+    </organization>
 
     <reporting>
         <plugins>
