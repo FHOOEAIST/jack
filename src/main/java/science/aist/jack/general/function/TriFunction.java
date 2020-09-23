@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2020 the original author or authors.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package science.aist.jack.general.function;
 
 import java.util.Objects;
@@ -12,7 +21,7 @@ import java.util.function.Function;
  * @param <V> the type of the third argument to the function
  * @param <R> the type of the result of the function
  * @author Andreas Pointner
- * @since 1.0
+ * @since 2.0
  */
 @FunctionalInterface
 public interface TriFunction<T, U, V, R> {

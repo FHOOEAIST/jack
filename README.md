@@ -8,14 +8,14 @@ additions to the java core classes.
 JACK provides base functionality that we think should be included in vanilla Java itself. This allows you to reduce some 
 common code classes and focus on the more interesting code bits.  
 
-For more information on what jack is capable of, please check out our [examples section](https://fhooeaist.github.io/jack/examples.html) 
+For more information on what jack is capable of, please check out our examples section in the site documentation 
 and take a look at the unit tests.
 
 ## Getting Started
 
 JACK is a single module java maven project based on Java 11. If you want to use code of this project we recommend adding 
-a dependency based on your dependency management tooling. For further help please check out the following page: 
-[Dependency Information](https://fhooeaist.github.io/jack/dependency-info.html)
+a dependency based on your dependency management tooling. For further help please check out the dependency information
+in the maven site documentation.
 
 Example for Apache Maven:
 
@@ -33,7 +33,7 @@ jar-file inside the target folder, which can be used as a dependency in other pr
 
 ## FAQ
 
-If you have any questions, please checkout our [FAQ](https://fhooeaist.github.io/jack/faq.html) section.
+If you have any questions, please checkout our FAQ section in the maven site documentation.
 
 ## Contributing
 

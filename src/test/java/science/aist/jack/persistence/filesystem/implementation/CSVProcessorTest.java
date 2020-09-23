@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2020 the original author or authors.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package science.aist.jack.persistence.filesystem.implementation;
 
 import org.springframework.core.io.ClassPathResource;
@@ -21,7 +30,7 @@ import java.util.function.BiFunction;
  * <p>Test class for {@link CSVProcessor}</p>
  *
  * @author Christoph Praschl
- * @since 1.0
+ * @since 2.0
  */
 public class CSVProcessorTest {
     private final BiFunction<Point, List<String>, List<String>> elementToColumnFunc = (elem, columnDefinition) -> Arrays.asList(Double.toString(elem.x), Double.toString(elem.y), Double.toString(elem.z));

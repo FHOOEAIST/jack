@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2020 the original author or authors.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package science.aist.jack.general.transformer;
 
 import java.util.Collection;
@@ -10,7 +19,7 @@ import java.util.stream.Collectors;
  * @param <TO>   TO to be transferred to Item
  * @author Oliver Krauss
  * @author Christoph Praschl
- * @since 1.0
+ * @since 2.0
  */
 @SuppressWarnings("java:S119") // Naming of type arguments
 public interface Transformer<FROM, TO> extends ForwardTransformer<FROM, TO>, BackwardTransformer<FROM, TO>,

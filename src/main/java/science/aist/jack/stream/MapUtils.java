@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2020 the original author or authors.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package science.aist.jack.stream;
 
 import science.aist.jack.data.Pair;
@@ -9,7 +18,7 @@ import java.util.stream.Stream;
  * <p>Class that helps adds some comfort functions to {@link Map}s with the usage of {@link Stream}s</p>
  *
  * @author Andreas Pointner
- * @since 1.0
+ * @since 2.0
  */
 public final class MapUtils {
     private MapUtils() {

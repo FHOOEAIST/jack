@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2020 the original author or authors.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package science.aist.jack.math;
 
 import lombok.NonNull;
@@ -9,7 +18,7 @@ import java.util.stream.IntStream;
  *
  * @author Lukas Reithmeier
  * @author Andreas Pointner
- * @since 1.0
+ * @since 2.0
  */
 // Weaker access cannot be provided, as this is a library and the functions are used outside this library too
 public class MathUtils {
