@@ -22,6 +22,7 @@ import java.util.PriorityQueue;
  * <a href="https://algorithmsandme.wordpress.com/2014/03/15/heaps-sliding-window-algorithm/">this blog post</a> </p>
  *
  * @author Rainer Meindl 16.09.2020
+ * @since 2.1.0
  */
 public class SlidingWindowMedian<T extends Comparable<T>> implements SlidingWindow<T> {
 

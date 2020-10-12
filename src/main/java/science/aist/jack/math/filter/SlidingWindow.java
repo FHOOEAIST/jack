@@ -19,6 +19,7 @@ import java.util.List;
  * the input</p>
  *
  * @author Rainer Meindl 16.09.2020
+ * @since 2.1.0
  */
 public interface SlidingWindow<T> {
 

@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2020 the original author or authors.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package science.aist.jack.math.filter;
 
 import science.aist.seshat.Logger;
@@ -14,7 +23,8 @@ import java.util.List;
  * subtraction
  * </p>
  *
- * @author Rainer Meindl, rainer.meindl@fh-hagenberg.at, 22.09.2020
+ * @author Rainer Meindl
+ * @since 2.1.0
  * @see SlidingWindowMedian
  */
 public class ZeroBufferedSlidingWindowMedian extends SlidingWindowMedian<Double> {

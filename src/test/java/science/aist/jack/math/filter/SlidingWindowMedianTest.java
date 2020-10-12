@@ -18,7 +18,8 @@ import java.util.List;
  * <h2>SlidingWindowMedianTest</h2>
  * <p>Test class for {@link SlidingWindowMedian}</p>
  *
- * @author Rainer Meindl 16.09.2020
+ * @author Rainer Meindl
+ * @since 2.1.0
  */
 @Test
 public class SlidingWindowMedianTest {
@@ -28,7 +29,6 @@ public class SlidingWindowMedianTest {
         SlidingWindow<Double> medianWindow = new SlidingWindowMedian<>();
         List<Double> data = List.of(1D, 3D, 8D, 9D, 5D, 3D, 2D);
         int k = 3;
-        // when
 
         // when
         var res = medianWindow.filter(data, k);
@@ -87,7 +87,6 @@ public class SlidingWindowMedianTest {
         SlidingWindow<Double> medianWindow = new SlidingWindowMedian<>();
         List<Double> data = List.of(1D, 3D, 2D);
         int k = 5;
-        // when
 
         // when
         var res = medianWindow.filter(data, k);

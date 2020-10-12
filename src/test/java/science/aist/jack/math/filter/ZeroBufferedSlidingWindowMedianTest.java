@@ -19,6 +19,7 @@ import java.util.List;
  * <p>Test class for {@link ZeroBufferedSlidingWindowMedian}</p>
  *
  * @author Rainer Meindl 22.09.2020
+ * @since 2.1.0
  */
 @Test
 public class ZeroBufferedSlidingWindowMedianTest {
@@ -28,7 +29,6 @@ public class ZeroBufferedSlidingWindowMedianTest {
         SlidingWindow<Double> medianWindow = new ZeroBufferedSlidingWindowMedian();
         List<Double> data = List.of(1D, 3D, 8D, 9D, 5D, 3D, 2D);
         int k = 3;
-        // when
 
         // when
         var res = medianWindow.filter(data, k);
@@ -44,7 +44,6 @@ public class ZeroBufferedSlidingWindowMedianTest {
         SlidingWindow<Double> medianWindow = new ZeroBufferedSlidingWindowMedian();
         List<Double> data = List.of(1D, 3D, 8D, 9D, 5D, 3D, 2D);
         int k = 5;
-        // when
 
         // when
         var res = medianWindow.filter(data, k);
@@ -60,7 +59,6 @@ public class ZeroBufferedSlidingWindowMedianTest {
         SlidingWindow<Double> medianWindow = new ZeroBufferedSlidingWindowMedian();
         List<Double> data = List.of(1D, 3D, 8D, 9D, 5D, 3D, 2D);
         int k = 4;
-        // when
 
         // when
         var res = medianWindow.filter(data, k);
