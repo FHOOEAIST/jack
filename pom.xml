@@ -13,7 +13,7 @@
 
     <groupId>science.aist</groupId>
     <artifactId>jack</artifactId>
-    <version>2.1.0</version>
+    <version>2.1.0-SNAPSHOT</version>
 
     <properties>
         <!-- versions -->
@@ -89,7 +89,7 @@
         <url>https://aist.fh-hagenberg.at/git/Development/jack</url>
         <connection>scm:git:ssh://git@aist.fh-hagenberg.at:2224/Development/jack.git</connection>
         <developerConnection>scm:git:ssh://git@aist.fh-hagenberg.at:2224/Development/jack.git</developerConnection>
-        <tag>jack-2.1.0</tag>
+        <tag>HEAD</tag>
     </scm>
     <distributionManagement>
         <repository>
