@@ -6,6 +6,7 @@ science.aist.jack.general.function
 science.aist.jack.general.transformer
 science.aist.jack.general.util
 science.aist.jack.math
+science.aist.jack.math.filter
 science.aist.jack.persistence.core
 science.aist.jack.persistence.filesystem
 science.aist.jack.persistence.filesystem.implementation
