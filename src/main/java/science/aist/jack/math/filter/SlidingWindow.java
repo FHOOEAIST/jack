@@ -21,7 +21,7 @@ import java.util.List;
  * @author Rainer Meindl 16.09.2020
  * @since 2.1.0
  */
-public interface SlidingWindow<T> {
+public interface SlidingWindow<T> extends GenericSlidingWindow<T, T> {
 
     /**
      * <p>Uses the kernel to group the data and filter the resulting subdatasets based on a filtering method</p>
