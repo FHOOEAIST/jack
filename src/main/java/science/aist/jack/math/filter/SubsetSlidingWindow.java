@@ -28,7 +28,7 @@ public class SubsetSlidingWindow<T> implements GenericSlidingWindow<T, List<T>> 
 
     @Override
     public List<List<T>> filter(List<T> data, int kernel) {
-        if (kernel > data.size())
+        if (data == null || data.isEmpty() || kernel <= 0 || kernel > data.size())
             return Collections.emptyList();
         return IntStream.range(0, data.size() - kernel + 1)
                 .mapToObj(start -> data.subList(start, start + kernel)).collect(Collectors.toList());
