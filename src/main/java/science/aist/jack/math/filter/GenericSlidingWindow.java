@@ -18,20 +18,20 @@ import java.util.List;
  * filtering and aggregating on those windows. This allows to integrate custom processing on each
  * subset.</p>
  *
- * @param <T> The input type inside the list for subset generation
- * @param <P> The output type that is expected for each subset
+ * @param <I> The input type inside the list for subset generation
+ * @param <O> The output type that is expected for each subset
  * @author Baumgartner David 10.11.2020
  * @since 2.2.0
  */
-public interface GenericSlidingWindow<T, P> {
+public interface GenericSlidingWindow<I, O> {
 
     /**
-     * <p>Uses the kernel to group the data, the resulting subset must be processed manually</p>
+     * <p>Uses the kernel to chain values in the list, the resulting subsets must be processed manually</p>
      *
      * @param data   the data to subset
      * @param kernel the kernel, or window size
      * @return a List of windows
      */
-    List<P> filter(List<T> data, int kernel);
+    List<O> filter(List<I> data, int kernel);
 
 }
