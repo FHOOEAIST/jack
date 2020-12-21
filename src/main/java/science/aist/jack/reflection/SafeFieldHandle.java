@@ -28,8 +28,8 @@ import java.util.Optional;
  *
  * @param <T> The {@link Class}, that contains the {@link Field}.
  * @param <U> The type of the {@link Field}s value.
- * @author Rainer Meindl, rainer.meindl@fh-hagenberg.at, 15.12.2020
- * @since 2.2.1
+ * @author Rainer Meindl
+ * @since 2.3.0
  */
 public class SafeFieldHandle<T, U> {
     private final Field unsafeField;

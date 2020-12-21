@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2020 the original author or authors.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package science.aist.jack.reflection;
 
 import lombok.SneakyThrows;
@@ -10,7 +19,8 @@ import science.aist.jack.reflection.domain.A;
  * <h2>SafeFieldHandle</h2>
  * <p>Test class for {@link SafeFieldHandle}</p>
  *
- * @author Rainer Meindl, rainer.meindl@fh-hagenberg.at, 15.12.2020
+ * @author Rainer Meindl
+ * @since 2.3.0
  */
 public class SafeFieldHandleTest {
 
