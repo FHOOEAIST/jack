@@ -94,17 +94,14 @@ public class SafeFieldHandle<T, U> {
     public Optional<U> get(T object) {
         var accessible = unsafeField.canAccess(object);
         unsafeField.setAccessible(true);
-        Optional<U> ret;
         try {
-            ret = tryCast(unsafeField.get(object))
+            return tryCast(unsafeField.get(object))
                     .filter(u -> !u.equals(getDefaultValue()));
         } catch (Exception ignored) {
-            ret = Optional.empty();
+            return Optional.empty();
         } finally {
             unsafeField.setAccessible(accessible);
         }
-
-        return ret;
     }
 
 
