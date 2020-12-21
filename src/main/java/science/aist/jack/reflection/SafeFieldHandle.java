@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2020 the original author or authors.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
 package science.aist.jack.reflection;
 
 import lombok.SneakyThrows;
@@ -20,6 +29,7 @@ import java.util.Optional;
  * @param <T> The {@link Class}, that contains the {@link Field}.
  * @param <U> The type of the {@link Field}s value.
  * @author Rainer Meindl, rainer.meindl@fh-hagenberg.at, 15.12.2020
+ * @since 2.2.1
  */
 public class SafeFieldHandle<T, U> {
     private final Field unsafeField;

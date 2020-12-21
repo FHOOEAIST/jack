@@ -9,6 +9,10 @@
 
 package science.aist.jack.reflection.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>Tests domain class</p>
  *
@@ -16,6 +20,9 @@ package science.aist.jack.reflection.domain;
  * @since 2.0
  */
 @SuppressWarnings("unused")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 public class B extends A {
     public A reference;
     protected Integer y;
