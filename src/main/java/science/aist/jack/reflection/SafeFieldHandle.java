@@ -118,11 +118,7 @@ public class SafeFieldHandle<T, U> {
      * @return an {@link Optional} of U, either holding the mapped value of fieldValue, or empty, if the cast fails.
      */
     protected Optional<U> tryCast(Object fieldValue) {
-        try {
-            return Optional.ofNullable(CastUtils.cast(fieldValue));
-        } catch (ClassCastException ignored) {
-            return Optional.empty();
-        }
+        return Optional.ofNullable(CastUtils.cast(fieldValue));
     }
 
     /**
