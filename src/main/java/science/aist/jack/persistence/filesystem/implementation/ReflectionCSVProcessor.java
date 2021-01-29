@@ -74,8 +74,10 @@ public class ReflectionCSVProcessor<T> extends CSVProcessor<T> {
             }
         });
 
-
-        Map<String, Field> classFields = ReflectionUtils.getAllFieldsOfClass(clazz).stream().collect(Collectors.toMap(Field::getName, p -> p));
+        Map<String, Field> classFields = ReflectionUtils.getAllFieldsOfClass(clazz)
+                .stream()
+                .filter(f -> !f.isSynthetic())
+                .collect(Collectors.toMap(Field::getName, p -> p));
 
         this.elementToFunc = (elem, columns) -> {
             List<String> result = new ArrayList<>();

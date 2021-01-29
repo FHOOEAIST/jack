@@ -2,6 +2,10 @@
 
 The changelog should give you a quick overview of what change between the different JACK versions.
 
+## Version 2.3.1 (2021-01-29)
+
+* Removed processing of synthetic fields in ReflectionCSVProcessor. 
+
 ## Version 2.3.0 (2020-12-12)
 
 * Added science.aist.jack.reflection.SafeFieldHandle
