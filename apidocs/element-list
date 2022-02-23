@@ -1,0 +1,16 @@
+science.aist.jack.collection
+science.aist.jack.data
+science.aist.jack.exception
+science.aist.jack.general
+science.aist.jack.general.function
+science.aist.jack.general.transformer
+science.aist.jack.general.util
+science.aist.jack.math
+science.aist.jack.math.filter
+science.aist.jack.persistence.core
+science.aist.jack.persistence.filesystem
+science.aist.jack.persistence.filesystem.implementation
+science.aist.jack.random
+science.aist.jack.reflection
+science.aist.jack.stream
+science.aist.jack.string
