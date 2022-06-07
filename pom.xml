@@ -28,7 +28,7 @@
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
         <lombok.version>1.18.10</lombok.version>
         <spring-core.version>5.2.5.RELEASE</spring-core.version>
-        <log4j.version>2.12.1</log4j.version>
+        <log4j.version>2.17.1</log4j.version>
 
         <!-- set platform source encoding -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
