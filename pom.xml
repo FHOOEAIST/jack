@@ -41,7 +41,7 @@
         <jacoco.plugin.version>0.8.5</jacoco.plugin.version>
         <sonar-jacoco-listeners.version>5.14.0.18788</sonar-jacoco-listeners.version>
         <maven-site-plugin.version>3.8.2</maven-site-plugin.version>
-        <wagon-webdav-jackrabbit.version>3.3.4</wagon-webdav-jackrabbit.version>
+        <wagon-webdav-jackrabbit.version>3.5.2</wagon-webdav-jackrabbit.version>
         <maven-clover-plugin.version>2.4</maven-clover-plugin.version>
         <maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
     </properties>
