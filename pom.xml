@@ -27,7 +27,7 @@
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
         <lombok.version>1.18.10</lombok.version>
-        <spring-core.version>5.2.5.RELEASE</spring-core.version>
+        <spring-core.version>6.0.0</spring-core.version>
         <log4j.version>2.12.1</log4j.version>
 
         <!-- set platform source encoding -->
